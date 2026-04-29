@@ -1,0 +1,236 @@
+@import "tailwindcss" source("../");
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700&family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+@theme {
+  --color-gold-50: #fdf8e8;
+  --color-gold-100: #f9ecc3;
+  --color-gold-200: #f2d88a;
+  --color-gold-300: #e8c04e;
+  --color-gold-400: #d4a843;
+  --color-gold-500: #c4953a;
+  --color-gold-600: #a67c2e;
+  --color-gold-700: #886327;
+  --color-gold-800: #6e4f22;
+  --color-gold-900: #5a3f1d;
+
+  --color-luxury-950: #050505;
+  --color-luxury-900: #0a0a0a;
+  --color-luxury-800: #111111;
+  --color-luxury-700: #1a1a1a;
+  --color-luxury-600: #222222;
+  --color-luxury-500: #333333;
+  --color-luxury-400: #555555;
+  --color-luxury-300: #888888;
+  --color-luxury-200: #b0b0b0;
+  --color-luxury-100: #d4d4d4;
+
+  --color-ivory-50: #fbfaf7;
+  --color-ivory-100: #f5f2ec;
+  --color-ivory-200: #ece6d9;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #050505;
+  color: #ffffff;
+}
+
+code {
+  font-family: Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+.font-serif {
+  font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
+}
+
+/* Gold gradient text */
+.text-gradient-gold {
+  background: linear-gradient(135deg, #d4a843 0%, #f2d88a 50%, #c4953a 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Gold shimmer button */
+.btn-gold {
+  background: linear-gradient(135deg, #c4953a 0%, #d4a843 50%, #e8c04e 100%);
+  color: #050505;
+  font-weight: 700;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: 0.03em;
+}
+
+.btn-gold:hover {
+  background: linear-gradient(135deg, #d4a843 0%, #e8c04e 50%, #f2d88a 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(212, 168, 67, 0.35);
+}
+
+/* Gold outline button */
+.btn-gold-outline {
+  border: 2px solid #d4a843;
+  color: #d4a843;
+  font-weight: 700;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: 0.03em;
+}
+
+.btn-gold-outline:hover {
+  background: rgba(212, 168, 67, 0.1);
+  border-color: #e8c04e;
+  color: #e8c04e;
+  transform: translateY(-2px);
+}
+
+.btn-ghost {
+  border: 2px solid rgba(255,255,255,0.15);
+  color: #fff;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-ghost:hover {
+  background: rgba(255,255,255,0.05);
+  border-color: rgba(212,168,67,0.5);
+  color: #d4a843;
+}
+
+.btn-dark {
+  background: #0a0a0a;
+  color: #fff;
+  font-weight: 700;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: 0.03em;
+}
+
+.btn-dark:hover {
+  background: #111;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+}
+
+/* Divider line with gold */
+.gold-divider {
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, #c4953a, #e8c04e);
+}
+
+/* Subtle card hover */
+.luxury-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  transition: all 0.4s ease;
+}
+
+.luxury-card:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(212, 168, 67, 0.3);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+}
+
+/* Light card */
+.ivory-card {
+  background: #fff;
+  border: 1px solid #ece6d9;
+  transition: all 0.4s ease;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.ivory-card:hover {
+  border-color: rgba(212, 168, 67, 0.6);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Subtle hero grid pattern */
+.hero-grid {
+  background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* Noise/paper texture for light sections */
+.ivory-bg {
+  background-color: #fbfaf7;
+  background-image:
+    radial-gradient(circle at 20% 10%, rgba(212,168,67,0.05) 0%, transparent 40%),
+    radial-gradient(circle at 80% 80%, rgba(212,168,67,0.04) 0%, transparent 40%);
+}
+
+/* Step connector line */
+.step-connector {
+  background: linear-gradient(90deg, rgba(212,168,67,0.6), rgba(212,168,67,0.15));
+}
+
+/* Process step number */
+.step-number {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #d4a843 0%, #f2d88a 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Listing card image overlay */
+.listing-overlay {
+  background: linear-gradient(to top, rgba(5,5,5,0.95) 0%, rgba(5,5,5,0.4) 50%, transparent 100%);
+}
+
+/* Reveal animation */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-up {
+  animation: fadeUp 0.8s ease-out;
+}
+
+main {
+  padding-top: 72px;
+}

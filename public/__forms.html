@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <!-- Static skeleton so Netlify registers forms at build time. Never shown to users. -->
+    <form name="contact" data-netlify="true" netlify-honeypot="bot-field" hidden>
+      <input type="hidden" name="form-name" value="contact" />
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <input type="tel" name="phone" />
+      <input type="text" name="interest" />
+      <textarea name="message"></textarea>
+      <input name="bot-field" />
+    </form>
+
+    <form name="schedule-showing" data-netlify="true" netlify-honeypot="bot-field" hidden>
+      <input type="hidden" name="form-name" value="schedule-showing" />
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <input type="tel" name="phone" />
+      <input type="text" name="property" />
+      <input type="date" name="date" />
+      <input type="text" name="time" />
+      <textarea name="notes"></textarea>
+      <input name="bot-field" />
+    </form>
+  </body>
+</html>
