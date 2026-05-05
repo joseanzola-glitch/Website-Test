@@ -18,7 +18,7 @@ export const Route = createFileRoute('/listings')({
 type Status = 'All' | 'Active' | 'Sold'
 
 const listings = [
-  { status: 'Active', price: '$2,450,000', beds: 4, baths: 4, sqft: '3,120', address: '1234 Brickell Ave, Miami, FL', neighborhood: 'Brickell', image: 'https://images.unsplash.com/photo-1613977257363-707ba9348227?w=900&q=80' },
+  { status: 'Active', price: '$2,800,000', beds: 7, baths: 7, sqft: '4,379', address: '37 Fort Royal Isle, Fort Lauderdale, FL 33308', neighborhood: 'Fort Lauderdale', image: 'https://github.com/joseanzola-glitch/Website-Test/blob/main/public/1500x1000%20(28).jpg?raw=true' },
   { status: 'Active', price: '$1,875,000', beds: 5, baths: 4.5, sqft: '3,650', address: '567 Coral Way, Coral Gables, FL', neighborhood: 'Coral Gables', image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=900&q=80' },
   { status: 'Active', price: '$3,900,000', beds: 5, baths: 5, sqft: '4,200', address: '21 Venetian Cswy, Miami Beach, FL', neighborhood: 'Venetian Islands', image: 'https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=900&q=80' },
   { status: 'Active', price: '$985,000', beds: 2, baths: 2.5, sqft: '1,880', address: '450 Alton Rd #1502, Miami Beach, FL', neighborhood: 'South Beach', image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=900&q=80' },
