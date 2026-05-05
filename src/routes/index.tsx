@@ -8,7 +8,6 @@ import {
   CheckIcon,
   HomeIcon,
   PhoneIcon,
-  PlayIcon,
   QuoteIcon,
   SearchIcon,
   StarIcon,
@@ -27,6 +26,7 @@ function Home() {
       <AboutPreviewSection />
       <StatsBar />
       <ServicesSection />
+      <AreasWeServeSection />
       <SellerProcessSection />
       <BuyerProcessSection />
       <FeaturedListingsSection />
@@ -46,6 +46,7 @@ function HeroSection() {
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-luxury-950" />
         <video
+          className="absolute inset-0 w-full h-full object-cover"
           className="absolute inset-0 w-full h-full object-cover opacity-30"
           autoPlay
           muted
@@ -54,13 +55,18 @@ function HeroSection() {
           preload="auto"
         >
           <source
+            src="https://videos.pexels.com/video-files/3699477/3699477-hd_1920_1080_24fps.mp4"
+            type="video/mp4"
+          />
+          <source
             src="https://videos.pexels.com/video-files/2244903/2244903-uhd_2560_1440_24fps.mp4"
             type="video/mp4"
           />
         </video>
-        {/* Darkening layers for legibility */}
-        <div className="absolute inset-0 bg-gradient-to-b from-luxury-950/70 via-luxury-950/40 to-luxury-950" />
-        <div className="absolute inset-0 bg-gradient-to-r from-luxury-950/80 via-luxury-950/30 to-luxury-950/60" />
+        {/* Black overlay for readability (≈55% opacity) */}
+        <div className="absolute inset-0 bg-black/55" />
+        {/* Subtle bottom fade so the video blends into the page */}
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-luxury-950" />
         <div className="absolute inset-0 hero-grid opacity-10" />
       </div>
 
@@ -554,7 +560,7 @@ function ToolsSection() {
               <div className="text-luxury-300 text-sm">Use the live chat in the bottom-right corner.</div>
             </div>
           </div>
-          <a href="tel:+13055550000" className="btn-gold-outline px-6 py-3 rounded-lg text-sm">
+          <a href="tel:+13059045613" className="btn-gold-outline px-6 py-3 rounded-lg text-sm">
             <PhoneIcon className="w-4 h-4 mr-2" />
             Call Now
           </a>
@@ -564,24 +570,39 @@ function ToolsSection() {
   )
 }
 
-/* ── TESTIMONIALS (written + video placeholder) ────────────── */
+/* ── TESTIMONIALS (written) ────────────────────────────────── */
 
 function TestimonialsSection() {
   const testimonials = [
     {
-      text: "Jose sold our Coral Gables home in eight days — above asking, with multiple offers. His prep work and pricing strategy were unreal.",
-      name: 'David & Laura T.',
-      role: 'Sellers, Coral Gables',
+      text: "Jose G. Anzola is an outstanding agent! He made our first move to Miami stress free by guiding us through everything from neighborhood selection to the final negotiation. He handled the complexities of insurance and inspections with ease, ensuring we got the best possible deal. He also proactively jumped in when there were some headwinds showing great ability to problem solve and excellent relationship management. We highly recommend Jose for his expertise and tireless dedication to his clients.",
+      name: 'Guillermo Donayre',
+      role: 'Client',
     },
     {
-      text: "As an investor, I need a numbers-first agent. Jose has helped me acquire three rental properties. His underwriting is as sharp as mine.",
-      name: 'Roberto M.',
-      role: 'Investor, South Florida',
+      text: "The team is incredible. They sold my properties in record time, and they made the entire process super easy. Thank you for everything.",
+      name: 'Alfredo Schael',
+      role: 'Seller',
     },
     {
-      text: "First-time buyers in Brickell. Jose walked us through every single step and helped us negotiate a better price than we thought possible.",
-      name: 'Maria & Carlos R.',
-      role: 'Buyers, Brickell',
+      text: "Jose and Krystyna did an excellent job during the sales process of our property in the prestigious Coral Ridge section of Fort Lauderdale. They assisted us step by step and helped us overcome many hurdles successfully. They were always available and very responsive. We felt supported and educated throughout the process. We are very pleased and highly recommend their team.",
+      name: 'Elfie Wagner',
+      role: 'Seller, Coral Ridge',
+    },
+    {
+      text: "Jose was referred to me by a longtime family friend. Throughout the entire process he was very knowledgeable and helpful. He explained every detail clearly. Their professionalism is top tier and I am very happy I chose them.",
+      name: 'Sharon Johnson',
+      role: 'Client',
+    },
+    {
+      text: "I recently had the opportunity to co-list a home with Jose and it was a fantastic experience. He is responsive, proactive, and a great team player. We worked together to get the best possible result for our seller.",
+      name: 'Gerardo Gonzalez',
+      role: 'Co-listing Agent',
+    },
+    {
+      text: "Working with Jose and Krystyna was truly a blessing. Jose guided me through every step and kept me informed at all times. He over-delivered and made a stressful process feel manageable. Choosing him was the best decision I made.",
+      name: 'Obradella Rudolph',
+      role: 'Client',
     },
   ]
 
@@ -599,23 +620,7 @@ function TestimonialsSection() {
           </p>
         </div>
 
-        {/* Video testimonial placeholder */}
-        <div className="mb-10 relative rounded-2xl overflow-hidden aspect-video luxury-card group cursor-pointer">
-          <div className="absolute inset-0 bg-gradient-to-br from-luxury-800 to-luxury-900 flex items-center justify-center">
-            <div className="text-center">
-              <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-gold-400/20 border-2 border-gold-400 flex items-center justify-center group-hover:scale-110 transition-transform">
-                <PlayIcon className="w-8 h-8 text-gold-400 ml-1" />
-              </div>
-              <div className="text-white font-serif text-xl">Video Testimonial</div>
-              <div className="text-luxury-400 text-sm mt-1">Placeholder — replace with client video</div>
-            </div>
-          </div>
-          <div className="absolute top-5 left-5 text-[10px] font-bold uppercase tracking-widest px-3 py-1.5 rounded-full bg-gold-400 text-luxury-950">
-            Featured Video
-          </div>
-        </div>
-
-        <div className="grid md:grid-cols-3 gap-6 lg:gap-8 mb-10">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-10">
           {testimonials.map((t) => (
             <div key={t.name} className="luxury-card rounded-2xl p-8 relative">
               <QuoteIcon className="absolute top-5 right-5 w-10 h-10 text-gold-400" />
@@ -634,6 +639,82 @@ function TestimonialsSection() {
         <div className="text-center">
           <Link to="/testimonials" className="btn-gold-outline px-8 py-4 rounded-lg text-base">
             Read More Stories
+            <ArrowRightIcon className="w-4 h-4 ml-2" />
+          </Link>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+/* ── AREAS WE SERVE ────────────────────────────────────────── */
+
+function AreasWeServeSection() {
+  const areas = [
+    {
+      icon: '🌴',
+      title: 'Core Miami Luxury',
+      neighborhoods: 'Brickell · Edgewater · Downtown Miami · Wynwood · Midtown',
+      description:
+        "The high-rise heart of the city. Trophy condos, branded residences, and pre-construction with strong rental yields and global buyer demand. Best for investors seeking liquid, cash-flow-ready luxury assets.",
+    },
+    {
+      icon: '🏡',
+      title: 'Family & Established',
+      neighborhoods: 'Coral Gables · Coconut Grove · Pinecrest · South Miami',
+      description:
+        "Tree-lined streets, top-rated schools, and historic architecture. Single-family homes that hold value through every cycle — ideal for long-term appreciation and legacy ownership in Miami's most stable enclaves.",
+    },
+    {
+      icon: '🌊',
+      title: 'Coastal & Waterfront',
+      neighborhoods: 'Miami Beach · Key Biscayne · Bal Harbour · Sunny Isles · Fort Lauderdale',
+      description:
+        "Direct ocean, bay, and intracoastal access. Waterfront estates and beachfront condos that command premium pricing year-round and convert beautifully into short-term and seasonal rental income.",
+    },
+    {
+      icon: '📈',
+      title: 'Growth & Value',
+      neighborhoods: 'Little River · Allapattah · North Miami · Doral · Hialeah · Miami Shores',
+      description:
+        "Emerging neighborhoods with strong upside. Where smart investors are entering early — flips, value-add multifamily, and pre-construction at prices the core market left behind.",
+    },
+  ]
+
+  return (
+    <section className="py-24 md:py-32 px-6 bg-luxury-950">
+      <div className="max-w-6xl mx-auto">
+        <div className="text-center mb-14">
+          <div className="text-gold-400 font-semibold uppercase tracking-[0.2em] text-xs mb-4">Coverage</div>
+          <div className="gold-divider mx-auto mb-6" />
+          <h2 className="font-serif text-4xl md:text-5xl font-bold text-white mb-5 leading-tight">
+            Areas We Serve
+          </h2>
+          <p className="text-luxury-300 text-lg max-w-2xl mx-auto font-light">
+            Deep, neighborhood-level expertise across Miami and South Florida — categorized by the
+            kind of opportunity each area best delivers.
+          </p>
+        </div>
+
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6">
+          {areas.map((a) => (
+            <div
+              key={a.title}
+              className="luxury-card rounded-2xl p-7 lg:p-8 flex flex-col h-full transition-transform hover:-translate-y-1 duration-300"
+            >
+              <div className="text-4xl mb-4" aria-hidden="true">{a.icon}</div>
+              <h3 className="font-serif text-xl font-bold text-white mb-2 leading-snug">{a.title}</h3>
+              <div className="text-gold-400 text-[11px] tracking-[0.15em] uppercase font-semibold mb-4">
+                {a.neighborhoods}
+              </div>
+              <p className="text-luxury-300 text-sm leading-relaxed flex-1">{a.description}</p>
+            </div>
+          ))}
+        </div>
+
+        <div className="text-center mt-12">
+          <Link to="/contact" className="btn-gold-outline px-8 py-4 rounded-lg text-base">
+            Talk About Your Target Area
             <ArrowRightIcon className="w-4 h-4 ml-2" />
           </Link>
         </div>

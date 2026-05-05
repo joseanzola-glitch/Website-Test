@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
-import { PlayIcon, QuoteIcon, StarIcon, ArrowRightIcon } from '../components/Icons'
+import { QuoteIcon, StarIcon, ArrowRightIcon } from '../components/Icons'
 
 export const Route = createFileRoute('/testimonials')({
   component: Testimonials,
@@ -8,25 +8,43 @@ export const Route = createFileRoute('/testimonials')({
       { title: 'Client Testimonials | Jose Anzola Compass Miami' },
       {
         name: 'description',
-        content: "Read and watch what clients say about working with Jose Anzola — Compass real estate agent in Miami.",
+        content: "Read what clients say about working with Jose Anzola — Compass real estate agent in Miami.",
       },
     ],
   }),
 })
 
 const written = [
-  { text: "Jose sold our Coral Gables home in eight days — above asking, with multiple offers. His prep work and pricing strategy were unreal. He knew exactly which repairs would move the needle and which were a waste of money.", name: 'David & Laura T.', role: 'Sellers, Coral Gables' },
-  { text: "As an investor, I need a numbers-first agent. Jose has helped me acquire three rental properties. His underwriting is as sharp as mine and his flip experience shows in every deal review.", name: 'Roberto M.', role: 'Investor, South Florida' },
-  { text: "First-time buyers in Brickell. Jose walked us through every single step and helped us negotiate a better price than we thought possible. No pressure, total transparency.", name: 'Maria & Carlos R.', role: 'Buyers, Brickell' },
-  { text: "We'd tried to sell our home with another agent for four months — no offers. Switched to Jose. Sold in three weeks. Enough said.", name: 'Patricia W.', role: 'Seller, Miami Beach' },
-  { text: "Relocating from New York, Jose handled everything remotely. Video tours, contract review, inspection coordination. Keys in hand without us flying down once.", name: 'Michael S.', role: 'Relocation buyer, Aventura' },
-  { text: "Jose's Compass Private Exclusive strategy got us a great offer before our home even hit the market. Saved us the stress of open houses and got a premium price.", name: 'Jennifer L.', role: 'Seller, Key Biscayne' },
-]
-
-const videos = [
-  { title: 'Sellers, Coral Gables', thumb: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80' },
-  { title: 'First-Time Buyers, Brickell', thumb: 'https://images.unsplash.com/photo-1613977257363-707ba9348227?w=800&q=80' },
-  { title: 'Investor, 3 Rentals', thumb: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80' },
+  {
+    text: "Jose G. Anzola is an outstanding agent! He made our first move to Miami stress free by guiding us through everything from neighborhood selection to the final negotiation. He handled the complexities of insurance and inspections with ease, ensuring we got the best possible deal. He also proactively jumped in when there were some headwinds showing great ability to problem solve and excellent relationship management. We highly recommend Jose for his expertise and tireless dedication to his clients.",
+    name: 'Guillermo Donayre',
+    role: 'Client',
+  },
+  {
+    text: "The team is incredible. They sold my properties in record time, and they made the entire process super easy. Thank you for everything.",
+    name: 'Alfredo Schael',
+    role: 'Seller',
+  },
+  {
+    text: "Jose and Krystyna did an excellent job during the sales process of our property in the prestigious Coral Ridge section of Fort Lauderdale. They assisted us step by step and helped us overcome many hurdles successfully. They were always available and very responsive. We felt supported and educated throughout the process. We are very pleased and highly recommend their team.",
+    name: 'Elfie Wagner',
+    role: 'Seller, Coral Ridge',
+  },
+  {
+    text: "Jose was referred to me by a longtime family friend. Throughout the entire process he was very knowledgeable and helpful. He explained every detail clearly. Their professionalism is top tier and I am very happy I chose them.",
+    name: 'Sharon Johnson',
+    role: 'Client',
+  },
+  {
+    text: "I recently had the opportunity to co-list a home with Jose and it was a fantastic experience. He is responsive, proactive, and a great team player. We worked together to get the best possible result for our seller.",
+    name: 'Gerardo Gonzalez',
+    role: 'Co-listing Agent',
+  },
+  {
+    text: "Working with Jose and Krystyna was truly a blessing. Jose guided me through every step and kept me informed at all times. He over-delivered and made a stressful process feel manageable. Choosing him was the best decision I made.",
+    name: 'Obradella Rudolph',
+    role: 'Client',
+  },
 ]
 
 function Testimonials() {
@@ -46,32 +64,6 @@ function Testimonials() {
             {[...Array(5)].map((_, i) => <StarIcon key={i} className="w-5 h-5 text-gold-400" />)}
             <span className="text-white ml-2 font-semibold">5.0</span>
             <span className="text-luxury-400 text-sm">on Google</span>
-          </div>
-        </div>
-      </section>
-
-      {/* Video testimonials */}
-      <section className="py-20 md:py-28 px-6 bg-luxury-900/50">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="font-serif text-3xl md:text-4xl font-bold text-white mb-4">Video Testimonials</h2>
-            <p className="text-luxury-300 text-sm uppercase tracking-[0.15em]">Placeholders — real videos coming soon</p>
-          </div>
-          <div className="grid md:grid-cols-3 gap-6">
-            {videos.map((v) => (
-              <div key={v.title} className="group relative aspect-video rounded-2xl overflow-hidden luxury-card cursor-pointer">
-                <img src={v.thumb} alt={v.title} className="absolute inset-0 w-full h-full object-cover opacity-60" />
-                <div className="absolute inset-0 bg-gradient-to-t from-luxury-950 via-luxury-950/60 to-transparent" />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-16 h-16 rounded-full bg-gold-400/90 flex items-center justify-center group-hover:scale-110 transition-transform">
-                    <PlayIcon className="w-7 h-7 text-luxury-950 ml-1" />
-                  </div>
-                </div>
-                <div className="absolute bottom-5 left-5 right-5">
-                  <div className="text-white font-semibold text-sm">{v.title}</div>
-                </div>
-              </div>
-            ))}
           </div>
         </div>
       </section>
