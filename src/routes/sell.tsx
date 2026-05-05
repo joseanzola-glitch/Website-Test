@@ -57,9 +57,9 @@ function Sell() {
               ))}
             </ul>
             <div className="flex flex-wrap gap-3">
-              <a href="tel:+13055550000" className="btn-gold-outline px-6 py-3 rounded-lg text-sm">
+              <a href="tel:+13059045613" className="btn-gold-outline px-6 py-3 rounded-lg text-sm">
                 <PhoneIcon className="w-4 h-4 mr-2" />
-                Call (305) 555-0000
+                Call (305) 904-5613
               </a>
               <Link to="/contact" className="btn-ghost px-6 py-3 rounded-lg text-sm">
                 <CalendarIcon className="w-4 h-4 mr-2" />
@@ -182,7 +182,7 @@ function Sell() {
               Schedule a Consultation
               <ArrowRightIcon className="w-4 h-4 ml-2" />
             </Link>
-            <a href="tel:+13055550000" className="btn-gold-outline px-8 py-4 rounded-lg text-base">
+            <a href="tel:+13059045613" className="btn-gold-outline px-8 py-4 rounded-lg text-base">
               <PhoneIcon className="w-4 h-4 mr-2" />
               Call Now
             </a>

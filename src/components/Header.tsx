@@ -9,7 +9,6 @@ const navLinks = [
   { label: 'Listings', to: '/listings' },
   { label: 'About', to: '/about' },
   { label: 'Testimonials', to: '/testimonials' },
-  { label: 'Blog', to: '/blog' },
   { label: 'Contact', to: '/contact' },
 ]
 
@@ -46,12 +45,12 @@ export function Header() {
 
           <div className="flex items-center gap-3">
             <a
-              href="tel:+13055550000"
+              href="tel:+13059045613"
               className="hidden md:inline-flex items-center gap-2 text-luxury-200 hover:text-gold-400 transition text-sm font-medium"
               aria-label="Call Now"
             >
               <PhoneIcon className="w-4 h-4" />
-              (305) 555-0000
+              (305) 904-5613
             </a>
             <Link
               to="/contact"
@@ -104,7 +103,7 @@ export function Header() {
                 Schedule a Call
               </Link>
               <a
-                href="tel:+13055550000"
+                href="tel:+13059045613"
                 onClick={() => setMenuOpen(false)}
                 className="btn-gold-outline text-center px-6 py-3 rounded-lg"
               >

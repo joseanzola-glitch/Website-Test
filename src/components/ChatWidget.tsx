@@ -60,7 +60,7 @@ export function ChatWidget() {
                 Schedule a consultation
               </a>
               <a
-                href="tel:+13055550000"
+                href="tel:+13059045613"
                 className="text-left bg-white/5 border border-white/10 hover:bg-white/10 text-white rounded-lg px-4 py-3 text-sm transition"
               >
                 Call me directly

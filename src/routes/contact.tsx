@@ -41,13 +41,13 @@ function Contact() {
             </p>
 
             <div className="space-y-5 mb-10">
-              <a href="tel:+13055550000" className="flex items-center gap-5 group">
+              <a href="tel:+13059045613" className="flex items-center gap-5 group">
                 <div className="w-14 h-14 rounded-xl bg-gold-400/10 flex items-center justify-center group-hover:bg-gold-400/20 transition-colors">
                   <PhoneIcon className="w-6 h-6 text-gold-400" />
                 </div>
                 <div>
                   <div className="text-xs text-luxury-400 uppercase tracking-wider mb-0.5">Call or Text</div>
-                  <div className="text-white font-semibold text-lg">(305) 555-0000</div>
+                  <div className="text-white font-semibold text-lg">(305) 904-5613</div>
                 </div>
               </a>
 
