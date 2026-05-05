@@ -54,6 +54,7 @@ function HeroSection() {
           playsInline
           preload="auto"
         >
+          <source src="/Miami-skyline.mp4" type="video/mp4" />
           <source
             src="https://videos.pexels.com/video-files/3699477/3699477-hd_1920_1080_24fps.mp4"
             type="video/mp4"
