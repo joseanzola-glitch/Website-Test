@@ -46,13 +46,12 @@ function HeroSection() {
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-luxury-950" />
         <video
-          className="absolute inset-0 w-full h-full object-cover opacity-55"
+          className="absolute inset-0 w-full h-full object-cover opacity-30"
           autoPlay
           muted
           loop
           playsInline
           preload="auto"
-          poster="https://images.unsplash.com/photo-1535498730771-e735b998cd64?w=1920&q=85&auto=format&fit=crop"
         >
           <source src="/Miami-skyline.mp4" type="video/mp4" />
         </video>
