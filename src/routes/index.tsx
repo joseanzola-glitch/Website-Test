@@ -47,7 +47,7 @@ function HeroSection() {
         <div className="absolute inset-0 bg-luxury-950" />
         <video
           className="absolute inset-0 w-full h-full object-cover"
-          className="absolute inset-0 w-full h-full object-cover opacity-30"
+          className="absolute inset-0 w-full h-full object-cover opacity-80"
           autoPlay
           muted
           loop
