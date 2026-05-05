@@ -54,10 +54,7 @@ function HeroSection() {
           preload="auto"
           poster="https://images.unsplash.com/photo-1535498730771-e735b998cd64?w=1920&q=85&auto=format&fit=crop"
         >
-          <source
-            src="https://videos.pexels.com/video-files/2244903/2244903-uhd_2560_1440_24fps.mp4"
-            type="video/mp4"
-          />
+          <source src="/Miami-skyline.mp4" type="video/mp4" />
         </video>
         {/* Darkening layers for legibility */}
         <div className="absolute inset-0 bg-gradient-to-b from-luxury-950/70 via-luxury-950/40 to-luxury-950" />
