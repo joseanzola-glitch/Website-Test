@@ -4,7 +4,6 @@ import {
   ArrowRightIcon,
   CalculatorIcon,
   CheckIcon,
-  SearchIcon,
 } from '../components/Icons'
 import { ShowingForm } from '../components/Forms'
 
@@ -77,31 +76,9 @@ function Buy() {
         </div>
       </section>
 
-      {/* Tools (MLS & Mortgage) */}
+      {/* Tools (Mortgage) */}
       <section className="py-20 md:py-28 px-6 bg-luxury-950">
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-8">
-          <div className="luxury-card rounded-2xl p-8 lg:p-10">
-            <div className="w-12 h-12 rounded-xl bg-gold-400/10 flex items-center justify-center text-gold-400 mb-5">
-              <SearchIcon className="w-6 h-6" />
-            </div>
-            <h3 className="font-serif text-2xl font-bold text-white mb-3">MLS Property Search</h3>
-            <p className="text-luxury-300 text-sm leading-relaxed mb-6">
-              Search every active listing in Miami-Dade, Broward, and Palm Beach. Full MLS
-              integration coming soon — in the meantime, send me your criteria and I'll curate
-              matches including off-market homes.
-            </p>
-            <div className="grid grid-cols-2 gap-3 mb-6">
-              <input placeholder="Neighborhood" className="w-full px-4 py-3 bg-white/5 border border-white/10 text-white placeholder-luxury-400 rounded-lg text-sm focus:outline-none focus:border-gold-400" disabled />
-              <input placeholder="Min price" className="w-full px-4 py-3 bg-white/5 border border-white/10 text-white placeholder-luxury-400 rounded-lg text-sm focus:outline-none focus:border-gold-400" disabled />
-              <input placeholder="Max price" className="w-full px-4 py-3 bg-white/5 border border-white/10 text-white placeholder-luxury-400 rounded-lg text-sm focus:outline-none focus:border-gold-400" disabled />
-              <input placeholder="Min beds" className="w-full px-4 py-3 bg-white/5 border border-white/10 text-white placeholder-luxury-400 rounded-lg text-sm focus:outline-none focus:border-gold-400" disabled />
-            </div>
-            <Link to="/contact" className="btn-gold-outline px-5 py-3 rounded-lg text-sm">
-              Request Custom Search
-              <ArrowRightIcon className="w-4 h-4 ml-2" />
-            </Link>
-          </div>
-
+        <div className="max-w-3xl mx-auto">
           <MortgageCalculator />
         </div>
       </section>

@@ -48,14 +48,13 @@ export function Footer() {
               <li><Link to="/listings" className="hover:text-gold-400 transition">Listings</Link></li>
               <li><Link to="/about" className="hover:text-gold-400 transition">About Jose</Link></li>
               <li><Link to="/testimonials" className="hover:text-gold-400 transition">Testimonials</Link></li>
-              <li><Link to="/blog" className="hover:text-gold-400 transition">Blog</Link></li>
             </ul>
           </div>
 
           <div>
             <div className="text-white font-semibold mb-4 tracking-wide text-sm uppercase">Contact</div>
             <ul className="space-y-2.5 text-sm text-luxury-300">
-              <li><a href="tel:+13055550000" className="hover:text-gold-400 transition">(305) 555-0000</a></li>
+              <li><a href="tel:+13059045613" className="hover:text-gold-400 transition">(305) 904-5613</a></li>
               <li><a href="mailto:jose.anzola@compass.com" className="hover:text-gold-400 transition">jose.anzola@compass.com</a></li>
               <li>Miami &amp; South Florida</li>
               <li><Link to="/contact" className="hover:text-gold-400 transition">Schedule a Consultation</Link></li>
