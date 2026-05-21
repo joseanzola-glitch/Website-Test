@@ -83,8 +83,7 @@ function HeroSection() {
         </h1>
 
         <p className="text-lg md:text-xl text-luxury-100 mb-10 max-w-2xl mx-auto leading-relaxed font-light">
-          Strategic marketing, expert negotiation, and an investor's eye for value —
-          for sellers, buyers, and investors in the $700K+ market.
+          Strategic marketing, expert negotiation, and an investor's eye for value, for sellers, buyers, and investors in the $700K+ market.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 mb-12 justify-center">
