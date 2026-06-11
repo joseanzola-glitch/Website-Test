@@ -22,10 +22,11 @@ export function Footer() {
             </p>
             <div className="flex items-center gap-3">
               {[
-                { icon: <InstagramIcon className="w-4 h-4" />, href: 'https://www.instagram.com/', label: 'Instagram' },
-                { icon: <LinkedInIcon className="w-4 h-4" />, href: 'https://www.linkedin.com/in/', label: 'LinkedIn' },
-                { icon: <FacebookIcon className="w-4 h-4" />, href: 'https://www.facebook.com/', label: 'Facebook' },
-              ].map((s) => (
+                  { icon: <InstagramIcon className="w-4 h-4" />, href: 'https://www.instagram.com/joseganzola/', label: 'Instagram' },
+                  { icon: <GoogleIcon className="w-4 h-4" />, href: 'https://share.google/2FjYHiwE7J4ev4Uyx', label: 'Google' },
+                  { icon: <LinkedInIcon className="w-4 h-4" />, href: 'https://www.linkedin.com/in/jose-anzola/', label: 'LinkedIn' },
+                  { icon: <FacebookIcon className="w-4 h-4" />, href: 'https://www.facebook.com/profile.php?id=61575098395033', label: 'Facebook' },
+                ].map((s) => (
                 <a
                   key={s.label}
                   href={s.href}
