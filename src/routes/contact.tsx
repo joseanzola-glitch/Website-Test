@@ -72,33 +72,14 @@ function Contact() {
               </div>
             </div>
 
-            {/* Booking calendar placeholder */}
-            <div className="luxury-card rounded-2xl p-6 mb-10">
-              <div className="flex items-center gap-3 mb-3">
-                <CalendarIcon className="w-5 h-5 text-gold-400" />
-                <div className="text-white font-semibold">Book a 30-minute consult</div>
-              </div>
-              <p className="text-luxury-300 text-sm mb-4">
-                Grab a time directly on Jose's calendar — by phone, video, or in person.
-              </p>
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
-                {['Mon 10:00', 'Tue 2:00', 'Wed 11:30', 'Thu 4:00'].map((t) => (
-                  <button key={t} className="px-3 py-2 bg-white/5 border border-white/10 text-luxury-200 rounded-lg text-xs hover:border-gold-400/40 hover:text-gold-300 transition">
-                    {t}
-                  </button>
-                ))}
-              </div>
-              <p className="text-luxury-500 text-[11px] mt-3">Calendar integration coming soon.</p>
-            </div>
-
             <div>
               <div className="text-xs text-luxury-400 uppercase tracking-wider mb-3">Follow Jose</div>
               <div className="flex gap-3">
-                {[
-                  { icon: <InstagramIcon className="w-4 h-4" />, href: 'https://www.instagram.com/', label: 'Instagram' },
-                  { icon: <GoogleIcon className="w-4 h-4" />, href: 'https://www.google.com/', label: 'Google' },
-                  { icon: <LinkedInIcon className="w-4 h-4" />, href: 'https://www.linkedin.com/', label: 'LinkedIn' },
-                  { icon: <FacebookIcon className="w-4 h-4" />, href: 'https://www.facebook.com/', label: 'Facebook' },
+               {[
+                  { icon: <InstagramIcon className="w-4 h-4" />, href: 'https://www.instagram.com/joseganzola/', label: 'Instagram' },
+                  { icon: <GoogleIcon className="w-4 h-4" />, href: 'https://share.google/2FjYHiwE7J4ev4Uyx', label: 'Google' },
+                  { icon: <LinkedInIcon className="w-4 h-4" />, href: 'https://www.linkedin.com/in/jose-anzola/', label: 'LinkedIn' },
+                  { icon: <FacebookIcon className="w-4 h-4" />, href: 'https://www.facebook.com/profile.php?id=61575098395033', label: 'Facebook' },
                 ].map((s) => (
                   <a
                     key={s.label}
