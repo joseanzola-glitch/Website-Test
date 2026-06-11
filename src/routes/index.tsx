@@ -1,3 +1,4 @@
+export const config = { runtime: 'html' };
 import { Link, createFileRoute } from '@tanstack/react-router'
 import {
   ArrowRightIcon,
