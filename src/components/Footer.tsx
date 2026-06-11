@@ -1,5 +1,5 @@
 import { Link } from '@tanstack/react-router'
-import { FacebookIcon, InstagramIcon, LinkedInIcon } from './Icons'
+import { FacebookIcon, InstagramIcon, LinkedInIcon, GoogleIcon } from './Icons'
 
 export function Footer() {
   return (
