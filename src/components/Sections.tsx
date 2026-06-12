@@ -60,10 +60,6 @@ export function CTABanner() {
             <CalendarIcon className="w-5 h-5" />
             Book Appointment
           </Link>
-          <a href="tel:+13059045613" className="btn-ghost px-8 py-4 rounded-lg text-base tracking-wide inline-flex items-center justify-center gap-2">
-            <PhoneIcon className="w-5 h-5" />
-            Call Now
-          </a>
         </div>
       </div>
     </section>
