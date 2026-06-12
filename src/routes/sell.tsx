@@ -182,10 +182,6 @@ function Sell() {
               Schedule a Consultation
               <ArrowRightIcon className="w-4 h-4 ml-2" />
             </Link>
-            <a href="tel:+13059045613" className="btn-gold-outline px-8 py-4 rounded-lg text-base">
-              <PhoneIcon className="w-4 h-4 mr-2" />
-              Call Now
-            </a>
           </div>
         </div>
       </section>
