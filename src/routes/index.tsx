@@ -30,8 +30,6 @@ function Home() {
       <AreasWeServeSection />
       <SellerProcessSection />
       <BuyerProcessSection />
-      <FeaturedListingsSection />
-      <ToolsSection />
       <TestimonialsSection />
       <CTABanner />
     </div>
