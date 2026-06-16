@@ -38,38 +38,40 @@ function Home() {
 
 /* ── HERO ──────────────────────────────────────────────────── */
 
+/* ——— HERO ———————————————————————————————————————————————— */
+
 function HeroSection() {
   return (
     <section className="relative min-h-[92vh] flex items-center overflow-hidden -mt-[72px] pt-[72px]">
       {/* Miami skyline aerial drone background */}
       <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-luxury-950" />
+        {/* Changed from luxury-950 to pure white so any loading gap matches your new aesthetic */}
+        <div className="absolute inset-0 bg-white" /> 
+        
         <video
-          className="absolute inset-0 w-full h-full object-cover"
-          className="absolute inset-0 w-full h-full object-cover opacity-80"
+          className="absolute inset-0 w-full h-full object-cover opacity-90"
           autoPlay
           muted
           loop
           playsInline
           preload="auto"
         >
+          {/* Your local video loads first for instant speed */}
           <source src="/Miami-skyline.mp4" type="video/mp4" />
           <source
             src="https://videos.pexels.com/video-files/3699477/3699477-hd_1920_1080_24fps.mp4"
             type="video/mp4"
           />
-          <source
-            src="https://videos.pexels.com/video-files/2244903/2244903-uhd_2560_1440_24fps.mp4"
-            type="video/mp4"
-          />
         </video>
-        {/* Black overlay for readability (≈55% opacity) */}
-        <div className="absolute inset-0 bg-black/55" />
-        {/* Subtle bottom fade so the video blends into the page */}
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-luxury-950" />
-        <div className="absolute inset-0 hero-grid opacity-10" />
-      </div>
 
+        {/* Clean Luxury Light Overlay: Keeps text perfectly readable without a heavy black mask */}
+        <div className="absolute inset-0 bg-gradient-to-r from-white/80 via-white/40 to-transparent" />
+
+        {/* Subtle bottom fade so the video blends cleanly into the white page sections below */}
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white" />
+        <div className="absolute inset-0 hero-grid opacity-5" />
+      </div>
+      
       <div className="relative z-10 w-full max-w-5xl mx-auto px-6 py-20 text-center">
         <div className="inline-flex items-center gap-2 bg-white/5 border border-gold-400/20 text-gold-400 text-xs font-semibold px-5 py-2.5 rounded-full mb-8 tracking-[0.2em] uppercase backdrop-blur-sm">
           <span className="w-1.5 h-1.5 rounded-full bg-gold-400" />
