@@ -16,6 +16,7 @@ export const Route = createFileRoute('/listings')({
 })
 
 type Status = 'All' | 'Active' | 'Sold'
+type IdxTab = 'general' | 'active'
 
 const listings = [
   { status: 'Active', price: '$2,590,000', beds: 4, baths: 5, sqft: '2,666', address: '67 NW 109th St, Miami Shores, FL 33168', neighborhood: 'Miami Shores', image: '/67NW.jpg' },
@@ -30,7 +31,14 @@ const listings = [
 
 function Listings() {
   const [filter, setFilter] = useState<Status>('All')
+  const [activeIdxTab, setActiveIdxTab] = useState<IdxTab>('general')
   const filtered = listings.filter((l) => filter === 'All' || l.status === filter)
+
+  // ─── YOUR ACTIVE MLS LINKS ───────────────────────────────────────
+  const idxLinks = {
+    general: "https://sef.mlsmatrix.com/Matrix/public/IDX.aspx?idx=1eae1f21", 
+    active: "https://sef.mlsmatrix.com/Matrix/public/IDX.aspx?idx=15691f22"
+  }
 
   return (
     <div className="bg-white text-luxury-950">
@@ -45,27 +53,51 @@ function Listings() {
             A selection of active and recently sold homes across Miami and South Florida.
           </p>
 
-          {/* NEW PREMIUM LIVE MLS PORTAL ACCESS BOX */}
-          <div className="max-w-xl mx-auto mb-16 p-6 rounded-2xl bg-slate-50 border border-slate-100 shadow-sm text-left flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-            <div className="flex gap-4 items-center">
+          {/* TWO-TAB LIVE MLS PORTAL ACCESS SELECTION */}
+          <div className="max-w-2xl mx-auto mb-16 p-6 rounded-2xl bg-slate-50 border border-slate-100 shadow-sm text-left">
+            <div className="flex gap-4 items-center mb-6">
               <div className="w-12 h-12 shrink-0 rounded-xl bg-gold-400/10 flex items-center justify-center text-gold-600">
                 <SearchIcon className="w-5 h-5" />
               </div>
               <div>
-                <h3 className="font-serif text-lg font-bold text-luxury-950">Search Entire Miami MLS</h3>
-                <p className="text-luxury-500 text-xs font-light">Access thousands of live real-time properties</p>
+                <h3 className="font-serif text-lg font-bold text-luxury-950">Live Matrix Data Portals</h3>
+                <p className="text-luxury-500 text-xs font-light">Explore real-time data directly from the MLS infrastructure</p>
               </div>
             </div>
-            <a 
-              href="https://sef.mlsmatrix.com/Matrix/public/IDX.aspx?idx=1eae1f21"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full sm:w-auto text-center bg-gold-500 hover:bg-gold-600 text-white font-semibold uppercase tracking-wider text-[10px] px-5 py-3 rounded-lg transition-all shadow-sm hover:-translate-y-0.5 whitespace-nowrap"
-            >
-              Launch Live Search
-            </a>
+
+            {/* Inner Tabs Setup */}
+            <div className="flex border-b border-slate-200 gap-6 mb-6 overflow-x-auto pb-1">
+              <button 
+                onClick={() => setActiveIdxTab('general')}
+                className={`pb-3 text-xs uppercase tracking-wider font-semibold border-b-2 transition-all cursor-pointer whitespace-nowrap ${activeIdxTab === 'general' ? 'border-gold-500 text-gold-600' : 'border-transparent text-luxury-400 hover:text-luxury-600'}`}
+              >
+                General Search
+              </button>
+              <button 
+                onClick={() => setActiveIdxTab('active')}
+                className={`pb-3 text-xs uppercase tracking-wider font-semibold border-b-2 transition-all cursor-pointer whitespace-nowrap ${activeIdxTab === 'active' ? 'border-gold-500 text-gold-600' : 'border-transparent text-luxury-400 hover:text-luxury-600'}`}
+              >
+                My Active Inventory
+              </button>
+            </div>
+
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+              <p className="text-luxury-600 text-sm font-light leading-relaxed max-w-md">
+                {activeIdxTab === 'general' && "Run custom geographic search loops, specify acreage preferences, or search detailed condo profiles across South Florida."}
+                {activeIdxTab === 'active' && "View all properties currently listed on the public market represented directly by my verified real estate network."}
+              </p>
+              <a 
+                href={idxLinks[activeIdxTab]}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full sm:w-auto text-center bg-gold-500 hover:bg-gold-600 text-white font-semibold uppercase tracking-wider text-[10px] px-5 py-4 rounded-lg transition-all shadow-sm hover:-translate-y-0.5 whitespace-nowrap"
+              >
+                Launch Selected Feed
+              </a>
+            </div>
           </div>
 
+          {/* Existing Manual Gallery Filter Buttons */}
           <div className="flex flex-wrap gap-3 justify-center">
             {(['All', 'Active', 'Sold'] as Status[]).map((f) => (
               <button
@@ -84,6 +116,7 @@ function Listings() {
         </div>
       </section>
 
+      {/* Existing Grid Section */}
       <section className="py-16 md:py-20 px-6 bg-white">
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {filtered.map((l) => (
@@ -115,6 +148,7 @@ function Listings() {
         </div>
       </section>
 
+      {/* Existing Footer Call-to-Action */}
       <section className="py-20 px-6 bg-ivory-100 border-t border-luxury-950/10">
         <div className="max-w-4xl mx-auto text-center">
           <div className="w-16 h-16 mx-auto mb-6 rounded-2xl bg-gold-400/10 flex items-center justify-center text-gold-600">
