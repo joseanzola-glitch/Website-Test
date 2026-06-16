@@ -17,25 +17,25 @@ export function Header() {
 
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 z-50 bg-luxury-950/90 backdrop-blur-xl border-b border-white/5">
+      <header className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-xl border-b border-luxury-950/10">
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
           <Link to="/" className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-full bg-gradient-to-br from-gold-400 to-gold-600 flex items-center justify-center text-luxury-950 font-serif font-bold text-sm">
               JA
             </div>
             <div className="hidden sm:block">
-              <div className="text-white font-semibold text-sm tracking-wide">Jose Anzola</div>
-              <div className="text-gold-400 text-xs tracking-widest uppercase">Compass</div>
+              <div className="text-luxury-950 font-semibold text-sm tracking-wide">Jose Anzola</div>
+              <div className="text-gold-600 text-xs tracking-widest uppercase">Compass</div>
             </div>
           </Link>
 
-          <nav className="hidden lg:flex items-center gap-7 text-sm text-luxury-200 font-medium">
+          <nav className="hidden lg:flex items-center gap-7 text-sm text-luxury-600 font-medium">
             {navLinks.map((link) => (
               <Link
                 key={link.to}
                 to={link.to}
-                className="hover:text-gold-400 transition"
-                activeProps={{ className: 'text-gold-400' }}
+                className="hover:text-gold-600 transition"
+                activeProps={{ className: 'text-gold-600' }}
                 activeOptions={{ exact: link.to === '/' }}
               >
                 {link.label}
@@ -46,7 +46,7 @@ export function Header() {
           <div className="flex items-center gap-3">
             <a
               href="tel:+13059045613"
-              className="hidden md:inline-flex items-center gap-2 text-luxury-200 hover:text-gold-400 transition text-sm font-medium"
+              className="hidden md:inline-flex items-center gap-2 text-luxury-600 hover:text-gold-600 transition text-sm font-medium"
               aria-label="Call Now"
             >
               <PhoneIcon className="w-4 h-4" />
@@ -60,7 +60,7 @@ export function Header() {
             </Link>
             <button
               onClick={() => setMenuOpen(true)}
-              className="lg:hidden text-white/80 hover:text-white cursor-pointer"
+              className="lg:hidden text-luxury-950/80 hover:text-luxury-950 cursor-pointer"
               aria-label="Open menu"
             >
               <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -74,10 +74,10 @@ export function Header() {
       {menuOpen && (
         <div className="fixed inset-0 z-[60] lg:hidden">
           <div className="absolute inset-0 bg-black/80 backdrop-blur-sm" onClick={() => setMenuOpen(false)} />
-          <div className="absolute right-0 top-0 bottom-0 w-72 bg-luxury-900 border-l border-white/10 p-8 flex flex-col">
+          <div className="absolute right-0 top-0 bottom-0 w-72 bg-ivory-100 border-l border-luxury-950/10 p-8 flex flex-col">
             <button
               onClick={() => setMenuOpen(false)}
-              className="self-end text-white/60 hover:text-white mb-10 cursor-pointer"
+              className="self-end text-luxury-950/60 hover:text-luxury-950 mb-10 cursor-pointer"
               aria-label="Close menu"
             >
               <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -90,7 +90,7 @@ export function Header() {
                   key={link.to}
                   to={link.to}
                   onClick={() => setMenuOpen(false)}
-                  className="text-white/80 hover:text-gold-400 text-lg font-medium tracking-wide transition"
+                  className="text-luxury-950/80 hover:text-gold-600 text-lg font-medium tracking-wide transition"
                 >
                   {link.label}
                 </Link>

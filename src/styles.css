@@ -34,8 +34,8 @@ body {
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #050505;
-  color: #ffffff;
+  background-color: #ffffff;
+  color: #1a1a1a;
 }
 
 code {
@@ -48,7 +48,7 @@ code {
 
 /* Gold gradient text */
 .text-gradient-gold {
-  background: linear-gradient(135deg, #d4a843 0%, #f2d88a 50%, #c4953a 100%);
+  background: linear-gradient(135deg, #c4953a 0%, #d4a843 50%, #a67c2e 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -74,10 +74,10 @@ code {
   box-shadow: 0 8px 30px rgba(212, 168, 67, 0.35);
 }
 
-/* Gold outline button */
+/* Gold outline button — darker gold for contrast on light backgrounds */
 .btn-gold-outline {
-  border: 2px solid #d4a843;
-  color: #d4a843;
+  border: 2px solid #c4953a;
+  color: #a67c2e;
   font-weight: 700;
   transition: all 0.3s ease;
   display: inline-flex;
@@ -87,15 +87,16 @@ code {
 }
 
 .btn-gold-outline:hover {
-  background: rgba(212, 168, 67, 0.1);
-  border-color: #e8c04e;
-  color: #e8c04e;
+  background: rgba(196, 149, 58, 0.08);
+  border-color: #a67c2e;
+  color: #886327;
   transform: translateY(-2px);
 }
 
+/* Ghost button — dark outline on light backgrounds */
 .btn-ghost {
-  border: 2px solid rgba(255,255,255,0.15);
-  color: #fff;
+  border: 2px solid rgba(5, 5, 5, 0.15);
+  color: #1a1a1a;
   font-weight: 600;
   transition: all 0.3s ease;
   display: inline-flex;
@@ -104,11 +105,12 @@ code {
 }
 
 .btn-ghost:hover {
-  background: rgba(255,255,255,0.05);
-  border-color: rgba(212,168,67,0.5);
-  color: #d4a843;
+  background: rgba(5, 5, 5, 0.04);
+  border-color: rgba(196, 149, 58, 0.6);
+  color: #a67c2e;
 }
 
+/* Dark button — high-contrast CTA on light sections */
 .btn-dark {
   background: #0a0a0a;
   color: #fff;
@@ -133,18 +135,18 @@ code {
   background: linear-gradient(90deg, #c4953a, #e8c04e);
 }
 
-/* Subtle card hover */
+/* Subtle card — light surface on light backgrounds */
 .luxury-card {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: #ffffff;
+  border: 1px solid #ece6d9;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
   transition: all 0.4s ease;
 }
 
 .luxury-card:hover {
-  background: rgba(255, 255, 255, 0.06);
-  border-color: rgba(212, 168, 67, 0.3);
+  border-color: rgba(212, 168, 67, 0.55);
   transform: translateY(-4px);
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.10);
 }
 
 /* Light card */
@@ -172,23 +174,23 @@ html {
 }
 
 ::-webkit-scrollbar-track {
-  background: #0a0a0a;
+  background: #f5f2ec;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #333;
+  background: #d8cdb4;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #555;
+  background: #c4953a;
 }
 
-/* Subtle hero grid pattern */
+/* Subtle hero grid pattern — faint dark lines on the light hero */
 .hero-grid {
   background-image:
-    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    linear-gradient(rgba(5,5,5,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(5,5,5,0.05) 1px, transparent 1px);
   background-size: 60px 60px;
 }
 
@@ -210,13 +212,13 @@ html {
   font-family: 'Playfair Display', serif;
   font-size: 2.5rem;
   font-weight: 700;
-  background: linear-gradient(135deg, #d4a843 0%, #f2d88a 100%);
+  background: linear-gradient(135deg, #c4953a 0%, #d4a843 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-/* Listing card image overlay */
+/* Listing card image overlay — stays dark for legible text over photos */
 .listing-overlay {
   background: linear-gradient(to top, rgba(5,5,5,0.95) 0%, rgba(5,5,5,0.4) 50%, transparent 100%);
 }

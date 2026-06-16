@@ -33,15 +33,15 @@ function Listings() {
   const filtered = listings.filter((l) => filter === 'All' || l.status === filter)
 
   return (
-    <div className="bg-luxury-950 text-white">
-      <section className="py-20 px-6 border-b border-white/5">
+    <div className="bg-white text-luxury-950">
+      <section className="py-20 px-6 border-b border-luxury-950/10">
         <div className="max-w-6xl mx-auto text-center">
-          <div className="text-gold-400 font-semibold uppercase tracking-[0.2em] text-xs mb-4">Portfolio</div>
+          <div className="text-gold-600 font-semibold uppercase tracking-[0.2em] text-xs mb-4">Portfolio</div>
           <div className="gold-divider mx-auto mb-6" />
           <h1 className="font-serif text-4xl md:text-6xl font-bold mb-6 leading-[1.05]">
             Featured Listings
           </h1>
-          <p className="text-luxury-200 text-lg max-w-2xl mx-auto font-light leading-relaxed mb-10">
+          <p className="text-luxury-600 text-lg max-w-2xl mx-auto font-light leading-relaxed mb-10">
             A selection of active and recently sold homes across Miami and South Florida.
           </p>
           <div className="flex flex-wrap gap-3 justify-center">
@@ -52,7 +52,7 @@ function Listings() {
                 className={`px-6 py-2.5 rounded-full text-xs font-semibold uppercase tracking-widest transition cursor-pointer ${
                   filter === f
                     ? 'bg-gradient-to-r from-gold-500 to-gold-400 text-luxury-950'
-                    : 'bg-white/5 border border-white/10 text-luxury-200 hover:border-gold-400/40'
+                    : 'bg-luxury-950/5 border border-luxury-950/10 text-luxury-600 hover:border-gold-400/40'
                 }`}
               >
                 {f === 'Active' ? 'For Sale' : f}
@@ -62,7 +62,7 @@ function Listings() {
         </div>
       </section>
 
-      <section className="py-16 md:py-20 px-6 bg-luxury-950">
+      <section className="py-16 md:py-20 px-6 bg-white">
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {filtered.map((l) => (
             <div key={l.address} className="group relative overflow-hidden rounded-2xl luxury-card">
@@ -73,15 +73,15 @@ function Listings() {
                 <span className={`text-[10px] font-bold uppercase tracking-widest px-3 py-1.5 rounded-full ${
                   l.status === 'Active'
                     ? 'bg-gold-400 text-luxury-950'
-                    : 'bg-luxury-950/90 text-gold-400 border border-gold-400/40'
+                    : 'bg-white/90 text-gold-600 border border-gold-400/40'
                 }`}>
                   {l.status === 'Sold' ? 'Sold' : 'For Sale'}
                 </span>
               </div>
               <div className="p-6">
-                <div className="text-gold-400 text-xs tracking-widest uppercase mb-2 font-semibold">{l.neighborhood}</div>
-                <div className="text-white font-serif text-2xl font-bold mb-1">{l.price}</div>
-                <div className="text-luxury-300 text-sm mb-3">{l.address}</div>
+                <div className="text-gold-600 text-xs tracking-widest uppercase mb-2 font-semibold">{l.neighborhood}</div>
+                <div className="text-luxury-950 font-serif text-2xl font-bold mb-1">{l.price}</div>
+                <div className="text-luxury-500 text-sm mb-3">{l.address}</div>
                 <div className="flex gap-3 text-luxury-400 text-xs">
                   <span>{l.beds} BD</span><span>&middot;</span>
                   <span>{l.baths} BA</span><span>&middot;</span>
@@ -93,15 +93,15 @@ function Listings() {
         </div>
       </section>
 
-      <section className="py-20 px-6 bg-luxury-900 border-t border-white/5">
+      <section className="py-20 px-6 bg-ivory-100 border-t border-luxury-950/10">
         <div className="max-w-4xl mx-auto text-center">
-          <div className="w-16 h-16 mx-auto mb-6 rounded-2xl bg-gold-400/10 flex items-center justify-center text-gold-400">
+          <div className="w-16 h-16 mx-auto mb-6 rounded-2xl bg-gold-400/10 flex items-center justify-center text-gold-600">
             <SearchIcon className="w-7 h-7" />
           </div>
-          <h2 className="font-serif text-3xl md:text-4xl font-bold text-white mb-4">
+          <h2 className="font-serif text-3xl md:text-4xl font-bold text-luxury-950 mb-4">
             Looking for something specific?
           </h2>
-          <p className="text-luxury-300 text-lg mb-8 font-light">
+          <p className="text-luxury-500 text-lg mb-8 font-light">
             Off-market access, private exclusives, and curated matches. Send me your wish list and I'll go find it.
           </p>
           <Link to="/contact" className="btn-gold px-8 py-4 rounded-lg text-base">

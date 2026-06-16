@@ -49,20 +49,20 @@ const written = [
 
 function Testimonials() {
   return (
-    <div className="bg-luxury-950 text-white">
-      <section className="py-20 md:py-28 px-6 text-center border-b border-white/5">
+    <div className="bg-white text-luxury-950">
+      <section className="py-20 md:py-28 px-6 text-center border-b border-luxury-950/10">
         <div className="max-w-4xl mx-auto">
-          <div className="text-gold-400 font-semibold uppercase tracking-[0.2em] text-xs mb-4">Client Stories</div>
+          <div className="text-gold-600 font-semibold uppercase tracking-[0.2em] text-xs mb-4">Client Stories</div>
           <div className="gold-divider mx-auto mb-6" />
           <h1 className="font-serif text-4xl md:text-6xl font-bold mb-6 leading-[1.05]">
             Trusted by sellers, buyers &amp; investors.
           </h1>
-          <p className="text-luxury-200 text-lg font-light leading-relaxed">
+          <p className="text-luxury-600 text-lg font-light leading-relaxed">
             The numbers matter — but the relationships matter more. Here's what clients say about working with Jose.
           </p>
           <div className="flex justify-center items-center gap-2 mt-8">
-            {[...Array(5)].map((_, i) => <StarIcon key={i} className="w-5 h-5 text-gold-400" />)}
-            <span className="text-white ml-2 font-semibold">5.0</span>
+            {[...Array(5)].map((_, i) => <StarIcon key={i} className="w-5 h-5 text-gold-600" />)}
+            <span className="text-luxury-950 ml-2 font-semibold">5.0</span>
             <span className="text-luxury-400 text-sm">on Google</span>
           </div>
         </div>
@@ -93,9 +93,9 @@ function Testimonials() {
         </div>
       </section>
 
-      <section className="py-20 px-6 bg-luxury-950 text-center">
+      <section className="py-20 px-6 bg-white text-center">
         <div className="max-w-3xl mx-auto">
-          <h2 className="font-serif text-3xl md:text-4xl font-bold text-white mb-5">
+          <h2 className="font-serif text-3xl md:text-4xl font-bold text-luxury-950 mb-5">
             Ready to add your story?
           </h2>
           <Link to="/contact" className="btn-gold px-8 py-4 rounded-lg text-base inline-flex">

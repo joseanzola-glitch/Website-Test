@@ -22,11 +22,11 @@ export function SectionHeading({
         </div>
       )}
       <div className={`gold-divider mb-6 ${center ? 'mx-auto' : ''}`} />
-      <h2 className={`font-serif text-4xl md:text-5xl font-bold mb-6 leading-tight ${dark ? 'text-white' : 'text-luxury-900'}`}>
+      <h2 className={`font-serif text-4xl md:text-5xl font-bold mb-6 leading-tight ${dark ? 'text-luxury-950' : 'text-luxury-900'}`}>
         {title}
       </h2>
       {description && (
-        <p className={`text-lg max-w-2xl ${center ? 'mx-auto' : ''} font-light ${dark ? 'text-luxury-300' : 'text-luxury-500'}`}>
+        <p className={`text-lg max-w-2xl ${center ? 'mx-auto' : ''} font-light ${dark ? 'text-luxury-500' : 'text-luxury-500'}`}>
           {description}
         </p>
       )}
@@ -36,7 +36,7 @@ export function SectionHeading({
 
 export function CTABanner() {
   return (
-    <section className="relative py-20 px-6 overflow-hidden bg-luxury-950">
+    <section className="relative py-20 px-6 overflow-hidden bg-white">
       <div
         className="absolute inset-0 opacity-30"
         style={{
@@ -45,10 +45,10 @@ export function CTABanner() {
         }}
       />
       <div className="relative max-w-5xl mx-auto text-center">
-        <h2 className="font-serif text-3xl md:text-5xl font-bold text-white mb-6">
+        <h2 className="font-serif text-3xl md:text-5xl font-bold text-luxury-950 mb-6">
           Ready to make your next move?
         </h2>
-        <p className="text-luxury-200 text-lg mb-10 max-w-xl mx-auto font-light">
+        <p className="text-luxury-600 text-lg mb-10 max-w-xl mx-auto font-light">
           Whether buying, selling, or investing — the first step starts with a conversation.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -74,12 +74,12 @@ export function StatsBar() {
     { value: '5.0', label: 'Google Rating' },
   ]
   return (
-    <section className="border-y border-white/5 bg-luxury-900">
+    <section className="border-y border-luxury-950/10 bg-ivory-100">
       <div className="max-w-6xl mx-auto px-6 py-10 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
         {stats.map((stat) => (
           <div key={stat.label}>
             <div className="text-gradient-gold text-3xl md:text-4xl font-serif font-bold mb-2">{stat.value}</div>
-            <div className="text-luxury-300 text-xs font-medium uppercase tracking-[0.15em]">{stat.label}</div>
+            <div className="text-luxury-500 text-xs font-medium uppercase tracking-[0.15em]">{stat.label}</div>
           </div>
         ))}
       </div>
@@ -89,7 +89,7 @@ export function StatsBar() {
 
 export function TrustStrip() {
   return (
-    <div className="border-t border-white/5 bg-luxury-950">
+    <div className="border-t border-luxury-950/10 bg-white">
       <div className="max-w-6xl mx-auto px-6 py-8 flex flex-wrap items-center justify-center gap-x-10 gap-y-4 text-luxury-400 text-xs tracking-widest uppercase font-medium">
         <span>Compass</span>
         <span className="text-gold-500/40">•</span>
@@ -120,13 +120,13 @@ export function FeatureTile({
 }) {
   return (
     <div className="luxury-card rounded-2xl p-7 group">
-      <div className="w-12 h-12 rounded-xl bg-gold-400/10 flex items-center justify-center text-gold-400 mb-5 group-hover:bg-gold-400/20 transition-colors">
+      <div className="w-12 h-12 rounded-xl bg-gold-400/10 flex items-center justify-center text-gold-600 mb-5 group-hover:bg-gold-400/20 transition-colors">
         {icon}
       </div>
-      <h3 className="font-serif text-xl font-bold text-white mb-3">{title}</h3>
-      <p className="text-luxury-300 leading-relaxed mb-5 text-sm">{description}</p>
+      <h3 className="font-serif text-xl font-bold text-luxury-950 mb-3">{title}</h3>
+      <p className="text-luxury-500 leading-relaxed mb-5 text-sm">{description}</p>
       {href && cta && (
-        <a href={href} className="inline-flex items-center gap-2 text-gold-400 font-semibold text-sm hover:text-gold-300 transition">
+        <a href={href} className="inline-flex items-center gap-2 text-gold-600 font-semibold text-sm hover:text-gold-600 transition">
           {cta}
           <ArrowRightIcon className="w-4 h-4" />
         </a>

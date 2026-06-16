@@ -21,7 +21,7 @@ export const Route = createFileRoute('/')({
 
 function Home() {
   return (
-    <div className="text-white bg-luxury-950">
+    <div className="text-luxury-950 bg-white">
       <HeroSection />
       <TrustStrip />
       <AboutPreviewSection />
@@ -45,18 +45,23 @@ function HeroSection() {
     <section className="relative min-h-[92vh] flex items-center overflow-hidden -mt-[72px] pt-[72px]">
       {/* Miami skyline aerial drone background */}
       <div className="absolute inset-0">
-        {/* Changed from luxury-950 to pure white so any loading gap matches your new aesthetic */}
-        <div className="absolute inset-0 bg-white" /> 
-        
+        {/* Pure white underlay so any loading gap matches the light aesthetic */}
+        <div className="absolute inset-0 bg-white" />
+
+        {/*
+          preload="metadata" (not "auto") fixes the hero lag: the 18MB local
+          clip no longer downloads in full before render, so it stops competing
+          with the page paint. The browser fetches just enough to start, then
+          streams the rest as it autoplays.
+        */}
         <video
           className="absolute inset-0 w-full h-full object-cover opacity-90"
           autoPlay
           muted
           loop
           playsInline
-          preload="auto"
+          preload="metadata"
         >
-          {/* Your local video loads first for instant speed */}
           <source src="/Miami-skyline.mp4" type="video/mp4" />
           <source
             src="https://videos.pexels.com/video-files/3699477/3699477-hd_1920_1080_24fps.mp4"
@@ -73,7 +78,7 @@ function HeroSection() {
       </div>
       
       <div className="relative z-10 w-full max-w-5xl mx-auto px-6 py-20 text-center">
-        <div className="inline-flex items-center gap-2 bg-white/5 border border-gold-400/20 text-gold-400 text-xs font-semibold px-5 py-2.5 rounded-full mb-8 tracking-[0.2em] uppercase backdrop-blur-sm">
+        <div className="inline-flex items-center gap-2 bg-luxury-950/5 border border-gold-400/20 text-gold-600 text-xs font-semibold px-5 py-2.5 rounded-full mb-8 tracking-[0.2em] uppercase backdrop-blur-sm">
           <span className="w-1.5 h-1.5 rounded-full bg-gold-400" />
           Miami &amp; South Florida &middot; Compass
         </div>
@@ -83,7 +88,7 @@ function HeroSection() {
           <span className="block text-gradient-gold mt-2">sell for top dollar.</span>
         </h1>
 
-        <p className="text-lg md:text-xl text-luxury-100 mb-10 max-w-2xl mx-auto leading-relaxed font-light">
+        <p className="text-lg md:text-xl text-luxury-700 mb-10 max-w-2xl mx-auto leading-relaxed font-light">
           Strategic marketing, expert negotiation, and an investor's eye for value, for sellers, buyers, and investors in the $700K+ market.
         </p>
 
@@ -98,9 +103,9 @@ function HeroSection() {
           </Link>
         </div>
 
-        <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-luxury-200 text-xs tracking-[0.15em] uppercase font-medium">
+        <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-luxury-600 text-xs tracking-[0.15em] uppercase font-medium">
           <span className="flex items-center gap-2">
-            <AwardIcon className="w-4 h-4 text-gold-400" />
+            <AwardIcon className="w-4 h-4 text-gold-600" />
             20 Under 40 Honoree
           </span>
           <span className="text-gold-500/30 hidden sm:inline">|</span>
@@ -109,14 +114,14 @@ function HeroSection() {
           <span>Real Estate Investor</span>
           <span className="text-gold-500/30 hidden sm:inline">|</span>
           <span className="flex items-center gap-1.5">
-            {[...Array(5)].map((_, i) => <StarIcon key={i} className="w-3 h-3 text-gold-400" />)}
-            <span className="ml-1 text-gold-300 normal-case tracking-normal">5.0 Google</span>
+            {[...Array(5)].map((_, i) => <StarIcon key={i} className="w-3 h-3 text-gold-600" />)}
+            <span className="ml-1 text-gold-600 normal-case tracking-normal">5.0 Google</span>
           </span>
         </div>
       </div>
 
       {/* Bottom fade into page */}
-      <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-luxury-950 to-transparent z-[5]" />
+      <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-white to-transparent z-[5]" />
     </section>
   )
 }
@@ -125,10 +130,10 @@ function HeroSection() {
 
 function AboutPreviewSection() {
   return (
-    <section className="py-20 md:py-28 px-6 bg-luxury-950">
+    <section className="py-20 md:py-28 px-6 bg-white">
       <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-14 lg:gap-20 items-center">
         <div className="relative">
-          <div className="aspect-[4/5] rounded-2xl overflow-hidden bg-luxury-900 relative border border-white/5 shadow-2xl">
+          <div className="aspect-[4/5] rounded-2xl overflow-hidden bg-ivory-100 relative border border-luxury-950/10 shadow-2xl">
             <img
               src="/jose-anzola.jpg"
               alt="Jose Anzola — Compass real estate agent in Miami"
@@ -138,23 +143,23 @@ function AboutPreviewSection() {
             <div className="absolute inset-0 bg-gradient-to-t from-luxury-950/70 via-luxury-950/10 to-transparent" />
             <div className="absolute bottom-6 left-6 right-6">
               <div className="text-white font-serif text-2xl font-bold">Jose Anzola</div>
-              <div className="text-gold-400 text-[10px] tracking-[0.3em] uppercase font-semibold mt-1">Compass · Miami</div>
+              <div className="text-gold-300 text-[10px] tracking-[0.3em] uppercase font-semibold mt-1">Compass · Miami</div>
             </div>
             <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-gold-500 via-gold-300 to-gold-500" />
           </div>
-          <div className="absolute -bottom-5 -right-5 bg-luxury-900 border border-gold-400/30 text-gold-400 font-semibold px-6 py-3 rounded-xl shadow-2xl text-sm tracking-wide">
+          <div className="absolute -bottom-5 -right-5 bg-ivory-100 border border-gold-400/30 text-gold-600 font-semibold px-6 py-3 rounded-xl shadow-2xl text-sm tracking-wide">
             Compass Agent
           </div>
           <div className="absolute -top-4 -left-4 w-20 h-20 border-t-2 border-l-2 border-gold-400/20 rounded-tl-2xl" />
         </div>
 
         <div>
-          <div className="text-gold-400 font-semibold uppercase tracking-[0.2em] text-xs mb-4">About Jose</div>
+          <div className="text-gold-600 font-semibold uppercase tracking-[0.2em] text-xs mb-4">About Jose</div>
           <div className="gold-divider mb-8" />
-          <h2 className="font-serif text-4xl md:text-5xl font-bold text-white mb-8 leading-tight">
+          <h2 className="font-serif text-4xl md:text-5xl font-bold text-luxury-950 mb-8 leading-tight">
             A Miami-native advisor with an investor's edge.
           </h2>
-          <p className="text-luxury-200 text-lg leading-relaxed mb-6">
+          <p className="text-luxury-600 text-lg leading-relaxed mb-6">
             Hi, I'm Jose Anzola — a real estate agent with Compass specializing in residential
             properties across Miami and South Florida. I help buyers find their dream homes and
             assist sellers in maximizing property value through strategic marketing and expert
@@ -163,19 +168,19 @@ function AboutPreviewSection() {
           </p>
 
           <div className="grid grid-cols-2 gap-4 mb-8">
-            <div className="bg-white/5 border border-gold-400/20 rounded-xl px-5 py-4">
-              <div className="flex items-center gap-2 text-gold-400 mb-1">
+            <div className="bg-luxury-950/5 border border-gold-400/20 rounded-xl px-5 py-4">
+              <div className="flex items-center gap-2 text-gold-600 mb-1">
                 <AwardIcon className="w-4 h-4" />
                 <div className="text-xs uppercase tracking-wider font-semibold">Recognition</div>
               </div>
-              <div className="text-white font-semibold text-sm">20 Under 40 Honoree</div>
+              <div className="text-luxury-950 font-semibold text-sm">20 Under 40 Honoree</div>
             </div>
-            <div className="bg-white/5 border border-gold-400/20 rounded-xl px-5 py-4">
-              <div className="flex items-center gap-2 text-gold-400 mb-1">
+            <div className="bg-luxury-950/5 border border-gold-400/20 rounded-xl px-5 py-4">
+              <div className="flex items-center gap-2 text-gold-600 mb-1">
                 <HomeIcon className="w-4 h-4" />
                 <div className="text-xs uppercase tracking-wider font-semibold">Experience</div>
               </div>
-              <div className="text-white font-semibold text-sm">Investor &amp; Flipper</div>
+              <div className="text-luxury-950 font-semibold text-sm">Investor &amp; Flipper</div>
             </div>
           </div>
 
@@ -219,13 +224,13 @@ function ServicesSection() {
   ]
 
   return (
-    <section className="py-24 md:py-32 px-6 bg-luxury-900/50">
+    <section className="py-24 md:py-32 px-6 bg-ivory-50">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
-          <div className="text-gold-400 font-semibold uppercase tracking-[0.2em] text-xs mb-4">Services</div>
+          <div className="text-gold-600 font-semibold uppercase tracking-[0.2em] text-xs mb-4">Services</div>
           <div className="gold-divider mx-auto mb-6" />
-          <h2 className="font-serif text-4xl md:text-5xl font-bold text-white mb-5">Three ways I can help.</h2>
-          <p className="text-luxury-300 text-lg max-w-2xl mx-auto font-light">
+          <h2 className="font-serif text-4xl md:text-5xl font-bold text-luxury-950 mb-5">Three ways I can help.</h2>
+          <p className="text-luxury-500 text-lg max-w-2xl mx-auto font-light">
             Selling is the focus — but whether you're buying or investing, you get the same
             strategic, detail-obsessed service.
           </p>
@@ -237,7 +242,7 @@ function ServicesSection() {
               key={s.title}
               className={`relative rounded-2xl p-8 lg:p-10 transition-all duration-500 ${
                 s.primary
-                  ? 'bg-gradient-to-br from-gold-500/15 via-luxury-900 to-luxury-900 border-2 border-gold-400/40 shadow-2xl scale-[1.02]'
+                  ? 'bg-gradient-to-br from-gold-100 via-white to-ivory-50 border-2 border-gold-400/50 shadow-2xl scale-[1.02]'
                   : 'luxury-card'
               }`}
             >
@@ -246,12 +251,12 @@ function ServicesSection() {
                   {s.badge}
                 </div>
               )}
-              <h3 className="font-serif text-3xl font-bold text-white mb-3">{s.title}</h3>
-              <p className="text-luxury-300 leading-relaxed mb-6 text-sm">{s.desc}</p>
+              <h3 className="font-serif text-3xl font-bold text-luxury-950 mb-3">{s.title}</h3>
+              <p className="text-luxury-500 leading-relaxed mb-6 text-sm">{s.desc}</p>
               <ul className="space-y-2.5 mb-8">
                 {s.features.map((f) => (
-                  <li key={f} className="flex items-center gap-2 text-luxury-200 text-sm">
-                    <CheckIcon className="w-4 h-4 text-gold-400 flex-shrink-0" />
+                  <li key={f} className="flex items-center gap-2 text-luxury-600 text-sm">
+                    <CheckIcon className="w-4 h-4 text-gold-600 flex-shrink-0" />
                     {f}
                   </li>
                 ))}
@@ -259,7 +264,7 @@ function ServicesSection() {
               <Link
                 to={s.href}
                 className={`inline-flex items-center gap-2 font-semibold text-sm transition ${
-                  s.primary ? 'text-gold-300 hover:text-gold-200' : 'text-gold-400 hover:text-gold-300'
+                  s.primary ? 'text-gold-600 hover:text-gold-500' : 'text-gold-600 hover:text-gold-600'
                 }`}
               >
                 {s.cta}
@@ -365,15 +370,15 @@ function BuyerProcessSection() {
   ]
 
   return (
-    <section className="py-24 md:py-32 px-6 bg-luxury-950">
+    <section className="py-24 md:py-32 px-6 bg-white">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
-          <div className="text-gold-400 font-semibold uppercase tracking-[0.2em] text-xs mb-4">The Buyer Process</div>
+          <div className="text-gold-600 font-semibold uppercase tracking-[0.2em] text-xs mb-4">The Buyer Process</div>
           <div className="gold-divider mx-auto mb-6" />
-          <h2 className="font-serif text-4xl md:text-5xl font-bold text-white mb-5 leading-tight">
+          <h2 className="font-serif text-4xl md:text-5xl font-bold text-luxury-950 mb-5 leading-tight">
             Five steps, no guesswork.
           </h2>
-          <p className="text-luxury-300 text-lg max-w-2xl mx-auto font-light">
+          <p className="text-luxury-500 text-lg max-w-2xl mx-auto font-light">
             A guided path from curiosity to closing — with an experienced advocate at every step.
           </p>
         </div>
@@ -382,8 +387,8 @@ function BuyerProcessSection() {
           {steps.map((s) => (
             <div key={s.num} className="luxury-card rounded-2xl p-6 lg:p-7">
               <div className="step-number mb-4 text-3xl">{s.num}</div>
-              <h3 className="font-serif text-lg font-bold text-white mb-2">{s.title}</h3>
-              <p className="text-luxury-300 text-sm leading-relaxed">{s.desc}</p>
+              <h3 className="font-serif text-lg font-bold text-luxury-950 mb-2">{s.title}</h3>
+              <p className="text-luxury-500 text-sm leading-relaxed">{s.desc}</p>
             </div>
           ))}
         </div>
@@ -436,15 +441,15 @@ function TestimonialsSection() {
   ]
 
   return (
-    <section className="py-24 md:py-32 px-6 bg-luxury-900/50">
+    <section className="py-24 md:py-32 px-6 bg-ivory-50">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-14">
-          <div className="text-gold-400 font-semibold uppercase tracking-[0.2em] text-xs mb-4">Client Stories</div>
+          <div className="text-gold-600 font-semibold uppercase tracking-[0.2em] text-xs mb-4">Client Stories</div>
           <div className="gold-divider mx-auto mb-6" />
-          <h2 className="font-serif text-4xl md:text-5xl font-bold text-white mb-5 leading-tight">
+          <h2 className="font-serif text-4xl md:text-5xl font-bold text-luxury-950 mb-5 leading-tight">
             Trusted by sellers, buyers &amp; investors.
           </h2>
-          <p className="text-luxury-300 text-lg max-w-2xl mx-auto font-light">
+          <p className="text-luxury-500 text-lg max-w-2xl mx-auto font-light">
             Real stories from real clients across South Florida.
           </p>
         </div>
@@ -452,13 +457,13 @@ function TestimonialsSection() {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-10">
           {testimonials.map((t) => (
             <div key={t.name} className="luxury-card rounded-2xl p-8 relative">
-              <QuoteIcon className="absolute top-5 right-5 w-10 h-10 text-gold-400" />
+              <QuoteIcon className="absolute top-5 right-5 w-10 h-10 text-gold-600" />
               <div className="flex gap-1 mb-5">
-                {[...Array(5)].map((_, i) => <StarIcon key={i} className="w-4 h-4 text-gold-400" />)}
+                {[...Array(5)].map((_, i) => <StarIcon key={i} className="w-4 h-4 text-gold-600" />)}
               </div>
-              <p className="text-luxury-200 leading-relaxed mb-6 text-sm italic">"{t.text}"</p>
+              <p className="text-luxury-600 leading-relaxed mb-6 text-sm italic">"{t.text}"</p>
               <div>
-                <div className="text-white font-semibold text-sm">{t.name}</div>
+                <div className="text-luxury-950 font-semibold text-sm">{t.name}</div>
                 <div className="text-luxury-400 text-xs">{t.role}</div>
               </div>
             </div>
@@ -511,15 +516,15 @@ function AreasWeServeSection() {
   ]
 
   return (
-    <section className="py-24 md:py-32 px-6 bg-luxury-950">
+    <section className="py-24 md:py-32 px-6 bg-white">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-14">
-          <div className="text-gold-400 font-semibold uppercase tracking-[0.2em] text-xs mb-4">Coverage</div>
+          <div className="text-gold-600 font-semibold uppercase tracking-[0.2em] text-xs mb-4">Coverage</div>
           <div className="gold-divider mx-auto mb-6" />
-          <h2 className="font-serif text-4xl md:text-5xl font-bold text-white mb-5 leading-tight">
+          <h2 className="font-serif text-4xl md:text-5xl font-bold text-luxury-950 mb-5 leading-tight">
             Areas We Serve
           </h2>
-          <p className="text-luxury-300 text-lg max-w-2xl mx-auto font-light">
+          <p className="text-luxury-500 text-lg max-w-2xl mx-auto font-light">
             Deep, neighborhood-level expertise across Miami and South Florida — categorized by the
             kind of opportunity each area best delivers.
           </p>
@@ -532,11 +537,11 @@ function AreasWeServeSection() {
               className="luxury-card rounded-2xl p-7 lg:p-8 flex flex-col h-full transition-transform hover:-translate-y-1 duration-300"
             >
               <div className="text-4xl mb-4" aria-hidden="true">{a.icon}</div>
-              <h3 className="font-serif text-xl font-bold text-white mb-2 leading-snug">{a.title}</h3>
-              <div className="text-gold-400 text-[11px] tracking-[0.15em] uppercase font-semibold mb-4">
+              <h3 className="font-serif text-xl font-bold text-luxury-950 mb-2 leading-snug">{a.title}</h3>
+              <div className="text-gold-600 text-[11px] tracking-[0.15em] uppercase font-semibold mb-4">
                 {a.neighborhoods}
               </div>
-              <p className="text-luxury-300 text-sm leading-relaxed flex-1">{a.description}</p>
+              <p className="text-luxury-500 text-sm leading-relaxed flex-1">{a.description}</p>
             </div>
           ))}
         </div>
