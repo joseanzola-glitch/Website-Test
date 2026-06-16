@@ -41,9 +41,31 @@ function Listings() {
           <h1 className="font-serif text-4xl md:text-6xl font-bold mb-6 leading-[1.05]">
             Featured Listings
           </h1>
-          <p className="text-luxury-600 text-lg max-w-2xl mx-auto font-light leading-relaxed mb-10">
+          <p className="text-luxury-600 text-lg max-w-2xl mx-auto font-light leading-relaxed mb-12">
             A selection of active and recently sold homes across Miami and South Florida.
           </p>
+
+          {/* NEW PREMIUM LIVE MLS PORTAL ACCESS BOX */}
+          <div className="max-w-xl mx-auto mb-16 p-6 rounded-2xl bg-slate-50 border border-slate-100 shadow-sm text-left flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+            <div className="flex gap-4 items-center">
+              <div className="w-12 h-12 shrink-0 rounded-xl bg-gold-400/10 flex items-center justify-center text-gold-600">
+                <SearchIcon className="w-5 h-5" />
+              </div>
+              <div>
+                <h3 className="font-serif text-lg font-bold text-luxury-950">Search Entire Miami MLS</h3>
+                <p className="text-luxury-500 text-xs font-light">Access thousands of live real-time properties</p>
+              </div>
+            </div>
+            <a 
+              href="<iframe src="https://sef.mlsmatrix.com/Matrix/public/IDX.aspx?idx=1eae1f21" width="100%" height="100%" frameborder="0" marginwidth="0" marginheight="0"></iframe>"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full sm:w-auto text-center bg-gold-500 hover:bg-gold-600 text-white font-semibold uppercase tracking-wider text-[10px] px-5 py-3 rounded-lg transition-all shadow-sm hover:-translate-y-0.5 whitespace-nowrap"
+            >
+              Launch Live Search
+            </a>
+          </div>
+
           <div className="flex flex-wrap gap-3 justify-center">
             {(['All', 'Active', 'Sold'] as Status[]).map((f) => (
               <button
