@@ -57,7 +57,7 @@ function Listings() {
               </div>
             </div>
             <a 
-              href="<iframe src="https://sef.mlsmatrix.com/Matrix/public/IDX.aspx?idx=1eae1f21" width="100%" height="100%" frameborder="0" marginwidth="0" marginheight="0"></iframe>"
+              href="https://sef.mlsmatrix.com/Matrix/public/IDX.aspx?idx=1eae1f21"
               target="_blank"
               rel="noopener noreferrer"
               className="w-full sm:w-auto text-center bg-gold-500 hover:bg-gold-600 text-white font-semibold uppercase tracking-wider text-[10px] px-5 py-3 rounded-lg transition-all shadow-sm hover:-translate-y-0.5 whitespace-nowrap"
