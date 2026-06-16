@@ -19,19 +19,19 @@ function SuccessMessage({ title, body }: { title: string; body: string }) {
   return (
     <div className="text-center py-12">
       <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-gold-500/20 flex items-center justify-center">
-        <CheckIcon className="w-8 h-8 text-gold-400" />
+        <CheckIcon className="w-8 h-8 text-gold-600" />
       </div>
-      <h3 className="font-serif text-2xl text-white mb-3">{title}</h3>
-      <p className="text-luxury-200 max-w-sm mx-auto">{body}</p>
+      <h3 className="font-serif text-2xl text-luxury-950 mb-3">{title}</h3>
+      <p className="text-luxury-600 max-w-sm mx-auto">{body}</p>
     </div>
   )
 }
 
 const inputClasses =
-  'w-full px-5 py-4 bg-white/5 border border-white/10 text-white placeholder-luxury-300 rounded-lg focus:outline-none focus:border-gold-400 focus:bg-white/8 transition-all duration-300 text-sm'
+  'w-full px-5 py-4 bg-luxury-950/5 border border-luxury-950/10 text-luxury-950 placeholder-luxury-300 rounded-lg focus:outline-none focus:border-gold-400 focus:bg-luxury-950/5 transition-all duration-300 text-sm'
 
 const labelClasses =
-  'block text-xs font-medium text-luxury-200 mb-2 uppercase tracking-wider'
+  'block text-xs font-medium text-luxury-600 mb-2 uppercase tracking-wider'
 
 const inputLightClasses =
   'w-full px-5 py-4 bg-white border border-luxury-100 text-luxury-900 placeholder-luxury-300 rounded-lg focus:outline-none focus:border-gold-500 transition-all duration-300 text-sm'

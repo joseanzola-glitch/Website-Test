@@ -24,18 +24,18 @@ export const Route = createFileRoute('/sell')({
 
 function Sell() {
   return (
-    <div className="bg-luxury-950 text-white">
+    <div className="bg-white text-luxury-950">
       {/* Hero */}
       <section className="py-20 md:py-28 px-6">
         <div className="max-w-6xl mx-auto grid lg:grid-cols-5 gap-12 items-start">
           <div className="lg:col-span-3">
-            <div className="text-gold-400 font-semibold uppercase tracking-[0.2em] text-xs mb-4">Sellers</div>
+            <div className="text-gold-600 font-semibold uppercase tracking-[0.2em] text-xs mb-4">Sellers</div>
             <div className="gold-divider mb-6" />
             <h1 className="font-serif text-4xl md:text-6xl font-bold mb-6 leading-[1.05]">
               Sell for top dollar.
               <span className="block text-gradient-gold mt-2">With a strategy built to win.</span>
             </h1>
-            <p className="text-luxury-200 text-lg leading-relaxed mb-8">
+            <p className="text-luxury-600 text-lg leading-relaxed mb-8">
               Selling in Miami is equal parts preparation, pricing, and presentation. Jose combines
               live comps, hyperlocal demand data, and an investor's eye to position your home for
               the strongest possible outcome — and negotiates hard to net you the most at closing.
@@ -50,9 +50,9 @@ function Sell() {
               ].map((item) => (
                 <li key={item} className="flex items-start gap-3">
                   <span className="mt-0.5 w-5 h-5 rounded-full bg-gold-500/20 border border-gold-500/40 flex items-center justify-center flex-shrink-0">
-                    <CheckIcon className="w-3 h-3 text-gold-400" />
+                    <CheckIcon className="w-3 h-3 text-gold-600" />
                   </span>
-                  <span className="text-luxury-100">{item}</span>
+                  <span className="text-luxury-700">{item}</span>
                 </li>
               ))}
             </ul>
@@ -71,15 +71,15 @@ function Sell() {
           <div className="lg:col-span-2 lg:sticky lg:top-24">
             <div className="luxury-card rounded-2xl p-7 lg:p-8">
               <div className="flex items-center gap-3 mb-5">
-                <div className="w-10 h-10 rounded-xl bg-gold-400/20 flex items-center justify-center text-gold-400">
+                <div className="w-10 h-10 rounded-xl bg-gold-400/20 flex items-center justify-center text-gold-600">
                   <HomeIcon className="w-5 h-5" />
                 </div>
                 <div>
-                  <h2 className="font-serif text-xl font-bold text-white">Talk to Jose</h2>
+                  <h2 className="font-serif text-xl font-bold text-luxury-950">Talk to Jose</h2>
                   <p className="text-luxury-400 text-xs">Tell me about your home. No obligation.</p>
                 </div>
               </div>
-              <ContactForm theme="dark" />
+              <ContactForm theme="light" />
             </div>
           </div>
         </div>
@@ -151,7 +151,7 @@ function Sell() {
       </section>
 
       {/* Stats */}
-      <section className="py-16 px-6 bg-luxury-900 border-y border-white/5">
+      <section className="py-16 px-6 bg-ivory-100 border-y border-luxury-950/10">
         <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
           {[
             { value: '98%', label: 'List-to-sold price ratio' },
@@ -161,19 +161,19 @@ function Sell() {
           ].map((s) => (
             <div key={s.label}>
               <div className="text-gradient-gold font-serif text-4xl font-bold mb-2">{s.value}</div>
-              <div className="text-luxury-300 text-xs uppercase tracking-[0.15em]">{s.label}</div>
+              <div className="text-luxury-500 text-xs uppercase tracking-[0.15em]">{s.label}</div>
             </div>
           ))}
         </div>
       </section>
 
       {/* CTA */}
-      <section className="py-20 px-6 bg-luxury-950">
+      <section className="py-20 px-6 bg-white">
         <div className="max-w-3xl mx-auto text-center">
-          <h2 className="font-serif text-3xl md:text-5xl font-bold text-white mb-6">
+          <h2 className="font-serif text-3xl md:text-5xl font-bold text-luxury-950 mb-6">
             Thinking of listing your home?
           </h2>
-          <p className="text-luxury-200 text-lg mb-10 font-light">
+          <p className="text-luxury-600 text-lg mb-10 font-light">
             Let's talk strategy. An honest conversation with someone who knows the Miami market —
             no pressure, no pitch.
           </p>

@@ -24,11 +24,11 @@ export const Route = createFileRoute('/about')({
 
 function About() {
   return (
-    <div className="bg-luxury-950 text-white">
+    <div className="bg-white text-luxury-950">
       <section className="py-20 md:py-28 px-6">
         <div className="max-w-6xl mx-auto grid md:grid-cols-5 gap-12 items-center">
           <div className="md:col-span-2 relative">
-            <div className="aspect-[4/5] rounded-2xl overflow-hidden bg-luxury-900 relative border border-white/5 shadow-2xl">
+            <div className="aspect-[4/5] rounded-2xl overflow-hidden bg-ivory-100 relative border border-luxury-950/10 shadow-2xl">
               <img
                 src="/jose-anzola.jpg"
                 alt="Jose Anzola — Compass real estate agent in Miami"
@@ -40,19 +40,19 @@ function About() {
             </div>
           </div>
           <div className="md:col-span-3">
-            <div className="text-gold-400 font-semibold uppercase tracking-[0.2em] text-xs mb-4">About</div>
+            <div className="text-gold-600 font-semibold uppercase tracking-[0.2em] text-xs mb-4">About</div>
             <div className="gold-divider mb-6" />
             <h1 className="font-serif text-4xl md:text-6xl font-bold mb-8 leading-[1.1]">
               An investor, an advocate, and a Miami insider.
             </h1>
-            <p className="text-luxury-200 text-lg leading-relaxed mb-6">
+            <p className="text-luxury-600 text-lg leading-relaxed mb-6">
               Hi, I'm Jose Anzola — a real estate agent with Compass specializing in residential
               properties across Miami and South Florida. I help buyers find their dream homes and
               assist sellers in maximizing property value through strategic marketing and expert
               negotiation. Whether you're buying, selling, or investing, I guide you through every
               step of the process.
             </p>
-            <p className="text-luxury-200 text-lg leading-relaxed mb-8">
+            <p className="text-luxury-600 text-lg leading-relaxed mb-8">
               What sets me apart is that I don't just sell homes — I own, flip, and invest in them.
               That investor's mindset informs every listing I take, every negotiation I run, and
               every buyer I represent. I know what creates value, what kills it, and how to
@@ -62,28 +62,28 @@ function About() {
         </div>
       </section>
 
-      <section className="bg-luxury-900 py-16 px-6 border-y border-white/5">
+      <section className="bg-ivory-100 py-16 px-6 border-y border-luxury-950/10">
         <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-6">
-          <div className="bg-white/5 border border-gold-400/20 rounded-2xl p-8">
-            <AwardIcon className="w-8 h-8 text-gold-400 mb-4" />
-            <h3 className="font-serif text-xl font-bold text-white mb-2">20 Under 40</h3>
-            <p className="text-luxury-300 text-sm leading-relaxed">
+          <div className="bg-luxury-950/5 border border-gold-400/20 rounded-2xl p-8">
+            <AwardIcon className="w-8 h-8 text-gold-600 mb-4" />
+            <h3 className="font-serif text-xl font-bold text-luxury-950 mb-2">20 Under 40</h3>
+            <p className="text-luxury-500 text-sm leading-relaxed">
               Recognized among South Florida's top young professionals for impact in real estate
               and community.
             </p>
           </div>
-          <div className="bg-white/5 border border-gold-400/20 rounded-2xl p-8">
-            <HomeIcon className="w-8 h-8 text-gold-400 mb-4" />
-            <h3 className="font-serif text-xl font-bold text-white mb-2">Real Estate Investor</h3>
-            <p className="text-luxury-300 text-sm leading-relaxed">
+          <div className="bg-luxury-950/5 border border-gold-400/20 rounded-2xl p-8">
+            <HomeIcon className="w-8 h-8 text-gold-600 mb-4" />
+            <h3 className="font-serif text-xl font-bold text-luxury-950 mb-2">Real Estate Investor</h3>
+            <p className="text-luxury-500 text-sm leading-relaxed">
               Active investor and flipper — I work with my own capital the same way I work with
               clients': rigorously, and with a plan.
             </p>
           </div>
-          <div className="bg-white/5 border border-gold-400/20 rounded-2xl p-8">
-            <StarIcon className="w-7 h-7 text-gold-400 mb-4" />
-            <h3 className="font-serif text-xl font-bold text-white mb-2">5.0 Star Rating</h3>
-            <p className="text-luxury-300 text-sm leading-relaxed">
+          <div className="bg-luxury-950/5 border border-gold-400/20 rounded-2xl p-8">
+            <StarIcon className="w-7 h-7 text-gold-600 mb-4" />
+            <h3 className="font-serif text-xl font-bold text-luxury-950 mb-2">5.0 Star Rating</h3>
+            <p className="text-luxury-500 text-sm leading-relaxed">
               Consistently rated 5 stars by clients for responsiveness, clarity, and results.
             </p>
           </div>
@@ -126,14 +126,14 @@ function About() {
         </div>
       </section>
 
-      <section className="py-20 px-6 bg-luxury-950">
+      <section className="py-20 px-6 bg-white">
         <div className="max-w-4xl mx-auto text-center">
-          <QuoteIcon className="w-14 h-14 text-gold-400 mx-auto mb-6" />
-          <blockquote className="font-serif text-2xl md:text-3xl text-white leading-snug mb-6">
+          <QuoteIcon className="w-14 h-14 text-gold-600 mx-auto mb-6" />
+          <blockquote className="font-serif text-2xl md:text-3xl text-luxury-950 leading-snug mb-6">
             "Real estate isn't just transactions — it's the biggest decision most families make.
             My job is to make it clear, strategic, and successful."
           </blockquote>
-          <div className="text-gold-400 uppercase tracking-[0.3em] text-xs font-semibold">— Jose Anzola</div>
+          <div className="text-gold-600 uppercase tracking-[0.3em] text-xs font-semibold">— Jose Anzola</div>
         </div>
       </section>
 

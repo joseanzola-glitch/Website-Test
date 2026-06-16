@@ -22,17 +22,17 @@ export const Route = createFileRoute('/buy')({
 
 function Buy() {
   return (
-    <div className="bg-luxury-950 text-white">
+    <div className="bg-white text-luxury-950">
       {/* Hero */}
       <section className="py-20 md:py-28 px-6">
         <div className="max-w-6xl mx-auto text-center">
-          <div className="text-gold-400 font-semibold uppercase tracking-[0.2em] text-xs mb-4">Buyers</div>
+          <div className="text-gold-600 font-semibold uppercase tracking-[0.2em] text-xs mb-4">Buyers</div>
           <div className="gold-divider mx-auto mb-6" />
           <h1 className="font-serif text-4xl md:text-6xl font-bold mb-6 leading-[1.05]">
             Find the right home in Miami —<br />
             <span className="text-gradient-gold">with an advocate who knows value.</span>
           </h1>
-          <p className="text-luxury-200 text-lg max-w-2xl mx-auto mb-10 font-light leading-relaxed">
+          <p className="text-luxury-600 text-lg max-w-2xl mx-auto mb-10 font-light leading-relaxed">
             From off-market access to strategic offer crafting, Jose represents buyers in the $700K+
             market across Miami and South Florida.
           </p>
@@ -49,12 +49,12 @@ function Buy() {
       </section>
 
       {/* Buyer process */}
-      <section className="bg-luxury-900/50 py-20 md:py-28 px-6">
+      <section className="bg-ivory-50 py-20 md:py-28 px-6">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-14">
-            <div className="text-gold-400 font-semibold uppercase tracking-[0.2em] text-xs mb-4">The Buyer Process</div>
+            <div className="text-gold-600 font-semibold uppercase tracking-[0.2em] text-xs mb-4">The Buyer Process</div>
             <div className="gold-divider mx-auto mb-6" />
-            <h2 className="font-serif text-4xl md:text-5xl font-bold text-white mb-4 leading-tight">
+            <h2 className="font-serif text-4xl md:text-5xl font-bold text-luxury-950 mb-4 leading-tight">
               Five steps to keys in hand.
             </h2>
           </div>
@@ -68,8 +68,8 @@ function Buy() {
             ].map((s) => (
               <div key={s.num} className="luxury-card rounded-2xl p-6 lg:p-7">
                 <div className="step-number mb-4 text-3xl">{s.num}</div>
-                <h3 className="font-serif text-lg font-bold text-white mb-2">{s.title}</h3>
-                <p className="text-luxury-300 text-sm leading-relaxed">{s.body}</p>
+                <h3 className="font-serif text-lg font-bold text-luxury-950 mb-2">{s.title}</h3>
+                <p className="text-luxury-500 text-sm leading-relaxed">{s.body}</p>
               </div>
             ))}
           </div>
@@ -77,7 +77,7 @@ function Buy() {
       </section>
 
       {/* Tools (Mortgage) */}
-      <section className="py-20 md:py-28 px-6 bg-luxury-950">
+      <section className="py-20 md:py-28 px-6 bg-white">
         <div className="max-w-3xl mx-auto">
           <MortgageCalculator />
         </div>
@@ -131,51 +131,51 @@ function MortgageCalculator() {
 
   return (
     <div className="luxury-card rounded-2xl p-8 lg:p-10">
-      <div className="w-12 h-12 rounded-xl bg-gold-400/10 flex items-center justify-center text-gold-400 mb-5">
+      <div className="w-12 h-12 rounded-xl bg-gold-400/10 flex items-center justify-center text-gold-600 mb-5">
         <CalculatorIcon className="w-6 h-6" />
       </div>
-      <h3 className="font-serif text-2xl font-bold text-white mb-3">Mortgage Calculator</h3>
-      <p className="text-luxury-300 text-sm mb-6">
+      <h3 className="font-serif text-2xl font-bold text-luxury-950 mb-3">Mortgage Calculator</h3>
+      <p className="text-luxury-500 text-sm mb-6">
         A quick estimate of your monthly payment. For exact numbers, I'll connect you with a trusted lender.
       </p>
 
       <div className="space-y-5 mb-6">
         <div>
-          <div className="flex justify-between text-xs text-luxury-200 mb-2">
+          <div className="flex justify-between text-xs text-luxury-600 mb-2">
             <span className="uppercase tracking-wider">Home Price</span>
-            <span className="text-gold-400 font-semibold">${price.toLocaleString()}</span>
+            <span className="text-gold-600 font-semibold">${price.toLocaleString()}</span>
           </div>
           <input type="range" min={300000} max={5000000} step={25000} value={price} onChange={(e) => setPrice(+e.target.value)} className="w-full accent-gold-400" />
         </div>
         <div>
-          <div className="flex justify-between text-xs text-luxury-200 mb-2">
+          <div className="flex justify-between text-xs text-luxury-600 mb-2">
             <span className="uppercase tracking-wider">Down Payment</span>
-            <span className="text-gold-400 font-semibold">{down}%</span>
+            <span className="text-gold-600 font-semibold">{down}%</span>
           </div>
           <input type="range" min={5} max={50} value={down} onChange={(e) => setDown(+e.target.value)} className="w-full accent-gold-400" />
         </div>
         <div>
-          <div className="flex justify-between text-xs text-luxury-200 mb-2">
+          <div className="flex justify-between text-xs text-luxury-600 mb-2">
             <span className="uppercase tracking-wider">Interest Rate</span>
-            <span className="text-gold-400 font-semibold">{rate.toFixed(2)}%</span>
+            <span className="text-gold-600 font-semibold">{rate.toFixed(2)}%</span>
           </div>
           <input type="range" min={3} max={10} step={0.1} value={rate} onChange={(e) => setRate(+e.target.value)} className="w-full accent-gold-400" />
         </div>
         <div>
-          <div className="flex justify-between text-xs text-luxury-200 mb-2">
+          <div className="flex justify-between text-xs text-luxury-600 mb-2">
             <span className="uppercase tracking-wider">Term</span>
-            <span className="text-gold-400 font-semibold">{term} yrs</span>
+            <span className="text-gold-600 font-semibold">{term} yrs</span>
           </div>
-          <select value={term} onChange={(e) => setTerm(+e.target.value)} className="w-full px-4 py-3 bg-white/5 border border-white/10 text-white rounded-lg text-sm focus:outline-none focus:border-gold-400">
+          <select value={term} onChange={(e) => setTerm(+e.target.value)} className="w-full px-4 py-3 bg-luxury-950/5 border border-luxury-950/10 text-luxury-950 rounded-lg text-sm focus:outline-none focus:border-gold-400">
             {[15, 20, 30].map((t) => <option key={t} value={t}>{t} years</option>)}
           </select>
         </div>
       </div>
 
       <div className="bg-gradient-to-br from-gold-400/20 to-gold-500/5 border border-gold-400/30 rounded-xl p-5 text-center">
-        <div className="text-luxury-300 text-xs uppercase tracking-[0.15em] mb-1">Estimated Monthly Payment</div>
+        <div className="text-luxury-500 text-xs uppercase tracking-[0.15em] mb-1">Estimated Monthly Payment</div>
         <div className="font-serif text-3xl font-bold text-gradient-gold">
-          ${Math.round(payment).toLocaleString()}<span className="text-luxury-300 text-lg font-normal">/mo</span>
+          ${Math.round(payment).toLocaleString()}<span className="text-luxury-500 text-lg font-normal">/mo</span>
         </div>
         <div className="text-luxury-400 text-xs mt-2">Principal &amp; interest only. Taxes, insurance, and HOA not included.</div>
       </div>
