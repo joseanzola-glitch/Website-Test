@@ -16,7 +16,7 @@ export const Route = createFileRoute('/listings')({
 })
 
 type Status = 'All' | 'Active' | 'Sold'
-type IdxTab = 'general' | 'active'
+type IdxTab = 'general' | 'active' | 'compass'
 
 const listings = [
   { status: 'Active', price: '$2,590,000', beds: 4, baths: 5, sqft: '2,666', address: '67 NW 109th St, Miami Shores, FL 33168', neighborhood: 'Miami Shores', image: '/67NW.jpg' },
@@ -43,7 +43,9 @@ function Listings() {
 
   return (
     <div className="bg-white text-luxury-950">
-      <section className="py-20 px-6 border-b border-luxury-950/10">
+      
+      {/* SECTION 1: HEADER & CURATED IMAGES GALLERY (NOW FIRST) */}
+      <section className="py-20 px-6">
         <div className="max-w-6xl mx-auto text-center">
           <div className="text-gold-600 font-semibold uppercase tracking-[0.2em] text-xs mb-4">Portfolio</div>
           <div className="gold-divider mx-auto mb-6" />
@@ -54,40 +56,8 @@ function Listings() {
             A selection of active and recently sold homes across Miami and South Florida.
           </p>
 
-          {/* UPGRADED EMBEDDED IDX PREVIEW VIEWPANEL */}
-          <div className="max-w-5xl mx-auto mb-16 p-4 rounded-2xl bg-slate-50 border border-slate-100 shadow-md text-left">
-            <div className="flex border-b border-slate-200 gap-6 mb-4 overflow-x-auto px-2 pb-1">
-              <button 
-                onClick={() => setActiveIdxTab('general')}
-                className={`pb-3 text-xs uppercase tracking-wider font-semibold border-b-2 transition-all cursor-pointer whitespace-nowrap ${activeIdxTab === 'general' ? 'border-gold-500 text-gold-600' : 'border-transparent text-luxury-400 hover:text-luxury-600'}`}
-              >
-                General Search
-              </button>
-              <button 
-                onClick={() => setActiveIdxTab('active')}
-                className={`pb-3 text-xs uppercase tracking-wider font-semibold border-b-2 transition-all cursor-pointer whitespace-nowrap ${activeIdxTab === 'active' ? 'border-gold-500 text-gold-600' : 'border-transparent text-luxury-400 hover:text-luxury-600'}`}
-              >
-                My Active Inventory
-              </button>
-            </div>
-
-            {/* Embedded Live System Feed Frame Container */}
-            <div className="w-full bg-white rounded-xl border border-slate-200 overflow-hidden shadow-inner aspect-[16/10] sm:h-[650px]">
-              <iframe 
-                src={idxLinks[activeIdxTab]} 
-                width="100%" 
-                height="100%" 
-                frameBorder="0" 
-                marginWidth={0} 
-                marginHeight={0}
-                className="w-full h-full"
-                title="Miami MLS Live Portal Feed"
-              />
-            </div>
-          </div>
-
-          {/* Existing Gallery Navigation */}
-          <div className="flex flex-wrap gap-3 justify-center">
+          {/* Gallery Filter Buttons */}
+          <div className="flex flex-wrap gap-3 justify-center mb-16">
             {(['All', 'Active', 'Sold'] as Status[]).map((f) => (
               <button
                 key={f}
@@ -102,42 +72,92 @@ function Listings() {
               </button>
             ))}
           </div>
-        </div>
-      </section>
 
-      {/* Manual Listings Section Grid */}
-      <section className="py-16 md:py-20 px-6 bg-white">
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-          {filtered.map((l) => (
-            <div key={l.address} className="group relative overflow-hidden rounded-2xl luxury-card">
-              <div className="aspect-[4/3] overflow-hidden">
-                <img src={l.image} alt={l.address} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-              </div>
-              <div className="absolute top-4 left-4">
-                <span className={`text-[10px] font-bold uppercase tracking-widest px-3 py-1.5 rounded-full ${
-                  l.status === 'Active'
-                    ? 'bg-gold-400 text-luxury-950'
-                    : 'bg-white/90 text-gold-600 border border-gold-400/40'
-                }`}>
-                  {l.status === 'Sold' ? 'Sold' : 'For Sale'}
-                </span>
-              </div>
-              <div className="p-6">
-                <div className="text-gold-600 text-xs tracking-widest uppercase mb-2 font-semibold">{l.neighborhood}</div>
-                <div className="text-luxury-950 font-serif text-2xl font-bold mb-1">{l.price}</div>
-                <div className="text-luxury-500 text-sm mb-3">{l.address}</div>
-                <div className="flex gap-3 text-luxury-400 text-xs">
-                  <span>{l.beds} BD</span><span>&middot;</span>
-                  <span>{l.baths} BA</span><span>&middot;</span>
-                  <span>{l.sqft} SQ FT</span>
+          {/* Curated Listings Photo Grid */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 text-left">
+            {filtered.map((l) => (
+              <div key={l.address} className="group relative overflow-hidden rounded-2xl luxury-card">
+                <div className="aspect-[4/3] overflow-hidden">
+                  <img src={l.image} alt={l.address} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                </div>
+                <div className="absolute top-4 left-4">
+                  <span className={`text-[10px] font-bold uppercase tracking-widest px-3 py-1.5 rounded-full ${
+                    l.status === 'Active'
+                      ? 'bg-gold-400 text-luxury-950'
+                      : 'bg-white/90 text-gold-600 border border-gold-400/40'
+                  }`}>
+                    {l.status === 'Sold' ? 'Sold' : 'For Sale'}
+                  </span>
+                </div>
+                <div className="p-6">
+                  <div className="text-gold-600 text-xs tracking-widest uppercase mb-2 font-semibold">{l.neighborhood}</div>
+                  <div className="text-luxury-950 font-serif text-2xl font-bold mb-1">{l.price}</div>
+                  <div className="text-luxury-500 text-sm mb-3">{l.address}</div>
+                  <div className="flex gap-3 text-luxury-400 text-xs">
+                    <span>{l.beds} BD</span><span>&middot;</span>
+                    <span>{l.baths} BA</span><span>&middot;</span>
+                    <span>{l.sqft} SQ FT</span>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </section>
 
-      <section className="py-20 px-6 bg-ivory-100 border-t border-luxury-950/10">
+      {/* SECTION 2: LIVE BROAD INTERACTIVE MLS VIEWPANEL (NOW SECOND) */}
+      <section className="py-20 px-6 bg-slate-50 border-t border-b border-slate-100">
+        <div className="max-w-6xl mx-auto text-center">
+          <div className="text-gold-600 font-semibold uppercase tracking-[0.2em] text-xs mb-4">Market Database</div>
+          <h2 className="font-serif text-3xl md:text-5xl font-bold mb-4 text-luxury-950">
+            Live Matrix Data Portals
+          </h2>
+          <p className="text-luxury-500 text-sm font-light max-w-xl mx-auto mb-12 leading-relaxed">
+            Explore broader market layers, deep community property files, and entire operational broker directories synced dynamically.
+          </p>
+
+          <div className="max-w-5xl mx-auto p-4 rounded-2xl bg-white border border-slate-200/60 shadow-md text-left">
+            {/* Viewport Sub-Navigation Menu */}
+            <div className="flex border-b border-slate-200 gap-6 mb-4 overflow-x-auto px-2 pb-1">
+              <button 
+                onClick={() => setActiveIdxTab('general')}
+                className={`pb-3 text-xs uppercase tracking-wider font-semibold border-b-2 transition-all cursor-pointer whitespace-nowrap ${activeIdxTab === 'general' ? 'border-gold-500 text-gold-600' : 'border-transparent text-luxury-400 hover:text-luxury-600'}`}
+              >
+                General Search
+              </button>
+              <button 
+                onClick={() => setActiveIdxTab('active')}
+                className={`pb-3 text-xs uppercase tracking-wider font-semibold border-b-2 transition-all cursor-pointer whitespace-nowrap ${activeIdxTab === 'active' ? 'border-gold-500 text-gold-600' : 'border-transparent text-luxury-400 hover:text-luxury-600'}`}
+              >
+                My Active Inventory
+              </button>
+              <button 
+                onClick={() => setActiveIdxTab('compass')}
+                className={`pb-3 text-xs uppercase tracking-wider font-semibold border-b-2 transition-all cursor-pointer whitespace-nowrap ${activeIdxTab === 'compass' ? 'border-gold-500 text-gold-600' : 'border-transparent text-luxury-400 hover:text-luxury-600'}`}
+              >
+                Compass Collection
+              </button>
+            </div>
+
+            {/* Live Interactive Frame Viewport */}
+            <div className="w-full bg-slate-50 rounded-xl border border-slate-200 overflow-hidden aspect-[16/10] sm:h-[650px]">
+              <iframe 
+                src={idxLinks[activeIdxTab]} 
+                width="100%" 
+                height="100%" 
+                frameBorder="0" 
+                marginWidth={0} 
+                marginHeight={0}
+                className="w-full h-full"
+                title="Miami MLS Live Portal Feed"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 3: WISH LIST FOOTER CALL-TO-ACTION */}
+      <section className="py-20 px-6 bg-ivory-100">
         <div className="max-w-4xl mx-auto text-center">
           <div className="w-16 h-16 mx-auto mb-6 rounded-2xl bg-gold-400/10 flex items-center justify-center text-gold-600">
             <SearchIcon className="w-7 h-7" />
