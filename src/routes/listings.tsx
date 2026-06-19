@@ -22,7 +22,7 @@ const listings = [
   { status: 'Active', price: '$2,590,000', beds: 4, baths: 5, sqft: '2,666', address: '67 NW 109th St, Miami Shores, FL 33168', neighborhood: 'Miami Shores', image: '/67NW.jpg' },
   { status: 'Active', price: '$799,000', beds: 3, baths: 2, sqft: '1,500', address: '2257 SW 11th St, Miami, FL 33135', neighborhood: 'Shenandoah', image: '/2257SW.jpg' },
   { status: 'Active', price: '$949,000', beds: 2, baths: 2, sqft: '1,190', address: '9 Island Ave, Unit 610 Miami Beach, FL 33139', neighborhood: 'Belle Isles', image: '/9 Island.jpg' },
-  { status: 'Active', price: '$985,000', beds: 2, baths: 2.5, sqft: '1,880', address: '450 Alton Rd #1502, Miami Beach, FL', neighborhood: 'South Beach', image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=900&q=80' },
+  { status: 'Active', price: '$580,000', beds: 3, baths: 3, sqft: '1,504', address: '1031 NE 213th Ter Miami, FL 33179', neighborhood: 'Ives Estates', image: '/1031NE.jpg' },
   { status: 'Sold', price: '$3,200,000', beds: 6, baths: 6, sqft: '4,850', address: '89 Palm Island, Miami Beach, FL', neighborhood: 'Palm Island', image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=900&q=80' },
   { status: 'Sold', price: '$1,295,000', beds: 3, baths: 3, sqft: '2,180', address: '321 Ocean Dr, Key Biscayne, FL', neighborhood: 'Key Biscayne', image: 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=900&q=80' },
   { status: 'Sold', price: '$1,650,000', beds: 4, baths: 3, sqft: '2,750', address: '765 Anastasia Ave, Coral Gables, FL', neighborhood: 'Coral Gables', image: 'https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=900&q=80' },
