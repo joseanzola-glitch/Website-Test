@@ -37,7 +37,8 @@ function Listings() {
   // ─── INSERT CLEAN MLS LINK STRINGS HERE ──────────────────────────
   const idxLinks = {
     general: "https://sef.mlsmatrix.com/Matrix/public/IDX.aspx?idx=1eae1f21", 
-    active: "https://sef.mlsmatrix.com/Matrix/public/IDX.aspx?idx=15691f22"
+    active: "https://sef.mlsmatrix.com/Matrix/public/IDX.aspx?idx=15691f22",
+    compass: "https://sef.mlsmatrix.com/Matrix/public/IDX.aspx?idx=2af81f2b"
   }
 
   return (
