@@ -23,10 +23,10 @@ const listings = [
   { status: 'Active', price: '$799,000', beds: 3, baths: 2, sqft: '1,500', address: '2257 SW 11th St, Miami, FL 33135', neighborhood: 'Shenandoah', image: '/2257SW.jpg' },
   { status: 'Active', price: '$949,000', beds: 2, baths: 2, sqft: '1,190', address: '9 Island Ave, Unit 610 Miami Beach, FL 33139', neighborhood: 'Belle Isles', image: '/9 Island.jpg' },
   { status: 'Active', price: '$580,000', beds: 3, baths: 3, sqft: '1,504', address: '1031 NE 213th Ter Miami, FL 33179', neighborhood: 'Ives Estates', image: '/1031NE.jpg' },
-  { status: 'Sold', price: '$3,200,000', beds: 6, baths: 6, sqft: '4,850', address: '89 Palm Island, Miami Beach, FL', neighborhood: 'Palm Island', image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=900&q=80' },
-  { status: 'Sold', price: '$1,295,000', beds: 3, baths: 3, sqft: '2,180', address: '321 Ocean Dr, Key Biscayne, FL', neighborhood: 'Key Biscayne', image: 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=900&q=80' },
-  { status: 'Sold', price: '$1,650,000', beds: 4, baths: 3, sqft: '2,750', address: '765 Anastasia Ave, Coral Gables, FL', neighborhood: 'Coral Gables', image: 'https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=900&q=80' },
-  { status: 'Sold', price: '$875,000', beds: 3, baths: 2, sqft: '1,920', address: '5432 NW 107 Ave, Doral, FL', neighborhood: 'Doral', image: 'https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=900&q=80' },
+  { status: 'Sold', price: '$1,705,000', beds: 4, baths: 4, sqft: '3,502', address: '14957 SW 34th St Davie, FL 33331', neighborhood: 'Riverstone', image: '/14957SW.jpg' },
+  { status: 'Sold', price: '$2,300,000', beds: 3, baths: 4, sqft: '3,062', address: '2711 S Ocean Dr, Unit 1202 Hollywood, FL 33019', neighborhood: 'Trump Hollywood', image: '/2711S.jpg' },
+  { status: 'Sold', price: '$2,320,000', beds: 4, baths: 4, sqft: '3,736', address: '1930 SW 25th St MIAMI, FL 33133-2304', neighborhood: 'Coral Way', image: '/1930SW.jpg' },
+  { status: 'Sold', price: '$1,225,000', beds: 2, baths: 2, sqft: '2,155', address: '451 SW 25th Rd MIAMI, FL 33129-2203', neighborhood: 'Brickell Hammock', image: '/451SW.jpg' },
 ]
 
 function Listings() {
