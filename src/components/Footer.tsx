@@ -1,5 +1,6 @@
 import { Link } from '@tanstack/react-router'
 import { FacebookIcon, InstagramIcon, LinkedInIcon, GoogleIcon } from './Icons'
+import { PRIVACY_POLICY_URL, TERMS_URL } from '../lib/legal'
 
 export function Footer() {
   return (
@@ -67,6 +68,27 @@ export function Footer() {
           <p className="text-luxury-500 text-xs">
             &copy; {new Date().getFullYear()} Jose Anzola. All rights reserved. Licensed Real Estate Agent &middot; Compass
           </p>
+          <nav aria-label="Legal" className="flex items-center gap-3 text-luxury-500 text-xs">
+            <a
+              href={PRIVACY_POLICY_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-gold-600 transition"
+            >
+              Privacy Policy
+            </a>
+            <span aria-hidden="true" className="text-luxury-950/20">
+              &middot;
+            </span>
+            <a
+              href={TERMS_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-gold-600 transition"
+            >
+              Terms &amp; Conditions
+            </a>
+          </nav>
           <p className="text-luxury-500 text-xs">
             Equal Housing Opportunity
           </p>

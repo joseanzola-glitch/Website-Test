@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { CheckIcon } from './Icons'
+import { PRIVACY_POLICY_URL, TERMS_URL } from '../lib/legal'
 
 function encode(data: Record<string, string>) {
   return Object.entries(data)
@@ -38,9 +39,6 @@ const inputLightClasses =
 
 const labelLightClasses =
   'block text-xs font-medium text-luxury-500 mb-2 uppercase tracking-wider'
-
-const PRIVACY_POLICY_URL = 'https://joseguillermoanzola.com/privacy-policy'
-const TERMS_URL = 'https://joseguillermoanzola.com/terms-and-conditions'
 
 function SmsConsentCheckbox({
   checked,
