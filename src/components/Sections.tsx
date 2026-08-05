@@ -69,8 +69,8 @@ export function CTABanner() {
 export function StatsBar() {
   const stats = [
     { value: '20 Under 40', label: 'Recognition' },
-    { value: '$500M+', label: 'In Sales Volume' },
-    { value: '200+', label: 'Clients Served' },
+    { value: '$100M+', label: 'In Sales Volume' },
+    { value: '240+', label: 'Clients Served' },
     { value: '5.0', label: 'Google Rating' },
   ]
   return (
