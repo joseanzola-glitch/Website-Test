@@ -64,12 +64,16 @@ export function Footer() {
         </div>
 
         <div className="border-t border-luxury-950/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-luxury-500 text-xs">
+          <p className="text-luxury-500 text-xs text-center md:text-left">
             &copy; {new Date().getFullYear()} Jose Anzola. All rights reserved. Licensed Real Estate Agent &middot; Compass
           </p>
-          <p className="text-luxury-500 text-xs">
-            Equal Housing Opportunity
-          </p>
+          <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-xs text-luxury-500">
+            <Link to="/privacy-policy" className="hover:text-gold-600 transition">Privacy Policy</Link>
+            <span className="text-luxury-950/20" aria-hidden="true">|</span>
+            <Link to="/terms-and-conditions" className="hover:text-gold-600 transition">Terms &amp; Conditions</Link>
+            <span className="text-luxury-950/20 hidden sm:inline" aria-hidden="true">|</span>
+            <span>Equal Housing Opportunity</span>
+          </div>
         </div>
       </div>
     </footer>
