@@ -1,5 +1,6 @@
 import { Link } from '@tanstack/react-router'
 import { FacebookIcon, InstagramIcon, LinkedInIcon, GoogleIcon } from './Icons'
+import { PRIVACY_POLICY_URL, TERMS_URL } from '../lib/legal'
 
 export function Footer() {
   return (
@@ -66,6 +67,30 @@ export function Footer() {
         <div className="border-t border-luxury-950/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-luxury-500 text-xs text-center md:text-left">
             &copy; {new Date().getFullYear()} Jose Anzola. All rights reserved. Licensed Real Estate Agent &middot; Compass
+          </p>
+          <nav aria-label="Legal" className="flex items-center gap-3 text-luxury-500 text-xs">
+            <a
+              href={PRIVACY_POLICY_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-gold-600 transition"
+            >
+              Privacy Policy
+            </a>
+            <span aria-hidden="true" className="text-luxury-950/20">
+              &middot;
+            </span>
+            <a
+              href={TERMS_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-gold-600 transition"
+            >
+              Terms &amp; Conditions
+            </a>
+          </nav>
+          <p className="text-luxury-500 text-xs">
+            Equal Housing Opportunity
           </p>
           <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-xs text-luxury-500">
             <Link to="/privacy-policy" className="hover:text-gold-600 transition">Privacy Policy</Link>
