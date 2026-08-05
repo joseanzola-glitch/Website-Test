@@ -39,22 +39,72 @@ const inputLightClasses =
 const labelLightClasses =
   'block text-xs font-medium text-luxury-500 mb-2 uppercase tracking-wider'
 
+const PRIVACY_POLICY_URL = 'https://joseguillermoanzola.com/privacy-policy'
+const TERMS_URL = 'https://joseguillermoanzola.com/terms-and-conditions'
+
+function SmsConsentCheckbox({
+  checked,
+  onChange,
+  required,
+  isLight,
+}: {
+  checked: boolean
+  onChange: (checked: boolean) => void
+  required: boolean
+  isLight: boolean
+}) {
+  const linkClasses = 'underline underline-offset-2 text-gold-600 hover:text-gold-500 transition-colors duration-300'
+
+  return (
+    <label className="flex items-start gap-3 cursor-pointer">
+      <input
+        type="checkbox"
+        name="consent"
+        checked={checked}
+        onChange={(e) => onChange(e.target.checked)}
+        required={required}
+        aria-required={required}
+        className="mt-0.5 h-4 w-4 shrink-0 cursor-pointer accent-gold-500"
+      />
+      <span className={`${isLight ? 'text-luxury-500' : 'text-luxury-400'} text-xs leading-relaxed`}>
+        By clicking &quot;Submit&quot;, I agree to be contacted by Jose Anzola at Compass via text messages (SMS/MMS),
+        phone calls, and email regarding real estate services at the number provided. Messages may be automated. Consent
+        is not required as a condition of purchase. Msg &amp; data rates may apply. Msg frequency varies. Reply STOP to
+        opt-out at any time. Read our{' '}
+        <a href={PRIVACY_POLICY_URL} target="_blank" rel="noopener noreferrer" className={linkClasses}>
+          Privacy Policy
+        </a>{' '}
+        and{' '}
+        <a href={TERMS_URL} target="_blank" rel="noopener noreferrer" className={linkClasses}>
+          Terms of Service
+        </a>
+        .
+      </span>
+    </label>
+  )
+}
+
 export function ContactForm({ theme = 'dark' }: { theme?: 'dark' | 'light' }) {
   const isLight = theme === 'light'
   const inp = isLight ? inputLightClasses : inputClasses
   const lab = isLight ? labelLightClasses : labelClasses
 
   const [fields, setFields] = useState({ name: '', email: '', phone: '', interest: 'General inquiry', message: '' })
+  const [consent, setConsent] = useState(false)
   const [submitted, setSubmitted] = useState(false)
   const [loading, setLoading] = useState(false)
+
+  // Phone is optional on this form, so consent is only required once a number is provided.
+  const consentRequired = fields.phone.trim().length > 0
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) =>
     setFields({ ...fields, [e.target.name]: e.target.value })
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    if (consentRequired && !consent) return
     setLoading(true)
-    await submitForm('contact', fields)
+    await submitForm('contact', { ...fields, consent: consent ? 'Yes' : 'No' })
     setLoading(false)
     setSubmitted(true)
   }
@@ -120,6 +170,7 @@ export function ContactForm({ theme = 'dark' }: { theme?: 'dark' | 'light' }) {
           className={`${inp} resize-none`}
         />
       </div>
+      <SmsConsentCheckbox checked={consent} onChange={setConsent} required={consentRequired} isLight={isLight} />
       <button type="submit" disabled={loading} className="btn-gold w-full py-4 rounded-lg text-base tracking-wide cursor-pointer disabled:opacity-60">
         {loading ? 'Sending...' : 'Send Message'}
       </button>
@@ -146,14 +197,17 @@ export function ShowingForm({ theme = 'dark' }: { theme?: 'dark' | 'light' }) {
   })
   const [submitted, setSubmitted] = useState(false)
   const [loading, setLoading] = useState(false)
+  const [consent, setConsent] = useState(false)
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) =>
     setFields({ ...fields, [e.target.name]: e.target.value })
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    // Phone is a required field on this form, so consent is always required.
+    if (!consent) return
     setLoading(true)
-    await submitForm('schedule-showing', fields)
+    await submitForm('schedule-showing', { ...fields, consent: consent ? 'Yes' : 'No' })
     setLoading(false)
     setSubmitted(true)
   }
@@ -226,6 +280,7 @@ export function ShowingForm({ theme = 'dark' }: { theme?: 'dark' | 'light' }) {
           className={`${inp} resize-none`}
         />
       </div>
+      <SmsConsentCheckbox checked={consent} onChange={setConsent} required isLight={isLight} />
       <button type="submit" disabled={loading} className="btn-gold w-full py-4 rounded-lg text-base tracking-wide cursor-pointer disabled:opacity-60">
         {loading ? 'Requesting...' : 'Request Showing'}
       </button>
