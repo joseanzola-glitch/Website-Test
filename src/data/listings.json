@@ -1,12 +1,12 @@
 [
   {
     "status": "Active",
-    "price": "$548,000",
-    "beds": 3,
-    "baths": 2,
-    "sqft": "1,217",
-    "address": "1067 NW 101st St, Miami, FL 33150",
-    "neighborhood": "Biscayne View",
-    "image": "/1067.jpg",
-    "compassUrl": "https://www.compass.com/homedetails/1067-NW-101st-St-Miami-FL-33150/1EHJL1_pid/"  }
+    "price": "$3,050,000",
+    "beds": 4,
+    "baths": 6,
+    "sqft": "2,520",
+    "address": "700 NE 24th St, Unit 5507, Miami, FL 33137",
+    "neighborhood": "Edgewater",
+    "image": "/700NE.jpg",
+    "compassUrl": "https://www.compass.com/homedetails/700-NE-24th-St-Unit-5507-Miami-FL-33137/1EB2J7_pid/?agent_id=676a02c670e3670001b58c7e"  }
 ]
