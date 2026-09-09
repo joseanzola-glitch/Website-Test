@@ -1,13 +1,12 @@
 [
   {
     "status": "Active",
-    "price": "$2,998,700",
+    "price": "$3,050,000",
     "beds": 4,
-    "baths": 4,
-    "sqft": "3,697",
-    "address": "1844 SW 24th Ter",
-    "neighborhood": "Shenandoah",
-    "image": "/24thTer.jpg",
-    "compassUrl": "https://www.compass.com/listing/..."
-  }
+    "baths": 6,
+    "sqft": "2,520",
+    "address": "700 NE 24th St, Unit 5507, Miami, FL 33137",
+    "neighborhood": "Edgewater",
+    "image": "/700NE.jpg",
+    "compassUrl": "https://www.compass.com/homedetails/700-NE-24th-St-Unit-5507-Miami-FL-33137/1EB2J7_pid/?agent_id=676a02c670e3670001b58c7e"  }
 ]
