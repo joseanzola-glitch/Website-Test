@@ -1,12 +1,12 @@
 [
   {
     "status": "Active",
-    "price": "$3,050,000",
-    "beds": 4,
-    "baths": 6,
-    "sqft": "2,520",
-    "address": "700 NE 24th St, Unit 5507, Miami, FL 33137",
-    "neighborhood": "Edgewater",
-    "image": "/700NE.jpg",
-    "compassUrl": "https://www.compass.com/homedetails/700-NE-24th-St-Unit-5507-Miami-FL-33137/1EB2J7_pid/?agent_id=676a02c670e3670001b58c7e"  }
+    "price": "$2,000,000",
+    "beds": 2,
+    "baths": 2,
+    "sqft": "2160",
+    "address": "1210 96th St, Bay Harbor Islands, FL 33154",
+    "neighborhood": "Bay Harbor Islands",
+    "image": "/1210.jpg",
+    "compassUrl": "https://www.compass.com/homedetails/1210-96th-St-Bay-Harbor-Islands-FL-33154/1CS2G7_pid/?agent_id=676a02c670e3670001b58c7e"  }
 ]
