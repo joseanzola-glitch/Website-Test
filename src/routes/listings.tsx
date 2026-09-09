@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
 import { useState } from 'react'
 import { ArrowRightIcon, SearchIcon } from '../components/Icons'
-
+import listingsData from '../data/listings.json
 export const Route = createFileRoute('/listings')({
   component: Listings,
   head: () => ({
@@ -18,16 +18,7 @@ export const Route = createFileRoute('/listings')({
 type Status = 'All' | 'Active' | 'Sold'
 type IdxTab = 'general' | 'active' | 'compass'
 
-const listings = [
-  { status: 'Active', price: '$2,590,000', beds: 4, baths: 5, sqft: '2,666', address: '67 NW 109th St, Miami Shores, FL 33168', neighborhood: 'Miami Shores', image: '/67NW.jpg' },
-  { status: 'Active', price: '$799,000', beds: 3, baths: 2, sqft: '1,500', address: '2257 SW 11th St, Miami, FL 33135', neighborhood: 'Shenandoah', image: '/2257SW.jpg' },
-  { status: 'Active', price: '$949,000', beds: 2, baths: 2, sqft: '1,190', address: '9 Island Ave, Unit 610 Miami Beach, FL 33139', neighborhood: 'Belle Isles', image: '/9 Island.jpg' },
-  { status: 'Active', price: '$580,000', beds: 3, baths: 3, sqft: '1,504', address: '1031 NE 213th Ter Miami, FL 33179', neighborhood: 'Ives Estates', image: '/1031NE.jpg' },
-  { status: 'Sold', price: '$1,705,000', beds: 4, baths: 4, sqft: '3,502', address: '14957 SW 34th St Davie, FL 33331', neighborhood: 'Riverstone', image: '/14957SW.jpg' },
-  { status: 'Sold', price: '$2,300,000', beds: 3, baths: 4, sqft: '3,062', address: '2711 S Ocean Dr, Unit 1202 Hollywood, FL 33019', neighborhood: 'Trump Hollywood', image: '/2711S.jpg' },
-  { status: 'Sold', price: '$2,320,000', beds: 4, baths: 4, sqft: '3,736', address: '1930 SW 25th St MIAMI, FL 33133-2304', neighborhood: 'Coral Way', image: '/1930SW.jpg' },
-  { status: 'Sold', price: '$1,225,000', beds: 2, baths: 2, sqft: '2,155', address: '451 SW 25th Rd MIAMI, FL 33129-2203', neighborhood: 'Brickell Hammock', image: '/451SW.jpg' },
-]
+const listings = listingsData
 
 function Listings() {
   const [filter, setFilter] = useState<Status>('All')
