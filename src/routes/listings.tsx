@@ -2,6 +2,7 @@ import { createFileRoute, Link } from '@tanstack/react-router'
 import { useState } from 'react'
 import { ArrowRightIcon, SearchIcon } from '../components/Icons'
 import listingsData from '../data/listings.json'
+
 export const Route = createFileRoute('/listings')({
   component: Listings,
   head: () => ({
@@ -18,14 +19,24 @@ export const Route = createFileRoute('/listings')({
 type Status = 'All' | 'Active' | 'Sold'
 type IdxTab = 'general' | 'active' | 'compass'
 
-const listings = listingsData
+// Type-safe dynamic import from listings.json
+const listings = listingsData as Array<{
+  status: string
+  price: string
+  beds: number | string
+  baths: number | string
+  sqft: string
+  address: string
+  neighborhood: string
+  image: string
+  compassUrl?: string
+}>
 
 function Listings() {
   const [filter, setFilter] = useState<Status>('All')
   const [activeIdxTab, setActiveIdxTab] = useState<IdxTab>('general')
   const filtered = listings.filter((l) => filter === 'All' || l.status === filter)
 
-  // ─── INSERT CLEAN MLS LINK STRINGS HERE ──────────────────────────
   const idxLinks = {
     general: "https://sef.mlsmatrix.com/Matrix/public/IDX.aspx?idx=1eae1f21", 
     active: "https://sef.mlsmatrix.com/Matrix/public/IDX.aspx?idx=15691f22",
@@ -35,7 +46,7 @@ function Listings() {
   return (
     <div className="bg-white text-luxury-950">
       
-      {/* SECTION 1: HEADER & CURATED IMAGES GALLERY (NOW FIRST) */}
+      {/* SECTION 1: HEADER & CURATED IMAGES GALLERY */}
       <section className="py-20 px-6">
         <div className="max-w-6xl mx-auto text-center">
           <div className="text-gold-600 font-semibold uppercase tracking-[0.2em] text-xs mb-4">Portfolio</div>
@@ -64,39 +75,71 @@ function Listings() {
             ))}
           </div>
 
-          {/* Curated Listings Photo Grid */}
+          {/* Curated Listings Photo Grid (Clickable Cards + Image Handler) */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 text-left">
-            {filtered.map((l) => (
-              <div key={l.address} className="group relative overflow-hidden rounded-2xl luxury-card">
-                <div className="aspect-[4/3] overflow-hidden">
-                  <img src={l.image} alt={l.address} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-                </div>
-                <div className="absolute top-4 left-4">
-                  <span className={`text-[10px] font-bold uppercase tracking-widest px-3 py-1.5 rounded-full ${
-                    l.status === 'Active'
-                      ? 'bg-gold-400 text-luxury-950'
-                      : 'bg-white/90 text-gold-600 border border-gold-400/40'
-                  }`}>
-                    {l.status === 'Sold' ? 'Sold' : 'For Sale'}
-                  </span>
-                </div>
-                <div className="p-6">
-                  <div className="text-gold-600 text-xs tracking-widest uppercase mb-2 font-semibold">{l.neighborhood}</div>
-                  <div className="text-luxury-950 font-serif text-2xl font-bold mb-1">{l.price}</div>
-                  <div className="text-luxury-500 text-sm mb-3">{l.address}</div>
-                  <div className="flex gap-3 text-luxury-400 text-xs">
-                    <span>{l.beds} BD</span><span>&middot;</span>
-                    <span>{l.baths} BA</span><span>&middot;</span>
-                    <span>{l.sqft} SQ FT</span>
+            {filtered.map((l) => {
+              // Ensure proper leading slash for /public folder images
+              const imageSrc = l.image?.startsWith('http') || l.image?.startsWith('/')
+                ? l.image
+                : `/${l.image}`
+
+              return (
+                <a
+                  key={l.address}
+                  href={l.compassUrl || '#'}
+                  target={l.compassUrl ? "_blank" : "_self"}
+                  rel="noopener noreferrer"
+                  className="group relative overflow-hidden rounded-2xl luxury-card block bg-white hover:shadow-lg transition-shadow cursor-pointer"
+                >
+                  <div className="aspect-[4/3] overflow-hidden bg-slate-100">
+                    <img 
+                      src={imageSrc} 
+                      alt={l.address} 
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                      onError={(e) => {
+                        // Fallback image if local image path fails
+                        e.currentTarget.src = 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=900&q=80'
+                      }}
+                    />
                   </div>
-                </div>
-              </div>
-            ))}
+                  
+                  <div className="absolute top-4 left-4">
+                    <span className={`text-[10px] font-bold uppercase tracking-widest px-3 py-1.5 rounded-full ${
+                      l.status === 'Active'
+                        ? 'bg-gold-400 text-luxury-950'
+                        : 'bg-white/90 text-gold-600 border border-gold-400/40'
+                    }`}>
+                      {l.status === 'Sold' ? 'Sold' : 'For Sale'}
+                    </span>
+                  </div>
+
+                  <div className="p-6">
+                    <div className="text-gold-600 text-xs tracking-widest uppercase mb-2 font-semibold">{l.neighborhood}</div>
+                    <div className="text-luxury-950 font-serif text-2xl font-bold mb-1">{l.price}</div>
+                    <div className="text-luxury-500 text-sm mb-3">{l.address}</div>
+                    <div className="flex gap-3 text-luxury-400 text-xs mb-4">
+                      <span>{l.beds} BD</span><span>&middot;</span>
+                      <span>{l.baths} BA</span><span>&middot;</span>
+                      <span>{l.sqft} SQ FT</span>
+                    </div>
+
+                    {l.compassUrl && (
+                      <div className="inline-flex items-center gap-2 text-xs font-semibold text-gold-600 group-hover:text-gold-500 uppercase tracking-wider transition-colors pt-3 border-t border-slate-100 w-full">
+                        <span>View Full Compass Listing</span>
+                        <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002-2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                        </svg>
+                      </div>
+                    )}
+                  </div>
+                </a>
+              )
+            })}
           </div>
         </div>
       </section>
 
-      {/* SECTION 2: LIVE BROAD INTERACTIVE MLS VIEWPANEL (NOW SECOND) */}
+      {/* SECTION 2: LIVE BROAD INTERACTIVE MLS VIEWPANEL */}
       <section className="py-20 px-6 bg-slate-50 border-t border-b border-slate-100">
         <div className="max-w-6xl mx-auto text-center">
           <div className="text-gold-600 font-semibold uppercase tracking-[0.2em] text-xs mb-4">Market Database</div>
@@ -108,7 +151,6 @@ function Listings() {
           </p>
 
           <div className="max-w-5xl mx-auto p-4 rounded-2xl bg-white border border-slate-200/60 shadow-md text-left">
-            {/* Viewport Sub-Navigation Menu */}
             <div className="flex border-b border-slate-200 gap-6 mb-4 overflow-x-auto px-2 pb-1">
               <button 
                 onClick={() => setActiveIdxTab('general')}
@@ -130,7 +172,6 @@ function Listings() {
               </button>
             </div>
 
-            {/* Live Interactive Frame Viewport */}
             <div className="w-full bg-slate-50 rounded-xl border border-slate-200 overflow-hidden aspect-[16/10] sm:h-[650px]">
               <iframe 
                 src={idxLinks[activeIdxTab]} 
