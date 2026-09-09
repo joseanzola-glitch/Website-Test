@@ -1,0 +1,13 @@
+[
+  {
+    "status": "Active",
+    "price": "$2,998,700",
+    "beds": 4,
+    "baths": 4,
+    "sqft": "3,697",
+    "address": "1844 SW 24th Ter",
+    "neighborhood": "Shenandoah",
+    "image": "/24thTer.jpg",
+    "compassUrl": "https://www.compass.com/listing/..."
+  }
+]
