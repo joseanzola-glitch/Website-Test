@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
 import { useState } from 'react'
 import { ArrowRightIcon, SearchIcon } from '../components/Icons'
-import listingsData from '../data/listings.json
+import listingsData from '../data/listings.json'
 export const Route = createFileRoute('/listings')({
   component: Listings,
   head: () => ({
