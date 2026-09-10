@@ -53,5 +53,16 @@
     "neighborhood": "Shenandoah ",
     "image": "/2434.jpg",
     "compassUrl": "https://www.compass.com/homedetails/2434-SW-19th-St-Miami-FL-33145/1COEFX_pid/"
+  },
+  {
+    "status": "Active",
+    "price": "$1,049,000",
+    "beds": 2,
+    "baths": 2,
+    "sqft": "1,190",
+    "address": "9 Island Ave, Unit 610, Miami Beach, FL 33139",
+    "neighborhood": "Belle Isle",
+    "image": "/9 Island.jpg",
+    "compassUrl": "https://www.compass.com/homedetails/9-Island-Ave-Unit-610-Miami-Beach-FL-33139/1CQPQY_pid/"
   }
 ]
