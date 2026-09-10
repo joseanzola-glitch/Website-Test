@@ -42,5 +42,16 @@
     "neighborhood": "Edgewater",
     "image": "/700 NE.jpg",
     "compassUrl": "https://www.compass.com/homedetails/700-NE-24th-St-Unit-5507-Miami-FL-33137/1EB2J7_pid/?agent_id=676a02c670e3670001b58c7e"
+  },
+  {
+    "status": "Active",
+    "price": "$1,891,500",
+    "beds": 4,
+    "baths": 4,
+    "sqft": "2,488",
+    "address": "2434 SW 19th St, Miami, FL 33145",
+    "neighborhood": "Shenandoah ",
+    "image": "/2434.jpg",
+    "compassUrl": "https://www.compass.com/homedetails/2434-SW-19th-St-Miami-FL-33145/1COEFX_pid/"
   }
 ]
