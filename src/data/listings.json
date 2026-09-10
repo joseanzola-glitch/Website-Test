@@ -1,12 +1,1 @@
-[
-  {
-    "status": "Active",
-    "price": "$2,998,700",
-    "beds": 4,
-    "baths": 4,
-    "sqft": "3,697",
-    "address": "1844 SW 24th Ter, Miami, FL 33133",
-    "neighborhood": "Silver Bluff",
-    "image": "/1844 SW.jpg",
-    "compassUrl": "https://www.compass.com/homedetails/1844-SW-24th-Ter-Miami-FL-33133/1DM3V8_pid/?agent_id=676a02c670e3670001b58c7e"  }
-]
+{"output": []}
