@@ -1,6 +1,17 @@
 [
   {
     "status": "Active",
+    "price": "$3,497,000",
+    "beds": 6,
+    "baths": 6,
+    "sqft": "3,700",
+    "address": "3495 SW 3rd Ave",
+    "neighborhood": "Shenandoah",
+    "image": "/3495.jpg",
+    "compassUrl": "https://www.compass.com/homedetails/southwest-3rd-avenue-miami-fl-33145/2187123971379963825_lid/?origin=listing_page&origin_type=copy_url&agent_id=676a02c670e3670001b58c7e"
+  },
+  {
+    "status": "Active",
     "price": "$3,050,000",
     "beds": 4,
     "baths": 6,
@@ -26,10 +37,87 @@
     "price": "$2,000,000",
     "beds": 2,
     "baths": 2,
-    "sqft": "2160",
+    "sqft": "2,160",
     "address": "1210 96th St, Bay Harbor Islands, FL 33154",
     "neighborhood": "Bay Harbor Islands",
     "image": "/1210.jpg",
     "compassUrl": "https://www.compass.com/homedetails/1210-96th-St-Bay-Harbor-Islands-FL-33154/1CS2G7_pid/?agent_id=676a02c670e3670001b58c7e"
+  },
+  {
+    "status": "Active",
+    "price": "$1,891,500",
+    "beds": 4,
+    "baths": 4,
+    "sqft": "2,488",
+    "address": "2434 SW 19th St",
+    "neighborhood": "Shenandoah",
+    "image": "/2434.jpg",
+    "compassUrl": "https://www.compass.com/homedetails/2434-SW-19th-St-Miami-FL-33145/1COEFX_pid/"
+  },
+  {
+    "status": "Active",
+    "price": "$1,049,000",
+    "beds": 2,
+    "baths": 2,
+    "sqft": "1,190",
+    "address": "9 Island Ave, Unit 610",
+    "neighborhood": "Belle Isle",
+    "image": "/9 Island.jpg",
+    "compassUrl": "https://www.compass.com/homedetails/9-Island-Ave-Unit-610-Miami-Beach-FL-33139/1CQPQY_pid/"
+  },
+  {
+    "status": "Active",
+    "price": "$548,000",
+    "beds": 3,
+    "baths": 2,
+    "sqft": "1,217",
+    "address": "1067 NW 101st St",
+    "neighborhood": "Biscayne View",
+    "image": "/1067.jpg",
+    "compassUrl": "https://www.compass.com/homedetails/1067-NW-101st-St-Miami-FL-33150/1EHJL1_pid/"
+  },
+  {
+    "status": "Active",
+    "price": "$498,000",
+    "beds": 3,
+    "baths": 2,
+    "sqft": "1,393",
+    "address": "7350 SW 89th St, Unit 706S",
+    "neighborhood": "Toscano",
+    "image": "/7350.jpg",
+    "compassUrl": "https://www.compass.com/homedetails/7350-SW-89th-St-Unit-706S-Miami-FL-33156/1DC8EM_pid/"
+  },
+  {
+    "status": "Sold",
+    "price": "$2,320,000",
+    "beds": 4,
+    "baths": 5,
+    "sqft": "2,800",
+    "address": "1930 SW 25th St",
+    "neighborhood": "Silver Bluff",
+    "image": "/1930.jpg",
+    "compassUrl": "https://www.compass.com/homedetails/1930-SW-25th-St-Miami-FL-33133/1CYNSI_pid/?origin=listing_page&origin_type=copy_url&agent_id=676a02c670e3670001b58c7e"
+  },
+  {
+    "status": "Sold",
+    "price": "$2,300,000",
+    "beds": 3,
+    "baths": 4,
+    "sqft": "3,062",
+    "address": "2711 S Ocean Dr, Unit 1202",
+    "neighborhood": "Hollywood Beach",
+    "image": "/2711.jpg",
+    "compassUrl": "https://www.compass.com/homedetails/2711-S-Ocean-Dr-Unit-1202-Hollywood-FL-33019/1C5BID_pid/?origin=listing_page&origin_type=copy_url&agent_id=676a02c670e3670001b58c7e"
+  },
+  {
+    "status": "Sold",
+    "price": "$2,250,000",
+    "beds": 4,
+    "baths": 4,
+    "sqft": "3,592",
+    "address": "835 NE 120th St",
+    "neighborhood": "Biscayne Park",
+    "image": "/835.jpg",
+    "compassUrl": "https://www.compass.com/homedetails/835-NE-120th-St-Biscayne-Park-FL-33161/1658205948491183153_lid/?origin=listing_page&origin_type=copy_url&agent_id=676a02c670e3670001b58c7e"
   }
 ]
