@@ -1,6 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { useState } from 'react'
-import { PhoneIcon, MailIcon } from '../components/Icons' // Adjust icon path if needed
+import { PhoneIcon, MailIcon } from '../components/Icons'
 
 export const Route = createFileRoute('/seller-valuation')({
   component: SellerValuation,
@@ -20,7 +20,6 @@ function SellerValuation() {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
-    // Validate that at least ONE contact method is provided
     if (!contactMethod.phone.trim() && !contactMethod.email.trim()) {
       setContactError('Please provide either a phone number or an email address.')
       return
@@ -29,14 +28,13 @@ function SellerValuation() {
     setContactError('')
     const form = e.currentTarget
 
-    // Native Netlify Form Submission
     fetch('/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: new URLSearchParams(new FormData(form) as any).toString(),
     })
       .then(() => {
-        // ⬇️ CHATGPT ADS CONVERSION PIXEL EVENT ⬇️
+        // CHATGPT ADS PIXEL EVENT
         if (typeof window !== 'undefined' && (window as any).oaiq) {
           (window as any).oaiq('measure', 'lead_created', { type: 'customer_action' })
         }
@@ -49,7 +47,18 @@ function SellerValuation() {
     <div className="bg-white text-luxury-950 py-16 px-6 min-h-screen flex items-center">
       <div className="max-w-2xl mx-auto w-full">
         
-        {/* HEADLINE & SUPPORTING TEXT */}
+        {/* Hidden static form for Netlify build scanner */}
+        <form name="seller-valuation" data-netlify="true" data-netlify-honeypot="bot-field" hidden>
+          <input type="hidden" name="form-name" value="seller-valuation" />
+          <input type="text" name="bot-field" />
+          <input type="text" name="address" />
+          <input type="text" name="name" />
+          <input type="tel" name="phone" />
+          <input type="email" name="email" />
+          <textarea name="message"></textarea>
+        </form>
+
+        {/* HEADLINE */}
         <div className="text-center mb-10">
           <div className="text-gold-600 font-semibold uppercase tracking-[0.2em] text-xs mb-3">
             Home Valuation & Market Analysis
@@ -65,7 +74,6 @@ function SellerValuation() {
         {/* FORM CONTAINER */}
         <div className="bg-slate-50 border border-slate-200/80 rounded-2xl p-6 md:p-10 shadow-sm">
           {submitted ? (
-            /* CONFIRMATION MESSAGE */
             <div className="text-center py-8">
               <div className="w-12 h-12 bg-gold-400/20 text-gold-600 rounded-full flex items-center justify-center mx-auto mb-4 font-bold text-xl">
                 ✓
@@ -79,7 +87,6 @@ function SellerValuation() {
               </div>
             </div>
           ) : (
-            /* VALUATION FORM (Netlify Enabled) */
             <form 
               name="seller-valuation" 
               method="POST" 
@@ -155,7 +162,6 @@ function SellerValuation() {
                 </div>
               </div>
 
-              {/* Error if neither Phone nor Email is filled */}
               {contactError && (
                 <p className="text-red-500 text-xs font-medium">{contactError}</p>
               )}
@@ -172,7 +178,6 @@ function SellerValuation() {
                 />
               </div>
 
-              {/* COMPLIANCE CONSENT LANGUAGE */}
               <p className="text-[11px] text-slate-500 leading-normal pt-2">
                 By submitting, you consent to receive calls or SMS messages from Jose Anzola regarding your inquiry. Messaging/data rates may apply. Consent is not a condition of service.
               </p>
@@ -191,7 +196,7 @@ function SellerValuation() {
           )}
         </div>
 
-        {/* CLICKABLE CONTACT FOOTER */}
+        {/* FOOTER */}
         <div className="flex flex-wrap justify-center items-center gap-6 mt-8 text-xs text-luxury-600 font-medium">
           <a href="tel:+13059045613" className="inline-flex items-center gap-2 hover:text-gold-600 transition-colors">
             <PhoneIcon className="w-4 h-4 text-gold-600" />
