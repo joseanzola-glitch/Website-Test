@@ -27,15 +27,20 @@ function SellerValuation() {
 
     setContactError('')
     const form = e.currentTarget
-    const formData = new FormData(form)
 
-    // Force Netlify to recognize the form submission name explicitly
-    formData.set('form-name', 'seller-valuation')
+    // Explicitly construct URLSearchParams to match Netlify's detected fields
+    const bodyParams = new URLSearchParams()
+    bodyParams.append('form-name', 'seller-valuation')
+    bodyParams.append('address', (form.elements.namedItem('address') as HTMLInputElement).value)
+    bodyParams.append('name', (form.elements.namedItem('name') as HTMLInputElement).value)
+    bodyParams.append('phone', contactMethod.phone)
+    bodyParams.append('email', contactMethod.email)
+    bodyParams.append('message', (form.elements.namedItem('message') as HTMLTextAreaElement)?.value || '')
 
     fetch('/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: new URLSearchParams(formData as any).toString(),
+      body: bodyParams.toString(),
     })
       .then((res) => {
         if (res.ok) {
@@ -45,10 +50,10 @@ function SellerValuation() {
           }
           setSubmitted(true)
         } else {
-          alert('Form submission failed at server. Please try again.')
+          alert('Submission failed at server. Please try again.')
         }
       })
-      .catch((error) => alert('Submission failed. Please try again: ' + error))
+      .catch((error) => alert('Submission failed: ' + error))
   }
 
   return (
