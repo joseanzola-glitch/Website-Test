@@ -27,18 +27,26 @@ function SellerValuation() {
 
     setContactError('')
     const form = e.currentTarget
+    const formData = new FormData(form)
+
+    // Force Netlify to recognize the form submission name explicitly
+    formData.set('form-name', 'seller-valuation')
 
     fetch('/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: new URLSearchParams(new FormData(form) as any).toString(),
+      body: new URLSearchParams(formData as any).toString(),
     })
-      .then(() => {
-        // CHATGPT ADS PIXEL EVENT
-        if (typeof window !== 'undefined' && (window as any).oaiq) {
-          (window as any).oaiq('measure', 'lead_created', { type: 'customer_action' })
+      .then((res) => {
+        if (res.ok) {
+          // CHATGPT ADS PIXEL EVENT
+          if (typeof window !== 'undefined' && (window as any).oaiq) {
+            (window as any).oaiq('measure', 'lead_created', { type: 'customer_action' })
+          }
+          setSubmitted(true)
+        } else {
+          alert('Form submission failed at server. Please try again.')
         }
-        setSubmitted(true)
       })
       .catch((error) => alert('Submission failed. Please try again: ' + error))
   }
