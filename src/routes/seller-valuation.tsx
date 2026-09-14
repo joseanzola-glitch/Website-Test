@@ -35,7 +35,13 @@ function SellerValuation() {
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: new URLSearchParams(new FormData(form) as any).toString(),
     })
-      .then(() => setSubmitted(true))
+      .then(() => {
+        // ⬇️ CHATGPT ADS CONVERSION PIXEL EVENT ⬇️
+        if (typeof window !== 'undefined' && (window as any).oaiq) {
+          (window as any).oaiq('measure', 'lead_created', { type: 'customer_action' })
+        }
+        setSubmitted(true)
+      })
       .catch((error) => alert('Submission failed. Please try again: ' + error))
   }
 
@@ -72,17 +78,6 @@ function SellerValuation() {
                 Need immediate assistance? Call <a href="tel:+13059045613" className="text-gold-600 font-semibold hover:underline">(305) 904-5613</a>
               </div>
             </div>
-      
-      {/* Hidden form for Netlify build scanner */}
-<form name="seller-valuation" data-netlify="true" data-netlify-honeypot="bot-field" hidden>
-  <input type="hidden" name="form-name" value="seller-valuation" />
-  <input type="text" name="address" />
-  <input type="text" name="name" />
-  <input type="tel" name="phone" />
-  <input type="email" name="email" />
-  <textarea name="message"></textarea>
-</form>
-          
           ) : (
             /* VALUATION FORM (Netlify Enabled) */
             <form 
@@ -177,7 +172,7 @@ function SellerValuation() {
                 />
               </div>
 
-              {/* COMPLIANCE CONSENT LANGUAGE (Concise & Direct) */}
+              {/* COMPLIANCE CONSENT LANGUAGE */}
               <p className="text-[11px] text-slate-500 leading-normal pt-2">
                 By submitting, you consent to receive calls or SMS messages from Jose Anzola regarding your inquiry. Messaging/data rates may apply. Consent is not a condition of service.
               </p>
