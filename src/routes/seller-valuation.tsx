@@ -7,7 +7,7 @@ export const Route = createFileRoute('/seller-valuation')({
   head: () => ({
     meta: [
       { title: 'Home Valuation | Jose Anzola Compass Real Estate' },
-      { name: 'description', content: 'Discover what your Miami home could sell for with a custom pricing analysis from Jose Anzola.' },
+      { name: 'description', content: 'Discover What Your Home Could Sell For' },
     ],
   }),
 })
@@ -49,10 +49,10 @@ function SellerValuation() {
             Home Valuation & Market Analysis
           </div>
           <h1 className="font-serif text-3xl md:text-5xl font-bold mb-4 leading-tight">
-            Discover what your home could sell for
+            Discover What Your Home Could Sell For
           </h1>
           <p className="text-luxury-600 text-base md:text-lg font-light leading-relaxed max-w-xl mx-auto">
-            Receive a personal pricing analysis and selling strategy from Jose, local Compass real estate agent. No pressure and no obligation.
+            Receive a personal pricing analysis and selling strategy from Jose, local Compass Real Estate Agent. No pressure and no obligation.
           </p>
         </div>
 
@@ -66,10 +66,10 @@ function SellerValuation() {
               </div>
               <h3 className="font-serif text-2xl font-bold mb-2">Request Received!</h3>
               <p className="text-luxury-600 text-sm mb-6">
-                Thank you. Jose will respond personally as soon as possible with your custom valuation report.
+                Thank you. Jose will respond personally as soon as possible.
               </p>
               <div className="pt-4 border-t border-slate-200 text-xs text-luxury-500">
-                Need immediate assistance? Call <a href="tel:+13050000000" className="text-gold-600 font-semibold hover:underline">(305) 000-0000</a>
+                Need immediate assistance? Call <a href="tel:+13059045613" className="text-gold-600 font-semibold hover:underline">(305) 904-5613</a>
               </div>
             </div>
       
@@ -137,7 +137,7 @@ function SellerValuation() {
                       setContactMethod({ ...contactMethod, phone: e.target.value })
                       if (contactError) setContactError('')
                     }}
-                    placeholder="(305) 000-0000"
+                    placeholder="(305) 904-5613"
                     className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:outline-none focus:border-gold-500 text-sm"
                   />
                 </div>
@@ -198,14 +198,14 @@ function SellerValuation() {
 
         {/* CLICKABLE CONTACT FOOTER */}
         <div className="flex flex-wrap justify-center items-center gap-6 mt-8 text-xs text-luxury-600 font-medium">
-          <a href="tel:+13050000000" className="inline-flex items-center gap-2 hover:text-gold-600 transition-colors">
+          <a href="tel:+13059045613" className="inline-flex items-center gap-2 hover:text-gold-600 transition-colors">
             <PhoneIcon className="w-4 h-4 text-gold-600" />
-            <span>(305) 000-0000</span>
+            <span>(305) 904-5613</span>
           </a>
           <span>&middot;</span>
-          <a href="mailto:jose@compass.com" className="inline-flex items-center gap-2 hover:text-gold-600 transition-colors">
+          <a href="mailto:jose.anzola@compass.com" className="inline-flex items-center gap-2 hover:text-gold-600 transition-colors">
             <MailIcon className="w-4 h-4 text-gold-600" />
-            <span>jose@compass.com</span>
+            <span>jose.anzola@compass.com</span>
           </a>
         </div>
 
