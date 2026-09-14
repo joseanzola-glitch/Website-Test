@@ -72,6 +72,17 @@ function SellerValuation() {
                 Need immediate assistance? Call <a href="tel:+13050000000" className="text-gold-600 font-semibold hover:underline">(305) 000-0000</a>
               </div>
             </div>
+      
+      {/* Hidden form for Netlify build scanner */}
+<form name="seller-valuation" data-netlify="true" data-netlify-honeypot="bot-field" hidden>
+  <input type="hidden" name="form-name" value="seller-valuation" />
+  <input type="text" name="address" />
+  <input type="text" name="name" />
+  <input type="tel" name="phone" />
+  <input type="email" name="email" />
+  <textarea name="message"></textarea>
+</form>
+          
           ) : (
             /* VALUATION FORM (Netlify Enabled) */
             <form 
