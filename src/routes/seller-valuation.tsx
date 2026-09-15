@@ -41,24 +41,26 @@ function SellerValuation() {
     netlifyParams.append('message', messageVal)
 
     // Use the untouched fetch saved in __root.tsx before oaiq could patch window.fetch
-    const netlifyFetch = (window as any).__netlifyFetch || fetch
+  const netlifyFetch = (window as any).__netlifyFetch || fetch
+console.log('[netlify-submit] using captured fetch?', !!(window as any).__netlifyFetch)
 
-    // Execute submission
-    netlifyFetch('/', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: netlifyParams.toString(),
-    })
-      .finally(() => {
-        // 2. FIRE CHATGPT ADS PIXEL EVENT
-        if (typeof window !== 'undefined' && (window as any).oaiq) {
-          (window as any).oaiq('measure', 'lead_created', { type: 'customer_action' })
-        }
-        // Always show success screen to user
-        setSubmitted(true)
-      })
-  }
-  return (
+netlifyFetch('/', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+  body: netlifyParams.toString(),
+})
+  .then((res) => {
+    console.log('[netlify-submit] response status:', res.status)
+    return res.text()
+  })
+  .then((text) => console.log('[netlify-submit] response body:', text))
+  .catch((err) => console.error('[netlify-submit] fetch error:', err))
+  .finally(() => {
+    if (typeof window !== 'undefined' && (window as any).oaiq) {
+      (window as any).oaiq('measure', 'lead_created', { type: 'customer_action' })
+    }
+    setSubmitted(true)
+  })  return (
     <div className="bg-white text-luxury-950 py-16 px-6 min-h-screen flex items-center">
       <div className="max-w-2xl mx-auto w-full">
         
