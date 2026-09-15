@@ -43,7 +43,7 @@ function SellerValuation() {
     const netlifyFetch = (window as any).__netlifyFetch || fetch
     console.log('[netlify-submit] using captured fetch?', !!(window as any).__netlifyFetch)
 
-    netlifyFetch('/', {
+    netlifyFetch('/__forms.html', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: netlifyParams.toString(),
