@@ -53,10 +53,10 @@ function RootDocument({ children }: { children: React.ReactNode }) {
 
         {/* ⬇️ SAVE THE UNTOUCHED FETCH BEFORE OAIQ CAN PATCH IT ⬇️ */}
         <script
-          dangerouslySetInnerHTML={{
-            __html: `window.__netlifyFetch = window.fetch.bind(window);`,
-          }}
-        />
+  dangerouslySetInnerHTML={{
+    __html: `window.__netlifyFetch = window.fetch.bind(window); console.log('[netlify-capture] fetch captured at', new Date().toISOString());`,
+  }}
+/>
 
         {/* ⬇️ CHATGPT ADS BASE PIXEL SCRIPT ⬇️ */}
         <script
