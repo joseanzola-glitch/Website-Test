@@ -50,6 +50,14 @@ function RootDocument({ children }: { children: React.ReactNode }) {
     <html lang="en">
       <head>
         <HeadContent />
+
+        {/* ⬇️ SAVE THE UNTOUCHED FETCH BEFORE OAIQ CAN PATCH IT ⬇️ */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `window.__netlifyFetch = window.fetch.bind(window);`,
+          }}
+        />
+
         {/* ⬇️ CHATGPT ADS BASE PIXEL SCRIPT ⬇️ */}
         <script
           dangerouslySetInnerHTML={{
