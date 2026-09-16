@@ -119,5 +119,171 @@
     "neighborhood": "Biscayne Park",
     "image": "/835.jpg",
     "compassUrl": "https://www.compass.com/homedetails/835-NE-120th-St-Biscayne-Park-FL-33161/1658205948491183153_lid/?origin=listing_page&origin_type=copy_url&agent_id=676a02c670e3670001b58c7e"
+  },
+  [
+  {
+    "status": "Sold",
+    "price": "$1,705,000",
+    "beds": 4,
+    "baths": 4,
+    "sqft": "3,502",
+    "address": "14957 Southwest 34th Street, Davie, FL 33331",
+    "neighborhood": "Shenandoah / Davie",
+    "image": "/14957.jpg",
+    "compassUrl": "https://www.compass.com/app/listing/14957-SW-34th-St-Davie-FL-33331/2073776676661758681"
+  },
+  {
+    "status": "Sold",
+    "price": "$1,600,000",
+    "beds": 2,
+    "baths": 2,
+    "sqft": "1,782",
+    "address": "1121 Crandon Boulevard, Unit F1207, Key Biscayne, FL 33149",
+    "neighborhood": "Key Biscayne",
+    "image": "/1121.jpg",
+    "compassUrl": "https://www.compass.com/app/listing/1121-Crandon-Blvd-Unit-F1207-Key-Biscayne-FL-33149/1415279270833052945"
+  },
+  {
+    "status": "Sold",
+    "price": "$1,400,000",
+    "beds": 4,
+    "baths": 3,
+    "sqft": "2,100",
+    "address": "4605 North Miami Avenue, Miami, FL 33137",
+    "neighborhood": "Buena Vista / Design District",
+    "image": "/4605.jpg",
+    "compassUrl": "https://www.compass.com/app/listing/4605-N-Miami-Ave-Miami-FL-33137/1519566060581617337"
+  },
+  {
+    "status": "Sold",
+    "price": "$1,287,000",
+    "beds": 5,
+    "baths": 2,
+    "sqft": "2,286",
+    "address": "335 Southwest 22nd Road, Miami, FL 33129",
+    "neighborhood": "Silver Bluff / Shenandoah",
+    "image": "/335.jpg",
+    "compassUrl": "https://www.compass.com/app/listing/335-SW-22nd-Rd-Miami-FL-33129/2060479962294715761"
+  },
+  {
+    "status": "Sold",
+    "price": "$1,280,000",
+    "beds": 4,
+    "baths": 3,
+    "sqft": "1,451",
+    "address": "555 Northeast 77th Street, Miami, FL 33138",
+    "neighborhood": "Belle Meade / Upper Eastside",
+    "image": "/555.jpg",
+    "compassUrl": "https://www.compass.com/app/listing/555-NE-77th-St-Miami-FL-33138/1333220584606596457"
+  },
+  {
+    "status": "Sold",
+    "price": "$1,225,000",
+    "beds": 2,
+    "baths": 2,
+    "sqft": "1,575",
+    "address": "451 Southwest 25th Road, Miami, FL 33129",
+    "neighborhood": "Silver Bluff",
+    "image": "/451.jpg",
+    "compassUrl": "https://www.compass.com/app/listing/451-SW-25th-Rd-Miami-FL-33129/1897288973401091697"
+  },
+  {
+    "status": "Sold",
+    "price": "$1,150,000",
+    "beds": null,
+    "baths": null,
+    "sqft": "3,284",
+    "address": "3609 South Le Jeune Road, Coral Gables, FL 33134",
+    "neighborhood": "Coral Gables",
+    "image": "/3609.jpg",
+    "compassUrl": "https://www.compass.com/app/listing/3609-S-Le-Jeune-Rd-Coral-Gables-FL-33134/2038636629383356465"
+  },
+  {
+    "status": "Sold",
+    "price": "$1,132,500",
+    "beds": 4,
+    "baths": 2,
+    "sqft": "1,936",
+    "address": "21100 Highland Lakes Boulevard, Miami, FL 33179",
+    "neighborhood": "Highland Lakes / Aventura Area",
+    "image": "/21100.jpg",
+    "compassUrl": "https://www.compass.com/app/listing/21100-Highland-Lakes-Blvd-Miami-FL-33179/1412306621901900569"
+  },
+  {
+    "status": "Sold",
+    "price": "$1,075,000",
+    "beds": 4,
+    "baths": 4,
+    "sqft": "2,625",
+    "address": "4323 Van Buren Street, Hollywood, FL 33021",
+    "neighborhood": "Hollywood Hills",
+    "image": "/4323.jpg",
+    "compassUrl": "https://www.compass.com/app/listing/4323-Van-Buren-St-Hollywood-FL-33021/1482646593731709425"
+  },
+  {
+    "status": "Sold",
+    "price": "$1,030,000",
+    "beds": 3,
+    "baths": 2,
+    "sqft": "1,105",
+    "address": "1200 Brickell Bay Drive, Unit 3701, Miami, FL 33131",
+    "neighborhood": "Brickell",
+    "image": "/1200.jpg",
+    "compassUrl": "https://www.compass.com/app/listing/1200-Brickell-Bay-Dr-Unit-3701-Miami-FL-33131/1404382354654151025"
+  },
+  {
+    "status": "Sold",
+    "price": "$1,020,000",
+    "beds": null,
+    "baths": null,
+    "sqft": "3,178",
+    "address": "2601 Northeast 32nd Street, Fort Lauderdale, FL 33306",
+    "neighborhood": "Coral Ridge",
+    "image": "/2601.jpg",
+    "compassUrl": "https://www.compass.com/app/listing/2601-NE-32nd-St-Fort-Lauderdale-FL-33306/1923456218493603393"
+  },
+  {
+    "status": "Sold",
+    "price": "$965,000",
+    "beds": 2,
+    "baths": 2,
+    "sqft": "1,190",
+    "address": "9 Island Avenue, Unit 1010, Miami Beach, FL 33139",
+    "neighborhood": "Belle Isle / South Beach",
+    "image": "/9.jpg",
+    "compassUrl": "https://www.compass.com/app/listing/9-Island-Ave-Unit-1010-Miami-Beach-FL-33139/1494971830529695193"
+  },
+  {
+    "status": "Sold",
+    "price": "$900,000",
+    "beds": 5,
+    "baths": 3,
+    "sqft": "3,227",
+    "address": "1534 Van Buren Street, Hollywood, FL 33020",
+    "neighborhood": "Park Lakes / Central Hollywood",
+    "image": "/1534.jpg",
+    "compassUrl": "https://www.compass.com/app/listing/1534-Van-Buren-St-Hollywood-FL-33020/1610841449329945721"
+  },
+  {
+    "status": "Sold",
+    "price": "$895,000",
+    "beds": 3,
+    "baths": 3,
+    "sqft": "1,796",
+    "address": "101 Northeast 104th Street, Miami Shores, FL 33138",
+    "neighborhood": "Miami Shores",
+    "image": "/101.jpg",
+    "compassUrl": "https://www.compass.com/app/listing/101-NE-104th-St-Miami-Shores-FL-33138/1982947889854938265"
+  },
+  {
+    "status": "Sold",
+    "price": "$875,000",
+    "beds": 2,
+    "baths": 2,
+    "sqft": "1,351",
+    "address": "1781 Southwest 24th Street, Miami, FL 33145",
+    "neighborhood": "Shenandoah",
+    "image": "/1781.jpg",
+    "compassUrl": "https://www.compass.com/app/listing/1781-SW-24th-St-Miami-FL-33145/2032207888182433609"
   }
 ]
