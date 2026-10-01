@@ -153,12 +153,6 @@ function SellerValuation() {
               </figcaption>
             </figure>
           ))}
-
-          <ul className="mt-6 space-y-2 text-center text-luxury-700 text-base">
-            <li>A personal analysis from Jose, not an automated estimate</li>
-            <li>Free, with no pressure to list</li>
-            <li>Local Compass agent serving Miami and South Florida</li>
-          </ul>
         </section>
 
         <h1 className="font-serif text-4xl md:text-5xl font-bold leading-tight text-center">
@@ -309,6 +303,12 @@ function SellerValuation() {
 
         {/* Visible contact details */}
         <ContactLinks className="mt-6" />
+
+        <ul className="mt-6 space-y-2 text-center text-luxury-700 text-base">
+          <li>A personal analysis from Jose, not an automated estimate</li>
+          <li>Free, with no pressure to list</li>
+          <li>Local Compass agent serving Miami and South Florida</li>
+        </ul>
 
 
       </main>
