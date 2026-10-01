@@ -124,7 +124,10 @@ function SellerValuation() {
         </form>
 
         {/* Social proof first: testimonial + centered trust lines */}
-        <section className="mb-10" aria-label="Client testimonials">
+        <section
+          className="mb-10 md:w-[56rem] md:max-w-[calc(100vw-2.5rem)] md:relative md:left-1/2 md:-translate-x-1/2"
+          aria-label="Client testimonials"
+        >
           {TESTIMONIALS.map((t) => (
             <figure
               key={t.name}
@@ -136,21 +139,12 @@ function SellerValuation() {
               >
                 “
               </span>
-              <div className="text-gold-500 text-3xl tracking-widest" role="img" aria-label="5 out of 5 stars">
+              <div className="text-gold-500 text-3xl tracking-widest text-center" role="img" aria-label="5 out of 5 stars">
                 <span aria-hidden="true">★★★★★</span>
               </div>
-              <blockquote className="mt-4 italic font-medium text-luxury-900 text-lg md:text-xl leading-relaxed">
+              <blockquote className="mt-4 italic font-medium text-luxury-900 text-lg md:text-2xl leading-relaxed text-center">
                 "{t.quote}"
               </blockquote>
-              <figcaption className="mt-5 flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-gold-600 to-gold-400 flex items-center justify-center font-serif font-bold text-sm">
-                  {t.name.charAt(0)}
-                </div>
-                <div>
-                  <div className="text-base font-bold">{t.name}</div>
-                  <div className="text-sm text-luxury-500">{t.role}</div>
-                </div>
-              </figcaption>
             </figure>
           ))}
         </section>
