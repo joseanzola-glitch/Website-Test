@@ -123,6 +123,44 @@ function SellerValuation() {
           <input type="text" name="source" />
         </form>
 
+        {/* Social proof first: testimonial + centered trust lines */}
+        <section className="mb-10" aria-label="Client testimonials">
+          {TESTIMONIALS.map((t) => (
+            <figure
+              key={t.name}
+              className="relative overflow-hidden rounded-2xl border-2 border-gold-400 bg-gradient-to-br from-white to-gold-400/15 p-7 md:p-9 shadow-xl mb-4"
+            >
+              <span
+                aria-hidden="true"
+                className="absolute -top-2 right-5 font-serif text-9xl leading-none text-gold-400/30 select-none"
+              >
+                “
+              </span>
+              <div className="text-gold-500 text-3xl tracking-widest" role="img" aria-label="5 out of 5 stars">
+                <span aria-hidden="true">★★★★★</span>
+              </div>
+              <blockquote className="mt-4 italic font-medium text-luxury-900 text-lg md:text-xl leading-relaxed">
+                "{t.quote}"
+              </blockquote>
+              <figcaption className="mt-5 flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-gold-600 to-gold-400 flex items-center justify-center font-serif font-bold text-sm">
+                  {t.name.charAt(0)}
+                </div>
+                <div>
+                  <div className="text-base font-bold">{t.name}</div>
+                  <div className="text-sm text-luxury-500">{t.role}</div>
+                </div>
+              </figcaption>
+            </figure>
+          ))}
+
+          <ul className="mt-6 space-y-2 text-center text-luxury-700 text-base">
+            <li>A personal analysis from Jose, not an automated estimate</li>
+            <li>Free, with no pressure to list</li>
+            <li>Local Compass agent serving Miami and South Florida</li>
+          </ul>
+        </section>
+
         <h1 className="font-serif text-4xl md:text-5xl font-bold leading-tight text-center">
           What could your Miami home sell for?
         </h1>
@@ -272,39 +310,7 @@ function SellerValuation() {
         {/* Visible contact details */}
         <ContactLinks className="mt-6" />
 
-        {TESTIMONIALS.length > 0 && (
-          <section className="mt-8 space-y-4" aria-label="Client testimonials">
-            {TESTIMONIALS.map((t) => (
-              <figure
-                key={t.name}
-                className="relative bg-white border border-gold-400/50 rounded-2xl p-6 shadow-sm overflow-hidden"
-              >
-                <span
-                  aria-hidden="true"
-                  className="absolute top-1 right-4 font-serif text-8xl leading-none text-gold-400/20 select-none"
-                >
-                  “
-                </span>
-                <div className="flex gap-1 text-gold-500 text-lg" role="img" aria-label="5 out of 5 stars">
-                  <span aria-hidden="true">★★★★★</span>
-                </div>
-                <blockquote className="mt-3 italic text-luxury-800 text-base leading-relaxed">
-                  "{t.quote}"
-                </blockquote>
-                <figcaption className="mt-4">
-                  <div className="text-sm font-semibold">{t.name}</div>
-                  <div className="text-xs text-luxury-500">{t.role}</div>
-                </figcaption>
-              </figure>
-            ))}
-          </section>
-        )}
 
-        <ul className="mt-8 space-y-2 text-luxury-700 text-base">
-          <li>A personal analysis from Jose, not an automated estimate</li>
-          <li>Free, with no pressure to list</li>
-          <li>Local Compass agent serving Miami and South Florida</li>
-        </ul>
       </main>
 
       {/* Sticky call/text bar on phones */}
