@@ -1,6 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { useEffect, useState } from 'react'
-import { PhoneIcon } from '../components/Icons'
+import { PhoneIcon, MailIcon } from '../components/Icons'
 
 export const Route = createFileRoute('/seller-valuation')({
   component: SellerValuation,
@@ -14,6 +14,7 @@ export const Route = createFileRoute('/seller-valuation')({
 
 const PHONE_DISPLAY = '(305) 904-5613'
 const PHONE_TEL = '+13059045613'
+const EMAIL = 'jose.anzola@compass.com'
 
 // EDIT: add real client quotes here. The section stays hidden while this is empty.
 const TESTIMONIALS: { quote: string; name: string }[] = []
@@ -21,6 +22,21 @@ const TESTIMONIALS: { quote: string; name: string }[] = []
 const inputClass =
   'w-full px-4 py-3.5 rounded-lg border border-slate-300 bg-white focus:outline-none focus:border-gold-500 focus:ring-2 focus:ring-gold-400/30 text-base'
 const labelClass = 'block text-sm font-semibold text-luxury-700 mb-1'
+
+function ContactLinks({ className = '' }: { className?: string }) {
+  return (
+    <div className={`flex flex-wrap justify-center items-center gap-x-6 gap-y-2 text-sm font-medium text-luxury-700 ${className}`}>
+      <a href={`tel:${PHONE_TEL}`} className="inline-flex items-center gap-2 hover:text-gold-600">
+        <PhoneIcon className="w-4 h-4 text-gold-600" />
+        <span>{PHONE_DISPLAY}</span>
+      </a>
+      <a href={`mailto:${EMAIL}`} className="inline-flex items-center gap-2 hover:text-gold-600">
+        <MailIcon className="w-4 h-4 text-gold-600" />
+        <span>{EMAIL}</span>
+      </a>
+    </div>
+  )
+}
 
 function SellerValuation() {
   const [step, setStep] = useState<1 | 2>(1)
@@ -87,30 +103,8 @@ function SellerValuation() {
   }
 
   return (
-    <div className="bg-white text-luxury-950 min-h-screen pb-24 md:pb-0">
-      {/* Minimal header: no site navigation, so visitors stay on the form */}
-      <header className="border-b border-slate-200">
-        <div className="max-w-3xl mx-auto px-5 py-3 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <div className="w-9 h-9 rounded-full bg-gradient-to-br from-gold-600 to-gold-400 flex items-center justify-center font-serif font-bold text-sm">
-              JA
-            </div>
-            <div className="leading-tight">
-              <div className="text-sm font-semibold">Jose Anzola</div>
-              <div className="text-xs text-gold-600">Compass</div>
-            </div>
-          </div>
-          <a
-            href={`tel:${PHONE_TEL}`}
-            className="inline-flex items-center gap-2 text-sm font-semibold hover:text-gold-600"
-          >
-            <PhoneIcon className="w-4 h-4 text-gold-600" />
-            {PHONE_DISPLAY}
-          </a>
-        </div>
-      </header>
-
-      <main className="max-w-xl mx-auto px-5 pt-10 pb-12">
+    <div className="bg-white text-luxury-950 pb-24 md:pb-0">
+      <main className="max-w-xl mx-auto px-5 pt-12 pb-12">
         {/* Hidden static form so Netlify detects the fields at build time */}
         <form name="seller-valuation" data-netlify="true" data-netlify-honeypot="bot-field" hidden>
           <input type="hidden" name="form-name" value="seller-valuation" />
@@ -268,6 +262,9 @@ function SellerValuation() {
           )}
         </div>
 
+        {/* Visible contact details */}
+        <ContactLinks className="mt-6" />
+
         <ul className="mt-6 space-y-2 text-luxury-700 text-base">
           <li>A personal analysis from Jose, not an automated estimate</li>
           <li>Free, with no pressure to list</li>
@@ -284,10 +281,6 @@ function SellerValuation() {
             ))}
           </section>
         )}
-
-        <p className="mt-10 text-center text-xs text-luxury-500">
-          Jose Anzola · Licensed Real Estate Agent · Compass · Equal Housing Opportunity
-        </p>
       </main>
 
       {/* Sticky call/text bar on phones */}
