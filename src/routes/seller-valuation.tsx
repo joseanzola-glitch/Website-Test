@@ -1,74 +1,117 @@
 import { createFileRoute } from '@tanstack/react-router'
-import { useState } from 'react'
-import { PhoneIcon, MailIcon } from '../components/Icons'
+import { useEffect, useState } from 'react'
+import { PhoneIcon } from '../components/Icons'
 
 export const Route = createFileRoute('/seller-valuation')({
   component: SellerValuation,
   head: () => ({
     meta: [
       { title: 'Home Valuation | Jose Anzola Compass Real Estate' },
-      { name: 'description', content: 'Discover What Your Home Could Sell For' },
+      { name: 'description', content: 'Find out what your Miami home could sell for.' },
     ],
   }),
 })
 
+const PHONE_DISPLAY = '(305) 904-5613'
+const PHONE_TEL = '+13059045613'
+
+// EDIT: add real client quotes here. The section stays hidden while this is empty.
+const TESTIMONIALS: { quote: string; name: string }[] = []
+
+const inputClass =
+  'w-full px-4 py-3.5 rounded-lg border border-slate-300 bg-white focus:outline-none focus:border-gold-500 focus:ring-2 focus:ring-gold-400/30 text-base'
+const labelClass = 'block text-sm font-semibold text-luxury-700 mb-1'
+
 function SellerValuation() {
-  const [submitted, setSubmitted] = useState(false)
-  const [contactMethod, setContactMethod] = useState({ phone: '', email: '' })
-  const [contactError, setContactError] = useState('')
+  const [step, setStep] = useState<1 | 2>(1)
+  const [status, setStatus] = useState<'idle' | 'sending' | 'done'>('idle')
+  const [error, setError] = useState('')
+  const [source, setSource] = useState('')
+  const [f, setF] = useState({ address: '', name: '', phone: '', email: '' })
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  // Remember how the visitor arrived (UTM params / ad click id) so each lead shows its source.
+  useEffect(() => {
+    setSource(window.location.search)
+  }, [])
+
+  const update = (key: keyof typeof f) => (e: React.ChangeEvent<HTMLInputElement>) => {
+    setF({ ...f, [key]: e.target.value })
+    if (error) setError('')
+  }
+
+  const goToStep2 = (e: React.FormEvent) => {
     e.preventDefault()
+    setStep(2)
+  }
 
-    if (!contactMethod.phone.trim() && !contactMethod.email.trim()) {
-      setContactError('Please provide either a phone number or an email address.')
+  const submit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    if (!f.phone.trim() && !f.email.trim()) {
+      setError('Add a phone number or an email so Jose can reach you.')
       return
     }
+    setError('')
+    setStatus('sending')
 
-    setContactError('')
-    const form = e.currentTarget
-    const addressVal = (form.elements.namedItem('address') as HTMLInputElement)?.value || ''
-    const nameVal = (form.elements.namedItem('name') as HTMLInputElement)?.value || ''
-    const messageVal = (form.elements.namedItem('message') as HTMLTextAreaElement)?.value || ''
-
-    // 1. Send submission data to Netlify Forms (URL-encoded)
-    const netlifyParams = new URLSearchParams()
-    netlifyParams.append('form-name', 'seller-valuation')
-    netlifyParams.append('address', addressVal)
-    netlifyParams.append('name', nameVal)
-    netlifyParams.append('phone', contactMethod.phone)
-    netlifyParams.append('email', contactMethod.email)
-    netlifyParams.append('message', messageVal)
-
-    const netlifyFetch = (window as any).__netlifyFetch || fetch
-    console.log('[netlify-submit] using captured fetch?', !!(window as any).__netlifyFetch)
-
-    netlifyFetch('/__forms.html', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: netlifyParams.toString(),
+    const bot =
+      (e.currentTarget.elements.namedItem('bot-field') as HTMLInputElement)?.value || ''
+    const params = new URLSearchParams({
+      'form-name': 'seller-valuation',
+      'bot-field': bot,
+      address: f.address,
+      name: f.name,
+      phone: f.phone,
+      email: f.email,
+      source,
     })
-      .then((res: Response) => {
-        console.log('[netlify-submit] response status:', res.status)
-        return res.text()
+
+    try {
+      const doFetch = (window as any).__netlifyFetch || fetch
+      const res: Response = await doFetch('/__forms.html', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: params.toString(),
       })
-      .then((text: string) => console.log('[netlify-submit] response body:', text))
-      .catch((err: unknown) => console.error('[netlify-submit] fetch error:', err))
-      .finally(() => {
-        // 2. FIRE CHATGPT ADS PIXEL EVENT
-        if (typeof window !== 'undefined' && (window as any).oaiq) {
-          (window as any).oaiq('measure', 'lead_created', { type: 'customer_action' })
-        }
-        // Always show success screen to user
-        setSubmitted(true)
-      })
+      if (!res.ok) throw new Error(`Form submit failed: ${res.status}`)
+
+      // Count the conversion only after Netlify confirms the lead was saved.
+      try {
+        ;(window as any).oaiq?.('measure', 'lead_created', { type: 'customer_action' })
+      } catch {}
+      setStatus('done')
+    } catch (err) {
+      console.error(err)
+      setStatus('idle')
+      setError(`We couldn't send that. Please call or text Jose at ${PHONE_DISPLAY}.`)
+    }
   }
-  
+
   return (
-    <div className="bg-white text-luxury-950 py-16 px-6 min-h-screen flex items-center">
-      <div className="max-w-2xl mx-auto w-full">
-        
-        {/* Hidden static form for Netlify build scanner */}
+    <div className="bg-white text-luxury-950 min-h-screen pb-24 md:pb-0">
+      {/* Minimal header: no site navigation, so visitors stay on the form */}
+      <header className="border-b border-slate-200">
+        <div className="max-w-3xl mx-auto px-5 py-3 flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <div className="w-9 h-9 rounded-full bg-gradient-to-br from-gold-600 to-gold-400 flex items-center justify-center font-serif font-bold text-sm">
+              JA
+            </div>
+            <div className="leading-tight">
+              <div className="text-sm font-semibold">Jose Anzola</div>
+              <div className="text-xs text-gold-600">Compass</div>
+            </div>
+          </div>
+          <a
+            href={`tel:${PHONE_TEL}`}
+            className="inline-flex items-center gap-2 text-sm font-semibold hover:text-gold-600"
+          >
+            <PhoneIcon className="w-4 h-4 text-gold-600" />
+            {PHONE_DISPLAY}
+          </a>
+        </div>
+      </header>
+
+      <main className="max-w-xl mx-auto px-5 pt-10 pb-12">
+        {/* Hidden static form so Netlify detects the fields at build time */}
         <form name="seller-valuation" data-netlify="true" data-netlify-honeypot="bot-field" hidden>
           <input type="hidden" name="form-name" value="seller-valuation" />
           <input type="text" name="bot-field" />
@@ -76,160 +119,191 @@ function SellerValuation() {
           <input type="text" name="name" />
           <input type="tel" name="phone" />
           <input type="email" name="email" />
-          <textarea name="message"></textarea>
+          <input type="text" name="source" />
         </form>
 
-        {/* HEADLINE */}
-        <div className="text-center mb-10">
-          <div className="text-gold-600 font-semibold uppercase tracking-[0.2em] text-xs mb-3">
-            Home Valuation & Market Analysis
-          </div>
-          <h1 className="font-serif text-3xl md:text-5xl font-bold mb-4 leading-tight">
-            Discover What Your Home Could Sell For
-          </h1>
-          <p className="text-luxury-600 text-base md:text-lg font-light leading-relaxed max-w-xl mx-auto">
-            Receive a personal pricing analysis and selling strategy from Jose, local Compass Real Estate Agent. No pressure and no obligation.
-          </p>
-        </div>
+        <h1 className="font-serif text-4xl md:text-5xl font-bold leading-tight text-center">
+          What could your Miami home sell for?
+        </h1>
+        <p className="mt-4 text-lg text-luxury-600 text-center font-light leading-relaxed">
+          Get a pricing analysis from Jose, a local Compass agent. It's free, takes under a minute, and there's no obligation.
+        </p>
 
-        {/* FORM CONTAINER */}
-        <div className="bg-slate-50 border border-slate-200/80 rounded-2xl p-6 md:p-10 shadow-sm">
-          {submitted ? (
-            <div className="text-center py-8">
+        <div className="mt-8 bg-slate-50 border border-slate-200 rounded-2xl p-6 md:p-8">
+          {status === 'done' ? (
+            <div className="text-center py-4" role="status">
               <div className="w-12 h-12 bg-gold-400/20 text-gold-600 rounded-full flex items-center justify-center mx-auto mb-4 font-bold text-xl">
                 ✓
               </div>
-              <h3 className="font-serif text-2xl font-bold mb-2">Request Received!</h3>
-              <p className="text-luxury-600 text-sm mb-6">
-                Thank you. Jose will respond personally as soon as possible.
+              <h2 className="font-serif text-2xl font-bold mb-2">Request received</h2>
+              <p className="text-luxury-600 mb-6">
+                Jose will review your property and follow up personally.
               </p>
-              <div className="pt-4 border-t border-slate-200 text-xs text-luxury-500">
-                Need immediate assistance? Call <a href="tel:+13059045613" className="text-gold-600 font-semibold hover:underline">(305) 904-5613</a>
+              <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                <a
+                  href={`tel:${PHONE_TEL}`}
+                  className="px-5 py-3 rounded-lg bg-gradient-to-r from-gold-500 to-gold-400 font-semibold text-sm"
+                >
+                  Call Jose now
+                </a>
+                <a
+                  href={`sms:${PHONE_TEL}`}
+                  className="px-5 py-3 rounded-lg border border-slate-300 bg-white font-semibold text-sm"
+                >
+                  Text Jose
+                </a>
               </div>
             </div>
+          ) : step === 1 ? (
+            <form onSubmit={goToStep2} className="space-y-4">
+              <div>
+                <label htmlFor="address" className={labelClass}>
+                  Property address
+                </label>
+                <input
+                  id="address"
+                  name="address"
+                  type="text"
+                  required
+                  autoComplete="street-address"
+                  value={f.address}
+                  onChange={update('address')}
+                  placeholder="123 Main St, Miami, FL 33133"
+                  className={inputClass}
+                />
+              </div>
+              <button
+                type="submit"
+                className="w-full bg-gradient-to-r from-gold-500 to-gold-400 font-semibold py-4 rounded-lg text-base hover:opacity-95 cursor-pointer"
+              >
+                Get my home value
+              </button>
+              <p className="text-center text-sm text-luxury-600">Step 1 of 2</p>
+            </form>
           ) : (
-            <form 
-              name="seller-valuation" 
-              method="POST" 
-              data-netlify="true" 
-              data-netlify-honeypot="bot-field"
-              onSubmit={handleSubmit}
-              className="space-y-4"
-            >
-              <input type="hidden" name="form-name" value="seller-valuation" />
+            <form onSubmit={submit} className="space-y-4">
               <p className="hidden">
-                <label>Don’t fill this out if you’re human: <input name="bot-field" /></label>
+                <label>
+                  Don't fill this out if you're human: <input name="bot-field" />
+                </label>
               </p>
 
-              <div>
-                <label className="block text-xs font-semibold uppercase tracking-wider text-luxury-700 mb-1">
-                  Property Address <span className="text-red-500">*</span>
-                </label>
-                <input
-                  type="text"
-                  name="address"
-                  required
-                  placeholder="123 Main St, Miami, FL 33133"
-                  className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:outline-none focus:border-gold-500 text-sm"
-                />
+              <div className="flex items-center justify-between text-sm">
+                <span className="text-luxury-600 truncate">{f.address}</span>
+                <button
+                  type="button"
+                  onClick={() => setStep(1)}
+                  className="text-gold-600 font-semibold shrink-0 ml-3 cursor-pointer"
+                >
+                  Change
+                </button>
               </div>
 
               <div>
-                <label className="block text-xs font-semibold uppercase tracking-wider text-luxury-700 mb-1">
-                  Your Name <span className="text-red-500">*</span>
+                <label htmlFor="name" className={labelClass}>
+                  Your name
                 </label>
                 <input
-                  type="text"
+                  id="name"
                   name="name"
+                  type="text"
                   required
-                  placeholder="Full Name"
-                  className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:outline-none focus:border-gold-500 text-sm"
+                  autoComplete="name"
+                  value={f.name}
+                  onChange={update('name')}
+                  className={inputClass}
                 />
               </div>
-
-              <div className="grid md:grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-xs font-semibold uppercase tracking-wider text-luxury-700 mb-1">
-                    Phone Number
-                  </label>
-                  <input
-                    type="tel"
-                    name="phone"
-                    value={contactMethod.phone}
-                    onChange={(e) => {
-                      setContactMethod({ ...contactMethod, phone: e.target.value })
-                      if (contactError) setContactError('')
-                    }}
-                    placeholder="(305) 904-5613"
-                    className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:outline-none focus:border-gold-500 text-sm"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-xs font-semibold uppercase tracking-wider text-luxury-700 mb-1">
-                    Email Address
-                  </label>
-                  <input
-                    type="email"
-                    name="email"
-                    value={contactMethod.email}
-                    onChange={(e) => {
-                      setContactMethod({ ...contactMethod, email: e.target.value })
-                      if (contactError) setContactError('')
-                    }}
-                    placeholder="name@example.com"
-                    className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:outline-none focus:border-gold-500 text-sm"
-                  />
-                </div>
-              </div>
-
-              {contactError && (
-                <p className="text-red-500 text-xs font-medium">{contactError}</p>
-              )}
 
               <div>
-                <label className="block text-xs font-semibold uppercase tracking-wider text-luxury-700 mb-1">
-                  Optional Message / Property Details
+                <label htmlFor="phone" className={labelClass}>
+                  Phone
                 </label>
-                <textarea
-                  name="message"
-                  rows={3}
-                  placeholder="Renovations, timeline, or specific questions..."
-                  className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:outline-none focus:border-gold-500 text-sm"
+                <input
+                  id="phone"
+                  name="phone"
+                  type="tel"
+                  inputMode="tel"
+                  autoComplete="tel"
+                  value={f.phone}
+                  onChange={update('phone')}
+                  placeholder={PHONE_DISPLAY}
+                  className={inputClass}
                 />
               </div>
 
-              <p className="text-[11px] text-slate-500 leading-normal pt-2">
-                By submitting, you consent to receive calls or SMS messages from Jose Anzola regarding your inquiry. Messaging/data rates may apply. Consent is not a condition of service.
+              <div>
+                <label htmlFor="email" className={labelClass}>
+                  Email <span className="font-normal text-luxury-500">(phone or email is required)</span>
+                </label>
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  inputMode="email"
+                  autoComplete="email"
+                  value={f.email}
+                  onChange={update('email')}
+                  placeholder="name@example.com"
+                  className={inputClass}
+                />
+              </div>
+
+              <p role="alert" aria-live="polite" className="text-red-600 text-sm font-medium empty:hidden">
+                {error}
               </p>
 
               <button
                 type="submit"
-                className="w-full bg-gradient-to-r from-gold-500 to-gold-400 text-luxury-950 font-semibold py-4 rounded-lg uppercase tracking-widest text-xs hover:opacity-95 transition-opacity cursor-pointer mt-2"
+                disabled={status === 'sending'}
+                className="w-full bg-gradient-to-r from-gold-500 to-gold-400 font-semibold py-4 rounded-lg text-base hover:opacity-95 disabled:opacity-60 cursor-pointer"
               >
-                Request My Home Valuation
+                {status === 'sending' ? 'Sending…' : 'Send my request'}
               </button>
 
-              <p className="text-center text-xs text-luxury-600 font-medium pt-2">
-                Jose will respond personally as soon as possible.
+              <p className="text-xs text-slate-500 leading-normal">
+                By submitting, you consent to receive calls or SMS messages from Jose Anzola regarding your inquiry. Messaging/data rates may apply. Consent is not a condition of service.
               </p>
             </form>
           )}
         </div>
 
-        {/* FOOTER */}
-        <div className="flex flex-wrap justify-center items-center gap-6 mt-8 text-xs text-luxury-600 font-medium">
-          <a href="tel:+13059045613" className="inline-flex items-center gap-2 hover:text-gold-600 transition-colors">
-            <PhoneIcon className="w-4 h-4 text-gold-600" />
-            <span>(305) 904-5613</span>
-          </a>
-          <span>&middot;</span>
-          <a href="mailto:jose.anzola@compass.com" className="inline-flex items-center gap-2 hover:text-gold-600 transition-colors">
-            <MailIcon className="w-4 h-4 text-gold-600" />
-            <span>jose.anzola@compass.com</span>
-          </a>
-        </div>
+        <ul className="mt-6 space-y-2 text-luxury-700 text-base">
+          <li>A personal analysis from Jose, not an automated estimate</li>
+          <li>Free, with no pressure to list</li>
+          <li>Local Compass agent serving Miami and South Florida</li>
+        </ul>
 
+        {TESTIMONIALS.length > 0 && (
+          <section className="mt-10 space-y-6">
+            {TESTIMONIALS.map((t) => (
+              <figure key={t.name} className="border-l-4 border-gold-400 pl-4">
+                <blockquote className="font-serif text-lg leading-relaxed">“{t.quote}”</blockquote>
+                <figcaption className="mt-2 text-sm text-luxury-600">{t.name}</figcaption>
+              </figure>
+            ))}
+          </section>
+        )}
+
+        <p className="mt-10 text-center text-xs text-luxury-500">
+          Jose Anzola · Licensed Real Estate Agent · Compass · Equal Housing Opportunity
+        </p>
+      </main>
+
+      {/* Sticky call/text bar on phones */}
+      <div className="md:hidden fixed bottom-0 inset-x-0 bg-white border-t border-slate-200 p-3 flex gap-3">
+        <a
+          href={`tel:${PHONE_TEL}`}
+          className="flex-1 text-center py-3 rounded-lg bg-gradient-to-r from-gold-500 to-gold-400 font-semibold text-sm"
+        >
+          Call Jose
+        </a>
+        <a
+          href={`sms:${PHONE_TEL}`}
+          className="flex-1 text-center py-3 rounded-lg border border-slate-300 font-semibold text-sm"
+        >
+          Text Jose
+        </a>
       </div>
     </div>
   )
