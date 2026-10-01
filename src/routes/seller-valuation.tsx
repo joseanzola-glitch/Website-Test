@@ -16,8 +16,15 @@ const PHONE_DISPLAY = '(305) 904-5613'
 const PHONE_TEL = '+13059045613'
 const EMAIL = 'jose.anzola@compass.com'
 
-// EDIT: add real client quotes here. The section stays hidden while this is empty.
-const TESTIMONIALS: { quote: string; name: string }[] = []
+// Add more real client quotes here and they will appear automatically.
+const TESTIMONIALS: { quote: string; name: string; role: string }[] = [
+  {
+    quote:
+      'The team is incredible. They sold my properties in record time, and they made the entire process super easy. Thank you for everything.',
+    name: 'Alfredo Schael',
+    role: 'Seller',
+  },
+]
 
 const inputClass =
   'w-full px-4 py-3.5 rounded-lg border border-slate-300 bg-white focus:outline-none focus:border-gold-500 focus:ring-2 focus:ring-gold-400/30 text-base'
@@ -265,22 +272,39 @@ function SellerValuation() {
         {/* Visible contact details */}
         <ContactLinks className="mt-6" />
 
-        <ul className="mt-6 space-y-2 text-luxury-700 text-base">
-          <li>A personal analysis from Jose, not an automated estimate</li>
-          <li>Free, with no pressure to list</li>
-          <li>Local Compass agent serving Miami and South Florida</li>
-        </ul>
-
         {TESTIMONIALS.length > 0 && (
-          <section className="mt-10 space-y-6">
+          <section className="mt-8 space-y-4" aria-label="Client testimonials">
             {TESTIMONIALS.map((t) => (
-              <figure key={t.name} className="border-l-4 border-gold-400 pl-4">
-                <blockquote className="font-serif text-lg leading-relaxed">“{t.quote}”</blockquote>
-                <figcaption className="mt-2 text-sm text-luxury-600">{t.name}</figcaption>
+              <figure
+                key={t.name}
+                className="relative bg-white border border-gold-400/50 rounded-2xl p-6 shadow-sm overflow-hidden"
+              >
+                <span
+                  aria-hidden="true"
+                  className="absolute top-1 right-4 font-serif text-8xl leading-none text-gold-400/20 select-none"
+                >
+                  “
+                </span>
+                <div className="flex gap-1 text-gold-500 text-lg" role="img" aria-label="5 out of 5 stars">
+                  <span aria-hidden="true">★★★★★</span>
+                </div>
+                <blockquote className="mt-3 italic text-luxury-800 text-base leading-relaxed">
+                  "{t.quote}"
+                </blockquote>
+                <figcaption className="mt-4">
+                  <div className="text-sm font-semibold">{t.name}</div>
+                  <div className="text-xs text-luxury-500">{t.role}</div>
+                </figcaption>
               </figure>
             ))}
           </section>
         )}
+
+        <ul className="mt-8 space-y-2 text-luxury-700 text-base">
+          <li>A personal analysis from Jose, not an automated estimate</li>
+          <li>Free, with no pressure to list</li>
+          <li>Local Compass agent serving Miami and South Florida</li>
+        </ul>
       </main>
 
       {/* Sticky call/text bar on phones */}
