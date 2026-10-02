@@ -178,7 +178,8 @@ export function ContactForm({ theme = 'dark' }: { theme?: 'dark' | 'light' }) {
         {loading ? 'Sending...' : 'Send Message'}
       </button>
       <p className={`${isLight ? 'text-luxury-400' : 'text-luxury-400'} text-xs text-center`}>
-        We respect your privacy. Your information will never be shared.
+Your mobile information and SMS consent will not be shared with
+third parties or affiliates for marketing or promotional purposes.
       </p>
     </form>
   )
@@ -207,8 +208,12 @@ export function ShowingForm({ theme = 'dark' }: { theme?: 'dark' | 'light' }) {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    // Phone is a required field on this form, so consent is always required.
-    if (!consent) return
+    <SmsConsentCheckbox
+        checked={consent}
+        onChange={setConsent}
+        required={false}
+        isLight={isLight}
+      />
     setLoading(true)
     await submitForm('schedule-showing', { ...fields, consent: consent ? 'Yes' : 'No' })
     setLoading(false)
