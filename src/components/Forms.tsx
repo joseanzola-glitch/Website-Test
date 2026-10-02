@@ -95,15 +95,17 @@ export function ContactForm({ theme = 'dark' }: { theme?: 'dark' | 'light' }) {
   const [submitted, setSubmitted] = useState(false)
   const [loading, setLoading] = useState(false)
 
-  // Phone is optional on this form, so consent is only required once a number is provided.
-  const consentRequired = fields.phone.trim().length > 0
-
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) =>
     setFields({ ...fields, [e.target.name]: e.target.value })
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    if (consentRequired && !consent) return
+     <SmsConsentCheckbox
+        checked={consent}
+        onChange={setConsent}
+        required={false}
+        isLight={isLight}
+      />
     setLoading(true)
     await submitForm('contact', { ...fields, consent: consent ? 'Yes' : 'No' })
     setLoading(false)
