@@ -19,6 +19,61 @@ export const Route = createFileRoute('/terms-and-conditions')({
 const EFFECTIVE_DATE = 'August 5, 2026'
 
 const sections: LegalSection[] = [
+ {
+    id: 'sms-messaging',
+    title: 'SMS Messaging Terms',
+    body: (
+      <>
+        <LegalP>
+          The Jose Anzola at Compass SMS program provides real estate
+          inquiry responses, appointment and showing reminders, and
+          requested property updates. Listing alerts and market updates
+          are sent only when included in your consent.
+        </LegalP>
+        <LegalP>
+          You enroll by providing your mobile phone number and selecting
+          the optional SMS consent checkbox on our contact form.
+          The checkbox is unchecked by default. Providing your phone
+          number alone does not enroll you. Consent is not a condition
+          of purchase or receiving real estate services.
+        </LegalP>
+        <LegalP>
+          Messages may be sent using automated technology. Message
+          frequency varies. Message and data rates may apply.
+        </LegalP>
+        <LegalP>
+          <strong>Reply STOP to unsubscribe.</strong> You will receive
+          a confirmation of your unsubscribe request, and no further
+          messages will be sent unless you opt in again.
+        </LegalP>
+        <LegalP>
+          <strong>Reply HELP for assistance.</strong> You may also
+          contact Jose Anzola at{' '}
+          <a
+            href="mailto:jose.anzola@compass.com"
+            className="text-gold-600 hover:text-gold-700 underline underline-offset-2 transition"
+          >
+            jose.anzola@compass.com
+          </a>{' '}
+          or (305) 904-5613.
+        </LegalP>
+        <LegalP>
+          Carriers are not liable for delayed or undelivered messages.
+        </LegalP>
+        <LegalP>
+          For information about how we handle your mobile number
+          and SMS consent, please review our{' '}
+          <Link
+            to="/privacy-policy"
+            className="text-gold-600 hover:text-gold-700 underline underline-offset-2 transition"
+          >
+            Privacy Policy
+          </Link>
+          .
+        </LegalP>
+      </>
+    ),
+  },
   {
     id: 'acceptance',
     title: 'Acceptance of Terms',
