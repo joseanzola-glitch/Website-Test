@@ -180,6 +180,20 @@ const sections: LegalSection[] = [
       </>
     ),
   },
+    {
+    id: 'sms-privacy',
+    title: 'SMS Privacy',
+    body: (
+      <LegalP>
+        We do not sell, rent, or share your mobile phone number or SMS opt-in
+        data and consent with third parties or affiliates for marketing or
+        promotional purposes. This restriction applies to all
+        information-sharing provisions in this privacy policy. Service
+        providers may process this information only as necessary to operate
+        and deliver our text messaging service.
+      </LegalP>
+    ),
+  },
   {
     id: 'communications',
     title: 'Email, Text, and Call Communications',
