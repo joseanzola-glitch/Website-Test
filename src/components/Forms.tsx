@@ -65,10 +65,13 @@ function SmsConsentCheckbox({
         className="mt-0.5 h-4 w-4 shrink-0 cursor-pointer accent-gold-500"
       />
       <span className={`${isLight ? 'text-luxury-500' : 'text-luxury-400'} text-xs leading-relaxed`}>
-        By clicking &quot;Submit&quot;, I agree to be contacted by Jose Anzola at Compass via text messages (SMS/MMS),
-        phone calls, and email regarding real estate services at the number provided. Messages may be automated. Consent
-        is not required as a condition of purchase. Msg &amp; data rates may apply. Msg frequency varies. Reply STOP to
-        opt-out at any time. Read our{' '}
+        By checking this box, I agree to receive text messages (SMS/MMS)
+        from Jose Anzola at Compass about my real estate inquiry,
+        appointments, showing reminders, and requested property updates.
+        Messages may be automated. Consent is not a condition of purchase
+        or receiving real estate services. Message frequency varies.
+        Message and data rates may apply. Reply STOP to unsubscribe
+        or HELP for assistance. Read our{' '}
         <a href={PRIVACY_POLICY_URL} target="_blank" rel="noopener noreferrer" className={linkClasses}>
           Privacy Policy
         </a>{' '}
