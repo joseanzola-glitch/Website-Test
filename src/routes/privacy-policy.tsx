@@ -194,27 +194,37 @@ const sections: LegalSection[] = [
       </LegalP>
     ),
   },
-  {
+ {
     id: 'communications',
     title: 'Email, Text, and Call Communications',
     body: (
       <>
         <LegalP>
-          By providing your phone number or email address, you agree that we may contact you about
-          your inquiry and about real estate matters by phone, text message, or email. Message and
-          data rates may apply to text messages.
+          We may respond to your inquiry by email or phone. Providing your
+          phone number or submitting a form does not by itself enroll you
+          in our SMS messaging program. SMS enrollment requires your
+          separate, affirmative consent through an optional checkbox
+          that is unchecked by default. Consent is not a condition
+          of purchase or receiving real estate services.
         </LegalP>
         <LegalP>
-          You may opt out at any time — reply STOP to text messages, use the unsubscribe link in any
-          marketing email, or email{' '}
+          If you opt in, Jose Anzola at Compass may send text messages
+          about the real estate services and updates described when you
+          enroll. Message frequency varies. Message and data rates may apply.
+        </LegalP>
+        <LegalP>
+          Reply STOP to unsubscribe from text messages or HELP for
+          assistance. You may also contact us at{' '}
           <a
             href="mailto:jose.anzola@compass.com"
             className="text-gold-600 hover:text-gold-700 underline underline-offset-2 transition"
           >
             jose.anzola@compass.com
           </a>{' '}
-          with your request. We may still need to contact you regarding an active transaction or a
-          legal obligation after you opt out of marketing messages.
+          or (305) 904-5613. After you unsubscribe from SMS, any necessary
+          communications about an active transaction or legal obligation
+          will use another appropriate channel. To unsubscribe from
+          marketing emails, use the unsubscribe link in the email.
         </LegalP>
       </>
     ),
